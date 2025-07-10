@@ -10,7 +10,7 @@ const productCategories = [
   {
     id: 1,
     title: "Embroidered Sarees",
-    description: "Dhananjay Creations Private Limited offers you the fine...",
+    description: "Amrita Global Enterprises offers you the fine...",
     image: "/images/img_embroidered_sarees.avif"
   },
   {
@@ -22,79 +22,79 @@ const productCategories = [
   {
     id: 3,
     title: "Fancy Sarees",
-    description: "Dhananjay Creations Private Limited creates ornate fanc...",
+    description: "Amrita Global Enterprises creates ornate fanc...",
     image: "/images/img_fancy_sarees_manufacturers.avif"
   },
   {
     id: 4,
     title: "Bollywood Theme Saree",
-    description: "Dhananjay Creations Private Limited is a name to reckon...",
+    description: "Amrita Global Enterprises is a name to reckon...",
     image: "/images/img_bollywood_theme.avif"
   },
   {
     id: 5,
     title: "Wedding Sarees",
-    description: "Dhananjay Creations Private Limited offers a wide array...",
+    description: "Amrita Global Enterprises offers a wide array...",
     image: "/images/img_wedding_sarees_manufacturers.avif"
   },
   {
     id: 6,
     title: "Sequin Sarees",
-    description: "Dhananjay Creations Private Limited produces really bea...",
+    description: "Amrita Global Enterprises produces really bea...",
     image: "/images/img_sequin_sarees_manufacturers.avif"
   },
   {
     id: 7,
     title: "Traditional Sarees",
-    description: "Dhananjay Creations Private Limited is one of the promi...",
+    description: "Amrita Global Enterprises is one of the promi...",
     image: "/images/img_traditional_sarees.avif"
   },
   {
     id: 8,
     title: "Cotton Silk Sarees",
-    description: "Dhananjay Creations Private Limited is a known name in ...",
+    description: "Amrita Global Enterprises is a known name in ...",
     image: "/images/img_cotton_silk_sarees.avif"
   },
   {
     id: 9,
     title: "Bandhani Silk Sarees",
-    description: "Dhananjay Creations Private Limited has carved a niche ...",
+    description: "Amrita Global Enterprises has carved a niche ...",
     image: "/images/img_bandhani_silk_sarees.avif"
   },
   {
     id: 10,
     title: "Banarasi Silk Saree",
-    description: "Dhananjay Creations Private Limited is a premier ethnic...",
+    description: "Amrita Global Enterprises is a premier ethnic...",
     image: "/images/img_banarasi_silk_saree.avif"
   },
   {
     id: 11,
     title: "Kanchipuram Silk Sarees",
-    description: "Dhananjay Creations Private Limited is a known name in ...",
+    description: "Amrita Global Enterprises is a known name in ...",
     image: "/images/img_kanchipuram_silk.avif"
   },
   {
     id: 12,
     title: "Lehenga Style Sarees",
-    description: "Dhananjay Creations Private Limited is a premier ethnic...",
+    description: "Amrita Global Enterprises is a premier ethnic...",
     image: "/images/img_lehenga_style_sarees.avif"
   },
   {
     id: 13,
     title: "Half and Half Sarees",
-    description: "Dhananjay Creations Private Limited has the proud momen...",
+    description: "Amrita Global Enterprises has the proud momen...",
     image: "/images/img_half_and_half_sarees.avif"
   },
   {
     id: 14,
     title: "Printed Silk Sarees",
-    description: "Dhananjay Creations Private Limited is the finest desti...",
+    description: "Amrita Global Enterprises is the finest desti...",
     image: "/images/img_printed_silk_sarees.avif"
   },
   {
     id: 15,
     title: "Net Sarees",
-    description: "Dhananjay Creations Private Limited is a widely known n...",
+    description: "Amrita Global Enterprises is a widely known n...",
     image: "/images/img_net_sarees_manufacturers.avif"
   }
 ];
@@ -137,6 +137,7 @@ const HomePage = () => {
                   alt="Arrow Right"
                   width={20}
                   height={20}
+                  priority
                   className="w-4 h-4 sm:w-5 sm:h-5"
                 />
                 <span className="text-sm sm:text-base font-semibold font-inter text-white">
@@ -212,7 +213,7 @@ const HomePage = () => {
             </h2>
             <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-inter text-[#0a0a0b] leading-relaxed">
               <p>
-                <span>Dhananjay Creations Private Limited is a banner of exquisite sarees truly portraying the richness of India's cultural heritage. Elegance and tradition have culminated in our collection of </span>
+                <span>Amrita Global Enterprises is a banner of exquisite sarees truly portraying the richness of India's cultural heritage. Elegance and tradition have culminated in our collection of </span>
                 <span className="font-bold">Saree in Surat</span>
                 <span>, thus with years of traditional techniques</span>
               </p>
