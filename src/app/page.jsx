@@ -1,5 +1,5 @@
-export const revalidate = 60;
 'use client';
+export const revalidate = 60;
 import React from 'react';
 import Link from 'next/link';
 import Header from '../components/common/Header';
