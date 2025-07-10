@@ -49,19 +49,23 @@ const Header = ({ onProductSelect }) => {
             priority
           />
           <span className="text-xl font-bold font-montserrat text-[#0a6563]">AGE</span>
-          {/* Phone Icon */}
-          <div className="w-8 h-8 bg-[#0a6563] rounded-full flex items-center justify-center ml-2">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-5 h-5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h0a2.25 2.25 0 002.25-2.25v-2.25a2.25 2.25 0 00-2.25-2.25h-1.125a1.125 1.125 0 01-1.125-1.125v-1.125A2.25 2.25 0 0012.75 12h-1.5A2.25 2.25 0 009 14.25v1.125c0 .621-.504 1.125-1.125 1.125H6.75A2.25 2.25 0 004.5 18.75v2.25A2.25 2.25 0 006.75 23.25h0c8.284 0 15-6.716 15-15V6.75A2.25 2.25 0 0019.5 4.5h-2.25A2.25 2.25 0 0015 6.75v1.125c0 .621-.504 1.125-1.125 1.125H12.75A2.25 2.25 0 0010.5 9.75v1.125c0 .621-.504 1.125-1.125 1.125H8.25A2.25 2.25 0 006 14.25v1.125c0 .621-.504 1.125-1.125 1.125H2.25A2.25 2.25 0 000 18.75v2.25A2.25 2.25 0 002.25 23.25h0c8.284 0 15-6.716 15-15V6.75A2.25 2.25 0 0019.5 4.5h-2.25A2.25 2.25 0 0015 6.75v1.125c0 .621-.504 1.125-1.125 1.125H12.75A2.25 2.25 0 0010.5 9.75v1.125c0 .621-.504 1.125-1.125 1.125H8.25A2.25 2.25 0 006 14.25v1.125c0 .621-.504 1.125-1.125 1.125H2.25z" />
-            </svg>
-          </div>
         </div>
-        {/* Hamburger Menu Icon */}
-        <button className="p-2" aria-label="Open menu" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-          <svg className="w-7 h-7 text-[#0a6563]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
+        <div className="flex items-center gap-3">
+          {/* Phone Icon - right side, clickable */}
+          <a href="tel:+919925155141" className="flex items-center justify-center" aria-label="Call +91-9925155141">
+            <span className="w-8 h-8 bg-[#0a6563] rounded-full flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-5 h-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h0a2.25 2.25 0 002.25-2.25v-2.25a2.25 2.25 0 00-2.25-2.25h-1.125a1.125 1.125 0 01-1.125-1.125v-1.125A2.25 2.25 0 0012.75 12h-1.5A2.25 2.25 0 009 14.25v1.125c0 .621-.504 1.125-1.125 1.125H6.75A2.25 2.25 0 004.5 18.75v2.25A2.25 2.25 0 006.75 23.25h0c8.284 0 15-6.716 15-15V6.75A2.25 2.25 0 0019.5 4.5h-2.25A2.25 2.25 0 0015 6.75v1.125c0 .621-.504 1.125-1.125 1.125H12.75A2.25 2.25 0 0010.5 9.75v1.125c0 .621-.504 1.125-1.125 1.125H8.25A2.25 2.25 0 006 14.25v1.125c0 .621-.504 1.125-1.125 1.125H2.25A2.25 2.25 0 000 18.75v2.25A2.25 2.25 0 002.25 23.25h0c8.284 0 15-6.716 15-15V6.75A2.25 2.25 0 0019.5 4.5h-2.25A2.25 2.25 0 0015 6.75v1.125c0 .621-.504 1.125-1.125 1.125H12.75A2.25 2.25 0 0010.5 9.75v1.125c0 .621-.504 1.125-1.125 1.125H8.25A2.25 2.25 0 006 14.25v1.125c0 .621-.504 1.125-1.125 1.125H2.25z" />
+              </svg>
+            </span>
+          </a>
+          {/* Hamburger Menu Icon */}
+          <button className="p-2" aria-label="Open menu" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            <svg className="w-7 h-7 text-[#0a6563]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
       </div>
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
@@ -130,13 +134,29 @@ const Header = ({ onProductSelect }) => {
                 About Us
               </button>
             </li>
-            <li role="none">
+            {/* Product Dropdown */}
+            <li role="none" className="relative group">
               <button 
-                className="text-base font-montserrat text-[#1f1f1f] hover:text-[#0a6563] transition-colors font-bold bg-transparent border-none focus:ring-0 focus:outline-none cursor-pointer"
+                className="text-base font-montserrat text-[#1f1f1f] hover:text-[#0a6563] transition-colors font-bold bg-transparent border-none focus:ring-0 focus:outline-none cursor-pointer flex items-center"
                 role="menuitem"
               >
                 Product
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
               </button>
+              <ul className="absolute left-0 mt-2 min-w-[160px] bg-white border border-gray-200 shadow-lg rounded z-50 opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto pointer-events-none transition-opacity duration-150">
+                {products.map((product) => (
+                  <li key={product._id}>
+                    <button
+                      className="w-full text-left px-4 py-2 text-base text-[#1f1f1f] hover:text-[#0a6563] hover:bg-gray-100"
+                      onClick={() => setSelectedProductId(product._id)}
+                    >
+                      {product.name}
+                    </button>
+                  </li>
+                ))}
+              </ul>
             </li>
             <li role="none">
               <button 
@@ -148,7 +168,6 @@ const Header = ({ onProductSelect }) => {
             </li>
           </ul>
         </nav>
-        {/* Product Dropdown removed from desktop nav */}
         {/* Contact Info */}
         <div className="flex items-center gap-2 sm:gap-3">
           <div className="w-[38px] h-[38px] bg-[#0a6563] rounded-full flex items-center justify-center">
