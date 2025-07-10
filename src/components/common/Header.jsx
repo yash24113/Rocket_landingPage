@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Button from '../ui/Button';
 import Image from 'next/image';
 
@@ -7,6 +7,8 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [products, setProducts] = useState([]);
+  const [productDropdownOpen, setProductDropdownOpen] = useState(false);
+  const productDropdownRef = useRef(null);
 
   useEffect(() => {
     fetch('https://langingpage-production-f27f.up.railway.app/api/products')
@@ -14,6 +16,18 @@ const Header = () => {
       .then((data) => setProducts(data))
       .catch((err) => console.error('Failed to fetch products:', err));
   }, []);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    if (!productDropdownOpen) return;
+    function handleClickOutside(event) {
+      if (productDropdownRef.current && !productDropdownRef.current.contains(event.target)) {
+        setProductDropdownOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [productDropdownOpen]);
 
   const handleSearch = () => {
     console.log('Search query:', searchQuery);
@@ -117,21 +131,26 @@ const Header = () => {
                   About Us
                 </button>
               </li>
-              <li role="none" className="relative group">
+              <li role="none" className="relative group" ref={productDropdownRef}>
                 <button 
                   className="w-full lg:w-auto text-left lg:text-center py-3 lg:py-4 px-0 lg:px-4 text-base font-montserrat text-[#1f1f1f] hover:text-[#0a6563] transition-colors flex items-center gap-2"
                   role="menuitem"
                   aria-haspopup="true"
-                  aria-expanded="false"
+                  aria-expanded={productDropdownOpen}
+                  onClick={() => setProductDropdownOpen((open) => !open)}
                 >
                   Product
                   <img src="/images/img_vector.svg" alt="" className="w-3 h-3" />
                 </button>
-                <ul className="hidden lg:group-hover:block absolute top-full left-0 bg-white shadow-lg border rounded-md py-2 min-w-[200px] z-50" role="menu">
+                <ul
+                  className={`hidden lg:group-hover:block absolute top-full left-0 bg-white shadow-lg border rounded-md py-2 min-w-[200px] z-50 ${productDropdownOpen ? '!block' : 'hidden'} lg:group-hover:block`}
+                  role="menu"
+                  onMouseLeave={() => setProductDropdownOpen(false)}
+                >
                   {products.length > 0 ? (
                     products.map((product) => (
                       <li role="menuitem" key={product._id}>
-                        <button className="w-full text-left px-4 py-2 text-sm font-inter text-[#1f1f1f] hover:bg-gray-100">
+                        <button className="w-full text-left px-4 py-2 text-sm font-inter text-[#1f1f1f] hover:bg-gray-100" onClick={() => setProductDropdownOpen(false)}>
                           {product.name}
                         </button>
                       </li>
