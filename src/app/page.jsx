@@ -1,5 +1,5 @@
 "use client";
-export const revalidate = 2678400;
+//export const revalidate = 2678400;
 
 import React, { useEffect, useState } from 'react';
 
