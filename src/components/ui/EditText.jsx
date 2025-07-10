@@ -35,7 +35,7 @@ const EditText = ({
           w-full
           px-2 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2.5
           text-sm sm:text-base
-          font-poppins
+          font-inter
           bg-white
           border border-[#0a6563]
           rounded sm:rounded-md
@@ -57,7 +57,7 @@ const EditText = ({
         {...props}
       />
       {error && errorMessage && (
-        <p className="mt-1 text-sm text-red-500 font-poppins">{errorMessage}</p>
+        <p className="mt-1 text-sm text-red-500 font-inter">{errorMessage}</p>
       )}
     </div>
   );

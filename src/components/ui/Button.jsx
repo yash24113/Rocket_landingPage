@@ -80,7 +80,7 @@ const Button = ({
         justify-center
         min-h-[44px] sm:min-h-[48px]
         touch-manipulation
-        font-poppins
+        font-montserrat
         ${className}
       `.trim().replace(/\s+/g, ' ')}
       aria-disabled={disabled || loading}

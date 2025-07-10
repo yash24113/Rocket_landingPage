@@ -1,63 +1,38 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  productionBrowserSourceMaps: true,
-  distDir: process.env.DIST_DIR || '.next',
-  
-  // Performance optimizations
   experimental: {
-    optimizeCss: true,
-    optimizePackageImports: ['react', 'react-dom'],
+    optimizePackageImports: ['@next/font'],
   },
-  
-  // Image optimization with AVIF support
   images: {
     formats: ['image/avif', 'image/webp'],
-    minimumCacheTTL: 31536000, // 1 year
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    dangerouslyAllowSVG: true,
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    unoptimized: false,
   },
-  
-  // Compression and minification
-  compress: true,
-  
-  // Headers for better caching and security
   async headers() {
     return [
       {
-        source: '/:path*',
+        source: '/(.*)',
         headers: [
           {
             key: 'X-DNS-Prefetch-Control',
             value: 'on'
           },
           {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff'
-          },
-          {
             key: 'X-Frame-Options',
             value: 'DENY'
           },
           {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block'
-          }
-        ]
-      },
-      {
-        source: '/images/:path*',
-        headers: [
+            key: 'X-Content-Type-Options',
+            value: 'nosniff'
+          },
           {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable'
+            key: 'Referrer-Policy',
+            value: 'origin-when-cross-origin'
           }
         ]
       },
       {
-        source: '/_next/static/:path*',
+        source: '/fonts/(.*)',
         headers: [
           {
             key: 'Cache-Control',
@@ -67,53 +42,28 @@ const nextConfig = {
       }
     ]
   },
-  
-  webpack(config, { dev, isServer }) {
-    // Existing component tagger configuration
-    config.module.rules.push({
-      test: /\.(jsx|tsx)$/,
-      exclude: [/node_modules/],
-      use: [{
-        loader: '@dhiwise/component-tagger/nextLoader',
-      }],
-    });
-    
-    // Production optimizations
-    if (!dev) {
-      config.optimization.splitChunks = {
+  async rewrites() {
+    return [
+      {
+        source: '/fonts/:path*',
+        destination: 'https://fonts.googleapis.com/:path*'
+      }
+    ]
+  },
+  webpack: (config, { dev, isServer }) => {
+    // Optimize font loading
+    if (!dev && !isServer) {
+      config.optimization.splitChunks.cacheGroups.fonts = {
+        name: 'fonts',
+        test: /[\\/]node_modules[\\/]@next[\\/]font[\\/]/,
         chunks: 'all',
-        cacheGroups: {
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            priority: 10,
-            reuseExistingChunk: true,
-          },
-          common: {
-            minChunks: 2,
-            priority: 5,
-            reuseExistingChunk: true,
-          },
-        },
+        priority: 10,
+        enforce: true
       };
     }
     
     return config;
-  },
-  
-  // Enable SWC minification
-  swcMinify: true,
-  
-  // Power pack for better performance
-  poweredByHeader: false,
-  
-  // Standalone output for better performance
-  output: 'standalone',
-  
-  // Remove console logs in production
-  compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
-  },
+  }
 };
 
 export default nextConfig;

@@ -36,7 +36,7 @@ const Footer = () => {
               <div className="space-y-6">
                 {/* Logo */}
                 <Image 
-                  src="/images/img_footer_logo.png"
+                  src="/images/img_footer_logo.avif"
                   alt="Dhiranandv Creations Logo"
                   width={250}
                   height={60}
@@ -45,7 +45,7 @@ const Footer = () => {
                 />
 
                 {/* Company Description */}
-                <p className="text-sm font-opensans text-[#0a0a0b] leading-relaxed">
+                <p className="text-sm font-inter text-[#0a0a0b] leading-relaxed">
                   Dhananjay Creations Private Limited is the leading and highly reputed name in
                   manufacturing and supplying a vast range of products, including sarees,
                   embroidery fabric, lace, and lehengas. We are also well-known as the best online
@@ -56,15 +56,15 @@ const Footer = () => {
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <img src="/images/img_vector_cyan_900.svg" alt="" className="w-4 h-4" />
-                    <span className="text-sm font-semibold font-opensans text-[#0a0a0b]">+91 99250 49907</span>
+                    <span className="text-sm font-semibold font-inter text-[#0a0a0b]">+91 99250 49907</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <img src="/images/img_vector_cyan_900.svg" alt="" className="w-4 h-4" />
-                    <span className="text-sm font-semibold font-opensans text-[#0a0a0b]">+91-9913140434</span>
+                    <span className="text-sm font-semibold font-inter text-[#0a0a0b]">+91-9913140434</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <img src="/images/img_component_2.svg" alt="" className="w-4 h-4 mt-1" />
-                    <span className="text-sm font-opensans text-[#0a0a0b] leading-relaxed">
+                    <span className="text-sm font-inter text-[#0a0a0b] leading-relaxed">
                       Dhananjay House, Plot No. 85 to 88, Chhatrala Ind Park, Near Kadodara
                       Chowkdi, Behind MacDonald, Haripura, Surat - 394325
                     </span>
@@ -76,7 +76,7 @@ const Footer = () => {
             {/* Business Inquiry Button */}
             <button 
               onClick={handleBusinessInquiry}
-              className="mt-4 bg-gradient-to-b from-white/15 to-white/0 rounded-full px-4 py-2 flex items-center gap-3 text-white font-poppins text-sm hover:from-white/20 transition-all shadow-md"
+              className="mt-4 bg-gradient-to-b from-white/15 to-white/0 rounded-full px-4 py-2 flex items-center gap-3 text-white font-montserrat text-sm hover:from-white/20 transition-all shadow-md"
             >
               <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
                 <img src="/images/img_background_cyan_900.svg" alt="" className="w-5 h-5" />
@@ -93,50 +93,50 @@ const Footer = () => {
               
               {/* Quick Links */}
               <div className="space-y-6">
-                <h3 className="text-lg font-opensans text-[#f9fefd] capitalize">Links</h3>
+                <h3 className="text-lg font-montserrat text-[#f9fefd] capitalize">Links</h3>
                 <ul className="space-y-2" role="list">
-                  <li><button className="text-sm font-opensans text-[#fafafa] hover:text-white transition-colors text-left">Home</button></li>
-                  <li><button className="text-sm font-opensans text-[#fafafa] hover:text-white transition-colors text-left">About Us</button></li>
-                  <li><button className="text-sm font-opensans text-[#fafafa] hover:text-white transition-colors text-left">Our Gallery</button></li>
-                  <li><button className="text-sm font-opensans text-[#fafafa] hover:text-white transition-colors text-left">Blogs</button></li>
-                  <li><button className="text-sm font-opensans text-[#fafafa] hover:text-white transition-colors text-left">Contact Us</button></li>
-                  <li><button className="text-sm font-opensans text-[#fafafa] hover:text-white transition-colors text-left">Sitemap</button></li>
-                  <li><button className="text-sm font-opensans text-[#fafafa] hover:text-white transition-colors text-left">Market Area</button></li>
+                  <li><button className="text-sm font-inter text-[#fafafa] hover:text-white transition-colors text-left">Home</button></li>
+                  <li><button className="text-sm font-inter text-[#fafafa] hover:text-white transition-colors text-left">About Us</button></li>
+                  <li><button className="text-sm font-inter text-[#fafafa] hover:text-white transition-colors text-left">Our Gallery</button></li>
+                  <li><button className="text-sm font-inter text-[#fafafa] hover:text-white transition-colors text-left">Blogs</button></li>
+                  <li><button className="text-sm font-inter text-[#fafafa] hover:text-white transition-colors text-left">Contact Us</button></li>
+                  <li><button className="text-sm font-inter text-[#fafafa] hover:text-white transition-colors text-left">Sitemap</button></li>
+                  <li><button className="text-sm font-inter text-[#fafafa] hover:text-white transition-colors text-left">Market Area</button></li>
                 </ul>
               </div>
 
               {/* Product Links */}
               <div className="space-y-6">
-                <h3 className="text-lg font-opensans text-[#f9fefd] capitalize">Our Products</h3>
+                <h3 className="text-lg font-montserrat text-[#f9fefd] capitalize">Our Products</h3>
                 <ul className="space-y-2" role="list">
-                  <li><button className="text-sm font-opensans text-[#fafafa] hover:text-white transition-colors text-left">Saree</button></li>
-                  <li><button className="text-sm font-opensans text-[#fafafa] hover:text-white transition-colors text-left">Embroidered Sarees</button></li>
-                  <li><button className="text-sm font-opensans text-[#fafafa] hover:text-white transition-colors text-left">Designer Sarees</button></li>
-                  <li><button className="text-sm font-opensans text-[#fafafa] hover:text-white transition-colors text-left">Fancy Sarees</button></li>
-                  <li><button className="text-sm font-opensans text-[#fafafa] hover:text-white transition-colors text-left">Bollywood Theme Saree</button></li>
-                  <li><button className="text-sm font-opensans text-[#fafafa] hover:text-white transition-colors text-left">Pure Fabric</button></li>
-                  <li><button className="text-sm font-opensans text-[#fafafa] hover:text-white transition-colors text-left">Suits</button></li>
+                  <li><button className="text-sm font-inter text-[#fafafa] hover:text-white transition-colors text-left">Saree</button></li>
+                  <li><button className="text-sm font-inter text-[#fafafa] hover:text-white transition-colors text-left">Embroidered Sarees</button></li>
+                  <li><button className="text-sm font-inter text-[#fafafa] hover:text-white transition-colors text-left">Designer Sarees</button></li>
+                  <li><button className="text-sm font-inter text-[#fafafa] hover:text-white transition-colors text-left">Fancy Sarees</button></li>
+                  <li><button className="text-sm font-inter text-[#fafafa] hover:text-white transition-colors text-left">Bollywood Theme Saree</button></li>
+                  <li><button className="text-sm font-inter text-[#fafafa] hover:text-white transition-colors text-left">Pure Fabric</button></li>
+                  <li><button className="text-sm font-inter text-[#fafafa] hover:text-white transition-colors text-left">Suits</button></li>
                 </ul>
               </div>
             </div>
 
             {/* Social Media Section */}
             <div className="space-y-4">
-              <h3 className="text-lg font-opensans text-[#f9fefd] capitalize">You can Follow us at</h3>
+              <h3 className="text-lg font-montserrat text-[#f9fefd] capitalize">You can Follow us at</h3>
               <div className="flex items-center gap-2">
-                <img src="/images/img_link.png" alt="" className="w-6 h-8" />
+                <img src="/images/img_link.avif" alt="" className="w-6 h-8" />
                 <div className="w-8 h-8 flex items-center justify-center">
-                  <img src="/images/img_facebook.png" alt="Facebook" className="w-6 h-6" />
+                  <img src="/images/img_facebook.avif" alt="Facebook" className="w-6 h-6" />
                 </div>
-                <img src="/images/img_link.png" alt="" className="w-6 h-8" />
+                <img src="/images/img_link.avif" alt="" className="w-6 h-8" />
                 <div className="w-8 h-8 flex items-center justify-center">
-                  <img src="/images/img_twitter.png" alt="Twitter" className="w-6 h-6" />
-                </div>
-                <div className="w-8 h-8 flex items-center justify-center">
-                  <img src="/images/img_linkedin.png" alt="LinkedIn" className="w-6 h-6" />
+                  <img src="/images/img_twitter.avif" alt="Twitter" className="w-6 h-6" />
                 </div>
                 <div className="w-8 h-8 flex items-center justify-center">
-                  <img src="/images/img_youtube.png" alt="YouTube" className="w-6 h-6" />
+                  <img src="/images/img_linkedin.avif" alt="LinkedIn" className="w-6 h-6" />
+                </div>
+                <div className="w-8 h-8 flex items-center justify-center">
+                  <img src="/images/img_youtube.avif" alt="YouTube" className="w-6 h-6" />
                 </div>
               </div>
             </div>
@@ -147,7 +147,7 @@ const Footer = () => {
             
             {/* Newsletter Subscription */}
             <div className="space-y-4">
-              <h3 className="text-lg font-opensans text-[#f9fefd] capitalize">Join Our Newsletter</h3>
+              <h3 className="text-lg font-montserrat text-[#f9fefd] capitalize">Join Our Newsletter</h3>
               <div className="flex">
                 <EditText
                   placeholder="Your Email..."
@@ -168,9 +168,9 @@ const Footer = () => {
 
             {/* Payment Methods */}
             <div className="space-y-4">
-              <h3 className="text-lg font-opensans text-[#f9fefd] capitalize">We Accept</h3>
+              <h3 className="text-lg font-montserrat text-[#f9fefd] capitalize">We Accept</h3>
               <div className="flex items-center">
-                  <Image src="/images/img_card.png" alt="Payment Methods" width={186} height={24} className="w-full max-w-[186px] h-6" />
+                  <Image src="/images/img_card.avif" alt="Payment Methods" width={186} height={24} className="w-full max-w-[186px] h-6" />
                 </div>
             </div>
           </div>
@@ -179,12 +179,12 @@ const Footer = () => {
         {/* Copyright Section */}
         <div className="border-t border-white py-4">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 text-center">
-            <span className="text-sm font-poppins text-white">© 2025 Dhananjay Creations Private Limited All Rights Reserved. Crafted with</span>
+            <span className="text-sm font-inter text-white">© 2025 Dhananjay Creations Private Limited All Rights Reserved. Crafted with</span>
             <img src="/images/img_component_2_white_a700.svg" alt="" className="w-4 h-4" />
-            <span className="text-sm font-poppins text-white">by Webpulse -</span>
-            <span className="text-sm font-poppins text-white">Web Designing,</span>
-            <span className="text-sm font-poppins text-white">Digital Marketing &</span>
-            <span className="text-sm font-poppins text-white">Branding Company</span>
+            <span className="text-sm font-inter text-white">by Webpulse -</span>
+            <span className="text-sm font-inter text-white">Web Designing,</span>
+            <span className="text-sm font-inter text-white">Digital Marketing &</span>
+            <span className="text-sm font-inter text-white">Branding Company</span>
           </div>
         </div>
       </div>

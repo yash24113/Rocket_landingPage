@@ -1,13 +1,58 @@
 @import './tailwind.css';
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap');
+@import './fonts.css';
 
+/* Font loading optimization */
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-display: swap;
+}
+
+/* Base styles with comprehensive font stack */
 body {
-  font-family: 'Open Sans', 'Poppins', sans-serif;
+  font-family: 'Inter', 'Poppins', 'Open Sans', 'Roboto', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 *, *::before, *::after {
   box-sizing: inherit;
 }
+
+/* Typography utility classes */
+.font-inter { font-family: 'Inter', sans-serif; }
+.font-poppins { font-family: 'Poppins', sans-serif; }
+.font-opensans { font-family: 'Open Sans', sans-serif; }
+.font-roboto { font-family: 'Roboto', sans-serif; }
+.font-playfair { font-family: 'Playfair Display', serif; }
+.font-montserrat { font-family: 'Montserrat', sans-serif; }
+.font-lato { font-family: 'Lato', sans-serif; }
+.font-sourcesans { font-family: 'Source Sans Pro', sans-serif; }
+.font-ubuntu { font-family: 'Ubuntu', sans-serif; }
+.font-noto { font-family: 'Noto Sans', sans-serif; }
+
+/* Font weight utilities */
+.font-thin { font-weight: 100; }
+.font-extralight { font-weight: 200; }
+.font-light { font-weight: 300; }
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+.font-extrabold { font-weight: 800; }
+.font-black { font-weight: 900; }

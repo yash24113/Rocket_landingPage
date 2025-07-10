@@ -11,91 +11,91 @@ const productCategories = [
     id: 1,
     title: "Embroidered Sarees",
     description: "Dhananjay Creations Private Limited offers you the fine...",
-    image: "/images/img_embroidered_sarees.png"
+    image: "/images/img_embroidered_sarees.avif"
   },
   {
     id: 2,
     title: "Designer Sarees", 
     description: "Focusing on Designer Sarees, Dhananjay Creations Privat...",
-    image: "/images/img_designer_sarees.png"
+    image: "/images/img_designer_sarees.avif"
   },
   {
     id: 3,
     title: "Fancy Sarees",
     description: "Dhananjay Creations Private Limited creates ornate fanc...",
-    image: "/images/img_fancy_sarees_manufacturers.png"
+    image: "/images/img_fancy_sarees_manufacturers.avif"
   },
   {
     id: 4,
     title: "Bollywood Theme Saree",
     description: "Dhananjay Creations Private Limited is a name to reckon...",
-    image: "/images/img_bollywood_theme.png"
+    image: "/images/img_bollywood_theme.avif"
   },
   {
     id: 5,
     title: "Wedding Sarees",
     description: "Dhananjay Creations Private Limited offers a wide array...",
-    image: "/images/img_wedding_sarees_manufacturers.png"
+    image: "/images/img_wedding_sarees_manufacturers.avif"
   },
   {
     id: 6,
     title: "Sequin Sarees",
     description: "Dhananjay Creations Private Limited produces really bea...",
-    image: "/images/img_sequin_sarees_manufacturers.png"
+    image: "/images/img_sequin_sarees_manufacturers.avif"
   },
   {
     id: 7,
     title: "Traditional Sarees",
     description: "Dhananjay Creations Private Limited is one of the promi...",
-    image: "/images/img_traditional_sarees.png"
+    image: "/images/img_traditional_sarees.avif"
   },
   {
     id: 8,
     title: "Cotton Silk Sarees",
     description: "Dhananjay Creations Private Limited is a known name in ...",
-    image: "/images/img_cotton_silk_sarees.png"
+    image: "/images/img_cotton_silk_sarees.avif"
   },
   {
     id: 9,
     title: "Bandhani Silk Sarees",
     description: "Dhananjay Creations Private Limited has carved a niche ...",
-    image: "/images/img_bandhani_silk_sarees.png"
+    image: "/images/img_bandhani_silk_sarees.avif"
   },
   {
     id: 10,
     title: "Banarasi Silk Saree",
     description: "Dhananjay Creations Private Limited is a premier ethnic...",
-    image: "/images/img_banarasi_silk_saree.png"
+    image: "/images/img_banarasi_silk_saree.avif"
   },
   {
     id: 11,
     title: "Kanchipuram Silk Sarees",
     description: "Dhananjay Creations Private Limited is a known name in ...",
-    image: "/images/img_kanchipuram_silk.png"
+    image: "/images/img_kanchipuram_silk.avif"
   },
   {
     id: 12,
     title: "Lehenga Style Sarees",
     description: "Dhananjay Creations Private Limited is a premier ethnic...",
-    image: "/images/img_lehenga_style_sarees.png"
+    image: "/images/img_lehenga_style_sarees.avif"
   },
   {
     id: 13,
     title: "Half and Half Sarees",
     description: "Dhananjay Creations Private Limited has the proud momen...",
-    image: "/images/img_half_and_half_sarees.png"
+    image: "/images/img_half_and_half_sarees.avif"
   },
   {
     id: 14,
     title: "Printed Silk Sarees",
     description: "Dhananjay Creations Private Limited is the finest desti...",
-    image: "/images/img_printed_silk_sarees.png"
+    image: "/images/img_printed_silk_sarees.avif"
   },
   {
     id: 15,
     title: "Net Sarees",
     description: "Dhananjay Creations Private Limited is a widely known n...",
-    image: "/images/img_net_sarees_manufacturers.png"
+    image: "/images/img_net_sarees_manufacturers.avif"
   }
 ];
 
@@ -119,13 +119,13 @@ const HomePage = () => {
         <div className="relative z-10 flex flex-col justify-center items-start h-full px-4 sm:px-6 lg:px-8">
           <div className="w-full max-w-[1250px] mx-auto">
             <div className="max-w-2xl">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold font-opensans text-white mb-4 sm:mb-6 leading-tight">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold font-playfair text-white mb-4 sm:mb-6 leading-tight">
                 Saree Manufacturers
               </h1>
               <nav className="flex items-center gap-2 sm:gap-3" aria-label="Breadcrumb">
                 <Link 
                   href="/" 
-                  className="text-sm sm:text-base font-semibold font-opensans text-white hover:text-gray-200 transition-colors"
+                  className="text-sm sm:text-base font-semibold font-inter text-white hover:text-gray-200 transition-colors"
                 >
                   Home
                 </Link>
@@ -136,7 +136,7 @@ const HomePage = () => {
                   height={20}
                   className="w-4 h-4 sm:w-5 sm:h-5"
                 />
-                <span className="text-sm sm:text-base font-semibold font-opensans text-white">
+                <span className="text-sm sm:text-base font-semibold font-inter text-white">
                   Saree
                 </span>
               </nav>
@@ -150,15 +150,15 @@ const HomePage = () => {
         <div className="w-full max-w-[1250px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold font-poppins text-[#0a0a0b] mb-4 sm:mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-montserrat text-[#0a0a0b] mb-4 sm:mb-6">
               Featured Products
             </h2>
             <div className="w-12 sm:w-16 md:w-20 h-[1px] bg-[#7c7c7c] mx-auto mb-4 sm:mb-6"></div>
             <div className="max-w-4xl mx-auto space-y-2 sm:space-y-3">
-              <p className="text-sm sm:text-base md:text-lg font-medium font-poppins text-[#7c7c7c] leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg font-medium font-inter text-[#222] leading-relaxed">
                 Showcasing our finest pieces, each product is a testament to exceptional craftsmanship and timeless elegance. Meticulously
               </p>
-              <p className="text-sm sm:text-base md:text-lg font-medium font-poppins text-[#7c7c7c] leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg font-medium font-inter text-[#222] leading-relaxed">
                 designed to enhance any wardrobe, these creations exude sophistication and charm.
               </p>
             </div>
@@ -185,10 +185,10 @@ const HomePage = () => {
                 
                 {/* Product Content */}
                 <div className="p-4 sm:p-5 lg:p-6">
-                  <h3 className="text-base sm:text-lg md:text-xl font-semibold font-poppins text-[#0a0a0b] mb-2 sm:mb-3 line-clamp-2 hover:text-[#0a6563] transition-colors cursor-pointer">
+                  <h3 className="text-base sm:text-lg md:text-xl font-semibold font-roboto text-[#0a0a0b] mb-2 sm:mb-3 line-clamp-2 hover:text-[#0a6563] transition-colors cursor-pointer">
                     {product.title}
                   </h3>
-                  <p className="text-sm sm:text-base font-normal font-poppins text-[#636363] leading-relaxed line-clamp-3">
+                  <p className="text-sm sm:text-base font-normal font-lato text-[#636363] leading-relaxed line-clamp-3">
                     {product.description}
                   </p>
                 </div>
@@ -203,10 +203,10 @@ const HomePage = () => {
         <div className="w-full max-w-[1250px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Saree in Surat Section */}
           <div className="mb-8 sm:mb-12 lg:mb-16">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-opensans text-[#0a0a0b] mb-4 sm:mb-6">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
               Saree in Surat
             </h2>
-            <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-poppins text-[#0a0a0b] leading-relaxed">
+            <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-inter text-[#0a0a0b] leading-relaxed">
               <p>
                 <span>Dhananjay Creations Private Limited is a banner of exquisite sarees truly portraying the richness of India's cultural heritage. Elegance and tradition have culminated in our collection of </span>
                 <span className="font-bold">Saree in Surat</span>
@@ -223,10 +223,10 @@ const HomePage = () => {
           
           {/* Get Premium Products Section */}
           <div className="mb-8 sm:mb-12 lg:mb-16">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-opensans text-[#0a0a0b] mb-4 sm:mb-6">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
               Get Premium Products Directly from Saree Manufacturers in Surat
             </h2>
-            <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-poppins text-[#0a0a0b] leading-relaxed">
+            <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-inter text-[#0a0a0b] leading-relaxed">
               <p>
                 Our processes ensure that every saree meets the client's expectations. Our skilled artists use advanced techniques to create sarees that stand out in the market. Whether it's a casual outing or a festive celebration, our sarees ensure that every
               </p>
@@ -243,10 +243,10 @@ const HomePage = () => {
           
           {/* Party Wear Saree Suppliers Section */}
           <div className="mb-8 sm:mb-12 lg:mb-16">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-opensans text-[#0a0a0b] mb-4 sm:mb-6">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
               Looking for Party Wear Saree Suppliers in Gujarat
             </h2>
-            <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-poppins text-[#0a0a0b] leading-relaxed">
+            <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-inter text-[#0a0a0b] leading-relaxed">
               <p>
                 <span>Our collection offers sarees with perfection for any celebration or event. We have set ourselves as one of the most reliable </span>
                 <span className="font-bold">Party Wear Saree Suppliers in Gujarat</span>
@@ -263,10 +263,10 @@ const HomePage = () => {
           
           {/* Most Trusted Party Wear Saree Exporters Section */}
           <div>
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-opensans text-[#0a0a0b] mb-4 sm:mb-6">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
               Most Trusted Party Wear Saree Exporters in Gujarat
             </h2>
-            <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-poppins text-[#0a0a0b] leading-relaxed">
+            <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-inter text-[#0a0a0b] leading-relaxed">
               <p>
                 We cater to global audiences and make sure that our exquisite sarees reach fashion enthusiasts all over the world. A streamlined export operation of international standards gives our clients products that are pleasingly beautiful as well as up
               </p>

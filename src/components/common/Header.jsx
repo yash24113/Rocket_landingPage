@@ -19,7 +19,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex justify-center lg:justify-start">
             <Image 
-              src="/images/img_header_logo.png"
+              src="/images/img_header_logo.avif"
               alt="Dhiranandv Creations Logo"
               width={250}
               height={60}
@@ -61,8 +61,8 @@ const Header = () => {
                 />
               </div>
               <div className="text-center sm:text-right">
-                <p className="text-sm font-medium text-[#7c7c7c] font-poppins">Customer Support</p>
-                <p className="text-sm font-semibold text-[#0a0a0b] font-poppins">+91-9913140434</p>
+                <p className="text-sm font-medium text-[#222] font-inter">Customer Support</p>
+                <p className="text-sm font-semibold text-[#0a0a0b] font-inter">+91-9913140434</p>
               </div>
             </div>
           </div>
@@ -74,7 +74,7 @@ const Header = () => {
         <div className="w-full px-4 sm:px-6 lg:px-8">
           {/* Mobile Menu Button */}
           <button 
-            className="lg:hidden w-full py-4 flex items-center justify-between text-[#1f1f1f] font-opensans"
+            className="lg:hidden w-full py-4 flex items-center justify-between text-[#1f1f1f] font-montserrat"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
@@ -94,7 +94,7 @@ const Header = () => {
             <ul className="flex flex-col lg:flex-row lg:justify-center lg:items-center gap-0 lg:gap-6 py-4 lg:py-0" role="menubar">
               <li role="none">
                 <button 
-                  className="w-full lg:w-auto text-left lg:text-center py-3 lg:py-4 px-0 lg:px-4 text-base font-opensans text-[#1f1f1f] hover:text-[#0a6563] transition-colors"
+                  className="w-full lg:w-auto text-left lg:text-center py-3 lg:py-4 px-0 lg:px-4 text-base font-montserrat text-[#1f1f1f] hover:text-[#0a6563] transition-colors"
                   role="menuitem"
                 >
                   Home
@@ -102,7 +102,7 @@ const Header = () => {
               </li>
               <li role="none">
                 <button 
-                  className="w-full lg:w-auto text-left lg:text-center py-3 lg:py-4 px-0 lg:px-4 text-base font-opensans text-[#1f1f1f] hover:text-[#0a6563] transition-colors"
+                  className="w-full lg:w-auto text-left lg:text-center py-3 lg:py-4 px-0 lg:px-4 text-base font-montserrat text-[#1f1f1f] hover:text-[#0a6563] transition-colors"
                   role="menuitem"
                 >
                   About Us
@@ -110,7 +110,7 @@ const Header = () => {
               </li>
               <li role="none" className="relative group">
                 <button 
-                  className="w-full lg:w-auto text-left lg:text-center py-3 lg:py-4 px-0 lg:px-4 text-base font-opensans text-[#1f1f1f] hover:text-[#0a6563] transition-colors flex items-center gap-2"
+                  className="w-full lg:w-auto text-left lg:text-center py-3 lg:py-4 px-0 lg:px-4 text-base font-montserrat text-[#1f1f1f] hover:text-[#0a6563] transition-colors flex items-center gap-2"
                   role="menuitem"
                   aria-haspopup="true"
                   aria-expanded="false"
@@ -120,19 +120,19 @@ const Header = () => {
                 </button>
                 <ul className="hidden lg:group-hover:block absolute top-full left-0 bg-white shadow-lg border rounded-md py-2 min-w-[200px] z-50" role="menu">
                   <li role="menuitem">
-                    <button className="w-full text-left px-4 py-2 text-sm font-opensans text-[#1f1f1f] hover:bg-gray-100">Embroidered Sarees</button>
+                    <button className="w-full text-left px-4 py-2 text-sm font-inter text-[#1f1f1f] hover:bg-gray-100">Embroidered Sarees</button>
                   </li>
                   <li role="menuitem">
-                    <button className="w-full text-left px-4 py-2 text-sm font-opensans text-[#1f1f1f] hover:bg-gray-100">Designer Sarees</button>
+                    <button className="w-full text-left px-4 py-2 text-sm font-inter text-[#1f1f1f] hover:bg-gray-100">Designer Sarees</button>
                   </li>
                   <li role="menuitem">
-                    <button className="w-full text-left px-4 py-2 text-sm font-opensans text-[#1f1f1f] hover:bg-gray-100">Fancy Sarees</button>
+                    <button className="w-full text-left px-4 py-2 text-sm font-inter text-[#1f1f1f] hover:bg-gray-100">Fancy Sarees</button>
                   </li>
                 </ul>
               </li>
               <li role="none" className="relative group">
                 <button 
-                  className="w-full lg:w-auto text-left lg:text-center py-3 lg:py-4 px-0 lg:px-4 text-base font-opensans text-[#1f1f1f] hover:text-[#0a6563] transition-colors flex items-center gap-2"
+                  className="w-full lg:w-auto text-left lg:text-center py-3 lg:py-4 px-0 lg:px-4 text-base font-montserrat text-[#1f1f1f] hover:text-[#0a6563] transition-colors flex items-center gap-2"
                   role="menuitem"
                   aria-haspopup="true"
                   aria-expanded="false"
@@ -142,19 +142,19 @@ const Header = () => {
                 </button>
                 <ul className="hidden lg:group-hover:block absolute top-full left-0 bg-white shadow-lg border rounded-md py-2 min-w-[200px] z-50" role="menu">
                   <li role="menuitem">
-                    <button className="w-full text-left px-4 py-2 text-sm font-opensans text-[#1f1f1f] hover:bg-gray-100">Cotton Silk</button>
+                    <button className="w-full text-left px-4 py-2 text-sm font-inter text-[#1f1f1f] hover:bg-gray-100">Cotton Silk</button>
                   </li>
                   <li role="menuitem">
-                    <button className="w-full text-left px-4 py-2 text-sm font-opensans text-[#1f1f1f] hover:bg-gray-100">Bandhani Silk</button>
+                    <button className="w-full text-left px-4 py-2 text-sm font-inter text-[#1f1f1f] hover:bg-gray-100">Bandhani Silk</button>
                   </li>
                   <li role="menuitem">
-                    <button className="w-full text-left px-4 py-2 text-sm font-opensans text-[#1f1f1f] hover:bg-gray-100">Banarasi Silk</button>
+                    <button className="w-full text-left px-4 py-2 text-sm font-inter text-[#1f1f1f] hover:bg-gray-100">Banarasi Silk</button>
                   </li>
                 </ul>
               </li>
               <li role="none" className="relative group">
                 <button 
-                  className="w-full lg:w-auto text-left lg:text-center py-3 lg:py-4 px-0 lg:px-4 text-base font-opensans text-[#1f1f1f] hover:text-[#0a6563] transition-colors flex items-center gap-2"
+                  className="w-full lg:w-auto text-left lg:text-center py-3 lg:py-4 px-0 lg:px-4 text-base font-montserrat text-[#1f1f1f] hover:text-[#0a6563] transition-colors flex items-center gap-2"
                   role="menuitem"
                   aria-haspopup="true"
                   aria-expanded="false"
@@ -164,16 +164,16 @@ const Header = () => {
                 </button>
                 <ul className="hidden lg:group-hover:block absolute top-full left-0 bg-white shadow-lg border rounded-md py-2 min-w-[200px] z-50" role="menu">
                   <li role="menuitem">
-                    <button className="w-full text-left px-4 py-2 text-sm font-opensans text-[#1f1f1f] hover:bg-gray-100">Designer Suits</button>
+                    <button className="w-full text-left px-4 py-2 text-sm font-inter text-[#1f1f1f] hover:bg-gray-100">Designer Suits</button>
                   </li>
                   <li role="menuitem">
-                    <button className="w-full text-left px-4 py-2 text-sm font-opensans text-[#1f1f1f] hover:bg-gray-100">Traditional Suits</button>
+                    <button className="w-full text-left px-4 py-2 text-sm font-inter text-[#1f1f1f] hover:bg-gray-100">Traditional Suits</button>
                   </li>
                 </ul>
               </li>
               <li role="none" className="relative group">
                 <button 
-                  className="w-full lg:w-auto text-left lg:text-center py-3 lg:py-4 px-0 lg:px-4 text-base font-opensans text-[#1f1f1f] hover:text-[#0a6563] transition-colors flex items-center gap-2"
+                  className="w-full lg:w-auto text-left lg:text-center py-3 lg:py-4 px-0 lg:px-4 text-base font-montserrat text-[#1f1f1f] hover:text-[#0a6563] transition-colors flex items-center gap-2"
                   role="menuitem"
                   aria-haspopup="true"
                   aria-expanded="false"
@@ -183,16 +183,16 @@ const Header = () => {
                 </button>
                 <ul className="hidden lg:group-hover:block absolute top-full left-0 bg-white shadow-lg border rounded-md py-2 min-w-[200px] z-50" role="menu">
                   <li role="menuitem">
-                    <button className="w-full text-left px-4 py-2 text-sm font-opensans text-[#1f1f1f] hover:bg-gray-100">Wedding Lehenga</button>
+                    <button className="w-full text-left px-4 py-2 text-sm font-inter text-[#1f1f1f] hover:bg-gray-100">Wedding Lehenga</button>
                   </li>
                   <li role="menuitem">
-                    <button className="w-full text-left px-4 py-2 text-sm font-opensans text-[#1f1f1f] hover:bg-gray-100">Party Lehenga</button>
+                    <button className="w-full text-left px-4 py-2 text-sm font-inter text-[#1f1f1f] hover:bg-gray-100">Party Lehenga</button>
                   </li>
                 </ul>
               </li>
               <li role="none">
                 <button 
-                  className="w-full lg:w-auto text-left lg:text-center py-3 lg:py-4 px-0 lg:px-4 text-base font-opensans text-[#1f1f1f] hover:text-[#0a6563] transition-colors"
+                  className="w-full lg:w-auto text-left lg:text-center py-3 lg:py-4 px-0 lg:px-4 text-base font-montserrat text-[#1f1f1f] hover:text-[#0a6563] transition-colors"
                   role="menuitem"
                 >
                   Our Gallery

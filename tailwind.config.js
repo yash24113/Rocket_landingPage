@@ -30,8 +30,37 @@ module.exports = {
         }
       },
       fontFamily: {
+        // Primary fonts
+        'inter': ['Inter', 'sans-serif'],
         'poppins': ['Poppins', 'sans-serif'],
-        'opensans': ['Open Sans', 'sans-serif']
+        'opensans': ['Open Sans', 'sans-serif'],
+        'roboto': ['Roboto', 'sans-serif'],
+        
+        // Display fonts
+        'playfair': ['Playfair Display', 'serif'],
+        'montserrat': ['Montserrat', 'sans-serif'],
+        
+        // Secondary fonts
+        'lato': ['Lato', 'sans-serif'],
+        'sourcesans': ['Source Sans Pro', 'sans-serif'],
+        'ubuntu': ['Ubuntu', 'sans-serif'],
+        'noto': ['Noto Sans', 'sans-serif'],
+        
+        // System fallbacks
+        'sans': ['Inter', 'Poppins', 'Open Sans', 'Roboto', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        'serif': ['Playfair Display', 'Georgia', 'Times New Roman', 'serif'],
+        'mono': ['Ubuntu Mono', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace']
+      },
+      fontWeight: {
+        'thin': '100',
+        'extralight': '200',
+        'light': '300',
+        'normal': '400',
+        'medium': '500',
+        'semibold': '600',
+        'bold': '700',
+        'extrabold': '800',
+        'black': '900'
       }
     }
   },
