@@ -36,7 +36,44 @@ const Header = () => {
   return (
     <header className="bg-white w-full fixed top-0 left-0 z-50 border-b border-black" role="banner">
       <div className="w-full px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between py-2 lg:py-0 gap-4 lg:gap-0">
+        {/* Mobile Header Bar */}
+        <div className="flex items-center justify-between py-2 lg:hidden">
+          {/* Logo and AGE */}
+          <div className="flex items-center gap-2">
+            <Image 
+              src="/images/age_logo.avif"
+              alt="AGE Logo"
+              width={36}
+              height={36}
+              className="w-9 h-9 object-contain"
+              priority
+            />
+            <span className="text-lg font-bold font-montserrat text-[#0a6563]">AGE</span>
+          </div>
+          {/* Phone Icon */}
+          <a href="tel:+919925155141" className="flex items-center justify-center w-9 h-9 bg-[#0a6563] rounded-full mr-2" aria-label="Call Customer Support">
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.3 1.2a2 2 0 01-.45 1.95l-.7.7a16.001 16.001 0 006.36 6.36l.7-.7a2 2 0 011.95-.45l1.2.3A2 2 0 0121 18.72V21a2 2 0 01-2 2h-1C9.163 23 1 14.837 1 5V4a2 2 0 012-2z" />
+            </svg>
+          </a>
+          {/* Menu Toggle Icon */}
+          <button 
+            className="ml-auto flex items-center justify-center w-9 h-9" 
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            <svg 
+              className={`w-6 h-6 transform transition-transform ${menuOpen ? 'rotate-180' : ''}`}
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        </div>
+        {/* Desktop Header and Navigation */}
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between py-2 lg:py-0 gap-4 lg:gap-0 hidden lg:flex">
           {/* Logo and Company Name */}
           <div className="flex items-center gap-3 lg:gap-4">
             <Image 
@@ -49,7 +86,6 @@ const Header = () => {
             />
             <span className="text-xl lg:text-2xl font-bold font-montserrat text-[#0a6563] whitespace-nowrap">Amrita Global Enterprises</span>
           </div>
-
           {/* Navigation Menu - Desktop Only */}
           <nav className="hidden lg:block flex-1" role="navigation">
             <ul className="flex justify-center items-center gap-8" role="menubar">
@@ -110,7 +146,6 @@ const Header = () => {
               </li>
             </ul>
           </nav>
-
           {/* Contact Info */}
           <div className="flex items-center gap-2 sm:gap-3">
             <div className="w-[38px] h-[38px] bg-[#0a6563] rounded-full flex items-center justify-center">
@@ -126,28 +161,9 @@ const Header = () => {
             </div>
           </div>
         </div>
-
-        {/* Mobile Navigation */}
-        <div className="lg:hidden">
-          {/* Mobile Menu Button */}
-          <button 
-            className="w-full py-4 flex items-center justify-between text-[#1f1f1f] font-montserrat"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-          >
-            <span>Menu</span>
-            <svg 
-              className={`w-5 h-5 transform transition-transform ${menuOpen ? 'rotate-180' : ''}`}
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          {/* Mobile Menu Items */}
-          <div className={`${menuOpen ? 'block' : 'hidden'}`}>
-            <ul className="flex flex-col gap-0 py-4" role="menubar">
+        {/* Mobile Navigation (Menu Items) */}
+        <div className={`${menuOpen ? 'block' : 'hidden'} lg:hidden`}>
+          <ul className="flex flex-col gap-0 py-4" role="menubar">
               <li role="none">
                 <button 
                   className="w-full text-left py-3 px-0 text-base font-montserrat text-[#1f1f1f] hover:text-[#0a6563] transition-colors"
@@ -204,7 +220,6 @@ const Header = () => {
                 </button>
               </li>
             </ul>
-          </div>
         </div>
       </div>
     </header>
