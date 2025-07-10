@@ -1,11 +1,19 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from '../ui/Button';
 import Image from 'next/image';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch('https://langingpage-production-f27f.up.railway.app/api/products')
+      .then((res) => res.json())
+      .then((data) => setProducts(data))
+      .catch((err) => console.error('Failed to fetch products:', err));
+  }, []);
 
   const handleSearch = () => {
     console.log('Search query:', searchQuery);
@@ -120,15 +128,19 @@ const Header = () => {
                   <img src="/images/img_vector.svg" alt="" className="w-3 h-3" />
                 </button>
                 <ul className="hidden lg:group-hover:block absolute top-full left-0 bg-white shadow-lg border rounded-md py-2 min-w-[200px] z-50" role="menu">
-                  <li role="menuitem">
-                    <button className="w-full text-left px-4 py-2 text-sm font-inter text-[#1f1f1f] hover:bg-gray-100">Embroidered Sarees</button>
-                  </li>
-                  <li role="menuitem">
-                    <button className="w-full text-left px-4 py-2 text-sm font-inter text-[#1f1f1f] hover:bg-gray-100">Designer Sarees</button>
-                  </li>
-                  <li role="menuitem">
-                    <button className="w-full text-left px-4 py-2 text-sm font-inter text-[#1f1f1f] hover:bg-gray-100">Fancy Sarees</button>
-                  </li>
+                  {products.length > 0 ? (
+                    products.map((product) => (
+                      <li role="menuitem" key={product._id}>
+                        <button className="w-full text-left px-4 py-2 text-sm font-inter text-[#1f1f1f] hover:bg-gray-100">
+                          {product.name}
+                        </button>
+                      </li>
+                    ))
+                  ) : (
+                    <li role="menuitem">
+                      <span className="w-full text-left px-4 py-2 text-sm font-inter text-[#757575]">Loading...</span>
+                    </li>
+                  )}
                 </ul>
               </li>
               {/* <li role="none" className="relative group">
