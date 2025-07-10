@@ -1,6 +1,6 @@
 export const revalidate = 2678400;
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
@@ -101,6 +101,39 @@ const productCategories = [
 ];
 
 const HomePage = () => {
+  // Dropdown and product state for Hero section
+  const [products, setProducts] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [productDescription, setProductDescription] = useState('Premium Fabric in Ahedabad');
+  const [loading, setLoading] = useState(false);
+
+  // Fetch product list on mount
+  useEffect(() => {
+    fetch('https://langingpage-production-f27f.up.railway.app/api/products')
+      .then((res) => res.json())
+      .then((data) => setProducts(data))
+      .catch(() => setProducts([]));
+  }, []);
+
+  // Fetch product description when selectedProduct changes
+  useEffect(() => {
+    if (!selectedProduct) {
+      setProductDescription('Premium Fabric in Ahedabad');
+      return;
+    }
+    setLoading(true);
+    fetch(`https://langingpage-production-f27f.up.railway.app/api/products/${selectedProduct}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setProductDescription(data?.description || 'No description available.');
+        setLoading(false);
+      })
+      .catch(() => {
+        setProductDescription('No description available.');
+        setLoading(false);
+      });
+  }, [selectedProduct]);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -123,9 +156,28 @@ const HomePage = () => {
         <div className="relative z-10 flex flex-col justify-center items-start h-full px-4 sm:px-6 lg:px-8">
           <div className="w-full max-w-[1250px] mx-auto">
             <div className="max-w-2xl">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold font-playfair text-white mb-4 sm:mb-6 leading-tight">
-                Saree Manufacturers
+              {/* Product Dropdown and Dynamic Title/Description */}
+              <div className="mb-4 sm:mb-6">
+                <select
+                  className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold font-playfair text-[#0a0a0b] rounded px-3 py-2 bg-white/90 focus:outline-none focus:ring-2 focus:ring-[#0a6563]"
+                  value={selectedProduct || ''}
+                  onChange={e => setSelectedProduct(e.target.value || null)}
+                  style={{ minWidth: 200 }}
+                >
+                  <option value="">Fabric</option>
+                  {products.map((product) => (
+                    <option key={product._id} value={product._id}>{product.name}</option>
+                  ))}
+                </select>
+              </div>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold font-playfair text-white mb-2 leading-tight">
+                {selectedProduct
+                  ? (products.find(p => p._id === selectedProduct)?.name || 'Fabric')
+                  : 'Fabric'}
               </h1>
+              <div className="text-base sm:text-lg md:text-xl font-inter text-white mb-4">
+                {loading ? 'Loading description...' : productDescription}
+              </div>
               <nav className="flex items-center gap-2 sm:gap-3" aria-label="Breadcrumb">
                 <Link 
                   href="/" 
@@ -142,7 +194,9 @@ const HomePage = () => {
                   className="w-4 h-4 sm:w-5 sm:h-5"
                 />
                 <span className="text-sm sm:text-base font-semibold font-inter text-white">
-                  Saree
+                  {selectedProduct
+                    ? (products.find(p => p._id === selectedProduct)?.name || 'Fabric')
+                    : 'Fabric'}
                 </span>
               </nav>
             </div>
