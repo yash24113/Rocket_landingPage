@@ -19,8 +19,8 @@ const Header = () => {
           {/* Logo */}
           <div className="flex justify-center lg:justify-start">
             <Image 
-              src="/images/img_header_logo.avif"
-              alt="Dhiranandv Creations Logo"
+              src="/images/age_logo.avif"
+              alt="Amrita Global Enterprises Logo"
               width={250}
               height={60}
               className="w-[200px] sm:w-[220px] lg:w-[250px] h-auto"
