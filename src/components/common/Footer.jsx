@@ -34,11 +34,14 @@ const Footer = () => {
 
               <div className="space-y-6">
                 {/* Logo */}
-                <img 
-                  src="/images/img_footer_logo.png" 
-                  alt="Dhiranandv Creations Logo" 
-                  className="w-[200px] sm:w-[220px] lg:w-[250px] h-auto"
-                />
+                <picture>
+                  <source srcSet="/images/img_footer_logo.avif" type="image/avif" />
+                  <img 
+                    src="/images/img_footer_logo.png" 
+                    alt="Dhiranandv Creations Logo" 
+                    className="w-[200px] sm:w-[220px] lg:w-[250px] h-auto"
+                  />
+                </picture>
 
                 {/* Company Description */}
                 <p className="text-sm font-opensans text-[#0a0a0b] leading-relaxed">
@@ -166,7 +169,10 @@ const Footer = () => {
             <div className="space-y-4">
               <h3 className="text-lg font-opensans text-[#f9fefd] capitalize">We Accept</h3>
               <div className="flex items-center">
-                <img src="/images/img_card.png" alt="Payment Methods" className="w-full max-w-[186px] h-6" />
+                <picture>
+                  <source srcSet="/images/img_card.avif" type="image/avif" />
+                  <img src="/images/img_card.png" alt="Payment Methods" className="w-full max-w-[186px] h-6" />
+                </picture>
               </div>
             </div>
           </div>

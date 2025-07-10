@@ -17,11 +17,14 @@ const Header = () => {
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center py-2 lg:py-0 gap-4 lg:gap-0">
           {/* Logo */}
           <div className="flex justify-center lg:justify-start">
-            <img 
-              src="/images/img_header_logo.png" 
-              alt="Dhiranandv Creations Logo" 
-              className="w-[200px] sm:w-[220px] lg:w-[250px] h-auto"
-            />
+            <picture>
+              <source srcSet="/images/img_header_logo.avif" type="image/avif" />
+              <img 
+                src="/images/img_header_logo.png" 
+                alt="Dhiranandv Creations Logo" 
+                className="w-[200px] sm:w-[220px] lg:w-[250px] h-auto"
+              />
+            </picture>
           </div>
 
           {/* Search and Contact Section */}
