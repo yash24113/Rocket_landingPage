@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Button from '../ui/Button';
 import EditText from '../ui/EditText';
+import Image from 'next/image';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -34,14 +35,14 @@ const Footer = () => {
 
               <div className="space-y-6">
                 {/* Logo */}
-                <picture>
-                  <source srcSet="/images/img_footer_logo.avif" type="image/avif" />
-                  <img 
-                    src="/images/img_footer_logo.png" 
-                    alt="Dhiranandv Creations Logo" 
-                    className="w-[200px] sm:w-[220px] lg:w-[250px] h-auto"
-                  />
-                </picture>
+                <Image 
+                  src="/images/img_footer_logo.png"
+                  alt="Dhiranandv Creations Logo"
+                  width={250}
+                  height={60}
+                  className="w-[200px] sm:w-[220px] lg:w-[250px] h-auto"
+                  priority
+                />
 
                 {/* Company Description */}
                 <p className="text-sm font-opensans text-[#0a0a0b] leading-relaxed">
@@ -169,11 +170,8 @@ const Footer = () => {
             <div className="space-y-4">
               <h3 className="text-lg font-opensans text-[#f9fefd] capitalize">We Accept</h3>
               <div className="flex items-center">
-                <picture>
-                  <source srcSet="/images/img_card.avif" type="image/avif" />
-                  <img src="/images/img_card.png" alt="Payment Methods" className="w-full max-w-[186px] h-6" />
-                </picture>
-              </div>
+                  <Image src="/images/img_card.png" alt="Payment Methods" width={186} height={24} className="w-full max-w-[186px] h-6" />
+                </div>
             </div>
           </div>
         </div>

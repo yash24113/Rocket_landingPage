@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import Button from '../ui/Button';
+import Image from 'next/image';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -17,14 +18,14 @@ const Header = () => {
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center py-2 lg:py-0 gap-4 lg:gap-0">
           {/* Logo */}
           <div className="flex justify-center lg:justify-start">
-            <picture>
-              <source srcSet="/images/img_header_logo.avif" type="image/avif" />
-              <img 
-                src="/images/img_header_logo.png" 
-                alt="Dhiranandv Creations Logo" 
-                className="w-[200px] sm:w-[220px] lg:w-[250px] h-auto"
-              />
-            </picture>
+            <Image 
+              src="/images/img_header_logo.png"
+              alt="Dhiranandv Creations Logo"
+              width={250}
+              height={60}
+              className="w-[200px] sm:w-[220px] lg:w-[250px] h-auto"
+              priority
+            />
           </div>
 
           {/* Search and Contact Section */}

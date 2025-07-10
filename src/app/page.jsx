@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
-import OptimizedImage from '../components/ui/OptimizedImage';
+import Image from 'next/image';
 
 // Static data for better performance
 const productCategories = [
@@ -107,11 +107,11 @@ const HomePage = () => {
       
       {/* Hero Section */}
       <section className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
-        <OptimizedImage
+        <Image
           src="/images/img_hero_background.jpg"
           alt="Saree Manufacturers Hero Background"
-          fill={true}
-          priority={true}
+          fill
+          priority
           className="object-cover"
           sizes="100vw"
         />
@@ -129,7 +129,7 @@ const HomePage = () => {
                 >
                   Home
                 </Link>
-                <OptimizedImage
+                <Image
                   src="/images/img_arrow_right.svg"
                   alt="Arrow Right"
                   width={20}
@@ -173,13 +173,13 @@ const HomePage = () => {
               >
                 {/* Product Image */}
                 <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-72 overflow-hidden">
-                  <OptimizedImage
+                  <Image
                     src={product.image}
                     alt={product.title}
-                    fill={true}
+                    fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
                     className="group-hover:scale-110 transition-transform duration-300"
-                    priority={index < 4} // Prioritize first 4 images
+                    priority={index < 4}
                   />
                 </div>
                 
