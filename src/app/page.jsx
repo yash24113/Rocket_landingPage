@@ -1,6 +1,8 @@
+"use client";
 export const revalidate = 2678400;
 
 import React, { useEffect, useState } from 'react';
+
 import Link from 'next/link';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
