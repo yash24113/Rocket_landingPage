@@ -38,7 +38,7 @@ const Header = () => {
       <div className="w-full px-4 sm:px-6 lg:px-8">
         {/* Mobile Header Bar */}
         <div className="flex items-center justify-between py-2 lg:hidden">
-          {/* Logo and AGE */}
+          {/* Left group: Logo, Company Name, Phone Icon */}
           <div className="flex items-center gap-2">
             <Image 
               src="/images/age_logo.avif"
@@ -48,27 +48,25 @@ const Header = () => {
               className="w-9 h-9 object-contain"
               priority
             />
-            <span className="text-lg font-bold font-montserrat text-[#0a6563]">AGE</span>
+            <span className="text-lg font-bold font-montserrat text-[#0a6563] whitespace-nowrap">Amrita Global Enterprises</span>
+            <a href="tel:+919925155141" className="flex items-center justify-center w-10 h-10 bg-[#0a6563] rounded-full ml-2" aria-label="Call Customer Support">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.3 1.2a2 2 0 01-.45 1.95l-.7.7a16.001 16.001 0 006.36 6.36l.7-.7a2 2 0 011.95-.45l1.2.3A2 2 0 0121 18.72V21a2 2 0 01-2 2h-1C9.163 23 1 14.837 1 5V4a2 2 0 012-2z" />
+              </svg>
+            </a>
           </div>
-          {/* Phone Icon */}
-          <a href="tel:+919925155141" className="flex items-center justify-center w-9 h-9 bg-[#0a6563] rounded-full mr-2" aria-label="Call Customer Support">
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.3 1.2a2 2 0 01-.45 1.95l-.7.7a16.001 16.001 0 006.36 6.36l.7-.7a2 2 0 011.95-.45l1.2.3A2 2 0 0121 18.72V21a2 2 0 01-2 2h-1C9.163 23 1 14.837 1 5V4a2 2 0 012-2z" />
-            </svg>
-          </a>
-          {/* Menu Toggle Icon */}
+          {/* Menu Toggle Icon at far right */}
           <button 
-            className="ml-auto flex items-center justify-center w-9 h-9" 
+            className="ml-auto flex items-center justify-center w-10 h-10" 
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
-            <svg 
-              className={`w-6 h-6 transform transition-transform ${menuOpen ? 'rotate-180' : ''}`}
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            {/* Hamburger icon in filled square */}
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="32" height="32" rx="0" fill="#0a6563"/>
+              <rect x="8" y="10" width="16" height="2" rx="1" fill="white"/>
+              <rect x="8" y="15" width="16" height="2" rx="1" fill="white"/>
+              <rect x="8" y="20" width="16" height="2" rx="1" fill="white"/>
             </svg>
           </button>
         </div>
