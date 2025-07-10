@@ -14,6 +14,9 @@ RUN npm install
 # 5. Copy the rest of your application code
 COPY . .
 
+# Debug: List files before build
+RUN ls -al
+
 # 6. Build the Next.js app
 RUN npm run build
 
