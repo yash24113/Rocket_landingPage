@@ -1,5 +1,10 @@
 /* Google Fonts Optimization and Management */
 
+/* Use only Georgia font for all text */
+body, .font-inter, .font-poppins, .font-opensans, .font-roboto, .font-playfair, .font-montserrat, .font-lato, .font-sourcesans, .font-ubuntu, .font-noto {
+  font-family: Georgia, 'Times New Roman', Times, serif !important;
+}
+
 /* Font Display Optimization */
 @font-face {
   font-family: 'Inter';

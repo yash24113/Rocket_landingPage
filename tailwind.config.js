@@ -30,26 +30,19 @@ module.exports = {
         }
       },
       fontFamily: {
-        // Primary fonts
-        'inter': ['Inter', 'sans-serif'],
-        'poppins': ['Poppins', 'sans-serif'],
-        'opensans': ['Open Sans', 'sans-serif'],
-        'roboto': ['Roboto', 'sans-serif'],
-        
-        // Display fonts
-        'playfair': ['Playfair Display', 'serif'],
-        'montserrat': ['Montserrat', 'sans-serif'],
-        
-        // Secondary fonts
-        'lato': ['Lato', 'sans-serif'],
-        'sourcesans': ['Source Sans Pro', 'sans-serif'],
-        'ubuntu': ['Ubuntu', 'sans-serif'],
-        'noto': ['Noto Sans', 'sans-serif'],
-        
-        // System fallbacks
-        'sans': ['Inter', 'Poppins', 'Open Sans', 'Roboto', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'],
-        'serif': ['Playfair Display', 'Georgia', 'Times New Roman', 'serif'],
-        'mono': ['Ubuntu Mono', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace']
+        'inter': ['Georgia', 'Times New Roman', 'Times', 'serif'],
+        'poppins': ['Georgia', 'Times New Roman', 'Times', 'serif'],
+        'opensans': ['Georgia', 'Times New Roman', 'Times', 'serif'],
+        'roboto': ['Georgia', 'Times New Roman', 'Times', 'serif'],
+        'playfair': ['Georgia', 'Times New Roman', 'Times', 'serif'],
+        'montserrat': ['Georgia', 'Times New Roman', 'Times', 'serif'],
+        'lato': ['Georgia', 'Times New Roman', 'Times', 'serif'],
+        'sourcesans': ['Georgia', 'Times New Roman', 'Times', 'serif'],
+        'ubuntu': ['Georgia', 'Times New Roman', 'Times', 'serif'],
+        'noto': ['Georgia', 'Times New Roman', 'Times', 'serif'],
+        'sans': ['Georgia', 'Times New Roman', 'Times', 'serif'],
+        'serif': ['Georgia', 'Times New Roman', 'Times', 'serif'],
+        'mono': ['Georgia', 'Times New Roman', 'Times', 'serif']
       },
       fontWeight: {
         'thin': '100',
