@@ -107,10 +107,10 @@ const HomePage = () => {
       <Header />
       
       {/* Main Content with top padding to account for fixed header */}
-      <main className="pt-[120px] sm:pt-[140px] lg:pt-[160px]">
+      <main className="pt-[64px] sm:pt-[72px] lg:pt-[80px]">
       
       {/* Hero Section */}
-      <section className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
+      <section className="relative w-full aspect-[1906/488]">
         <Image
           src="/images/hero123.avif"
           alt="Saree Manufacturers Hero Background"
