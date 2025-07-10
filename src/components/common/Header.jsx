@@ -155,7 +155,7 @@ const Header = () => {
             </div>
             <div className="text-center sm:text-right">
               <p className="text-sm font-medium text-[#222] font-inter">Customer Support</p>
-              <a href="tel:+91-9913140434" className="text-sm font-semibold text-[#0a0a0b] font-inter hover:underline">+91-9913140434</a>
+              <a href="tel:+91-9925155141" className="text-sm font-semibold text-[#0a0a0b] font-inter hover:underline">+91-9925155141</a>
             </div>
           </div>
         </div>
