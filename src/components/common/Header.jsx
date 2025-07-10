@@ -12,7 +12,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white w-full" role="banner">
+    <header className="bg-white w-full fixed top-0 left-0 z-50" role="banner">
       {/* Top Header Section */}
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center py-2 lg:py-0 gap-4 lg:gap-0">

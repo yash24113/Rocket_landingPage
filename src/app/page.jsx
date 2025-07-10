@@ -105,6 +105,9 @@ const HomePage = () => {
       {/* Header */}
       <Header />
       
+      {/* Main Content with top padding to account for fixed header */}
+      <main className="pt-[120px] sm:pt-[140px] lg:pt-[160px]">
+      
       {/* Hero Section */}
       <section className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
         <Image
@@ -282,6 +285,7 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+      </main>
       
       {/* Footer */}
       <Footer />
