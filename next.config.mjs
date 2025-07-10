@@ -49,6 +49,15 @@ const nextConfig = {
           }
         ]
       }
+      {
+        source: "/images/(.*)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=36000", // cache for 1 hour
+          },
+        ],
+      },
     ]
   },
   async rewrites() {

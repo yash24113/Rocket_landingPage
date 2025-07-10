@@ -1,4 +1,4 @@
-export const revalidate = 60;
+export const revalidate = 2678400;
 
 import React from 'react';
 import Link from 'next/link';
