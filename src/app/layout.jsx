@@ -1,4 +1,4 @@
-import '../styles/standalone.css';
+import '../styles/index.css';
 import StickyIcons from '../components/common/StickyIcons';
 
 export const viewport = {
