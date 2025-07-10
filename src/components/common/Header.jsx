@@ -31,7 +31,7 @@ const Header = () => {
           {/* Search and Contact Section */}
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 lg:gap-8">
             {/* Search Bar */}
-            <div className="flex w-full sm:w-auto">
+            {/* <div className="flex w-full sm:w-auto">
               <div className="flex-1 sm:flex-none">
                 <input
                   type="text"
@@ -49,7 +49,7 @@ const Header = () => {
               >
                 Search
               </Button>
-            </div>
+            </div> */}
 
             {/* Contact Info */}
             <div className="flex items-center gap-2 sm:gap-3">

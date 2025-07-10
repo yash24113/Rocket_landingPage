@@ -108,7 +108,7 @@ const HomePage = () => {
       {/* Hero Section */}
       <section className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
         <Image
-          src="/images/img_hero_background.jpg"
+          src="/images/hero123.avif"
           alt="Saree Manufacturers Hero Background"
           fill
           priority
