@@ -1,4 +1,5 @@
 import '../styles/index.css';
+import StickyIcons from '../components/common/StickyIcons';
 
 export const viewport = {
   width: 'device-width',
@@ -26,7 +27,7 @@ export const metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico', type: 'image/x-icon' }
+      { url: 'https://amritafashions.com/wp-content/uploads/amrita-fashions-company-logo-150x150.webp', sizes: '32x32' }
     ],
   },
   verification: {
@@ -55,7 +56,8 @@ export default function RootLayout({ children }) {
         <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fyashsapp6073back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.5"></script>
       </head>
       <body className="antialiased font-inter">
-        {children}        
+        {children}
+        <StickyIcons />
       </body>
     </html>
   );
