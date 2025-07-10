@@ -19,7 +19,7 @@
     "react-dom": "18.2.0",
     "recharts": "^2.15.2",
     "sharp": "^0.32.6",
-    "critters": "^0.4.0"
+    "critters": "^0.3.2"
   },
   "devDependencies": {
     "@netlify/plugin-nextjs": "^5.11.4",
