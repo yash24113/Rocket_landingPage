@@ -1,3 +1,4 @@
+export const revalidate = 60;
 'use client';
 import React from 'react';
 import Link from 'next/link';
