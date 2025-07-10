@@ -12,9 +12,9 @@ const Footer = () => {
     setEmail('');
   };
 
-  const handleBusinessInquiry = () => {
-    console.log('Business inquiry clicked');
-  };
+  // const handleBusinessInquiry = () => {
+  //   console.log('Business inquiry clicked');
+  // };
 
   return (
     <footer className="bg-[#0a6563] w-full mt-16 px-4 sm:px-6 lg:px-8" role="contentinfo">
@@ -36,8 +36,8 @@ const Footer = () => {
               <div className="space-y-6">
                 {/* Logo */}
                 <Image 
-                  src="/images/img_footer_logo.avif"
-                  alt="Dhiranandv Creations Logo"
+                  src="/images/age_logo.avif"
+                  alt="Amrita Global Enterprises Logo"
                   width={250}
                   height={60}
                   className="w-[200px] sm:w-[220px] lg:w-[250px] h-auto"
@@ -74,7 +74,7 @@ const Footer = () => {
             </div>
 
             {/* Business Inquiry Button */}
-            <button 
+            {/* <button 
               onClick={handleBusinessInquiry}
               className="mt-4 bg-gradient-to-b from-white/15 to-white/0 rounded-full px-4 py-2 flex items-center gap-3 text-white font-montserrat text-sm hover:from-white/20 transition-all shadow-md"
             >
@@ -82,7 +82,7 @@ const Footer = () => {
                 <img src="/images/img_background_cyan_900.svg" alt="" className="w-5 h-5" />
               </div>
               Business Enquiry
-            </button>
+            </button> */}
           </div>
 
           {/* Links and Newsletter Section */}
@@ -179,7 +179,7 @@ const Footer = () => {
         {/* Copyright Section */}
         <div className="border-t border-white py-4">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 text-center">
-            <span className="text-sm font-inter text-white">© 2025 Dhananjay Creations Private Limited All Rights Reserved. Crafted with</span>
+            <span className="text-sm font-inter text-white">© 2025 Amrita Global Enterprises All Rights Reserved. Crafted with</span>
             <img src="/images/img_component_2_white_a700.svg" alt="" className="w-4 h-4" />
             <span className="text-sm font-inter text-white">by Webpulse -</span>
             <span className="text-sm font-inter text-white">Web Designing,</span>

@@ -39,16 +39,20 @@ const nextConfig = {
             value: 'public, max-age=31536000, immutable'
           }
         ]
+      },
+      {
+        source: '/rocket-web.js',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
+          }
+        ]
       }
     ]
   },
   async rewrites() {
-    return [
-      {
-        source: '/fonts/:path*',
-        destination: 'https://fonts.googleapis.com/:path*'
-      }
-    ]
+    return [];
   },
   webpack: (config, { dev, isServer }) => {
     // Optimize font loading
