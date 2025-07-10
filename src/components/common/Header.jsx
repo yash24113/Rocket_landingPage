@@ -116,7 +116,7 @@ const Header = () => {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  Saree
+                  Product
                   <img src="/images/img_vector.svg" alt="" className="w-3 h-3" />
                 </button>
                 <ul className="hidden lg:group-hover:block absolute top-full left-0 bg-white shadow-lg border rounded-md py-2 min-w-[200px] z-50" role="menu">
@@ -131,7 +131,7 @@ const Header = () => {
                   </li>
                 </ul>
               </li>
-              <li role="none" className="relative group">
+              {/* <li role="none" className="relative group">
                 <button 
                   className="w-full lg:w-auto text-left lg:text-center py-3 lg:py-4 px-0 lg:px-4 text-base font-montserrat text-[#1f1f1f] hover:text-[#0a6563] transition-colors flex items-center gap-2"
                   role="menuitem"
@@ -206,7 +206,7 @@ const Header = () => {
                 >
                   Blogs
                 </button>
-              </li>
+              </li> */}
               <li role="none">
                 <button 
                   className="w-full lg:w-auto text-left lg:text-center py-3 lg:py-4 px-0 lg:px-4 text-base font-opensans text-[#1f1f1f] hover:text-[#0a6563] transition-colors"
