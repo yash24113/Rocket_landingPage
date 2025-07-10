@@ -35,7 +35,33 @@ const Header = ({ onProductSelect }) => {
 
   return (
     <header className="bg-white w-full fixed top-0 left-0 z-50 border-b border-black" role="banner">
-      <div className="w-full px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row lg:items-center lg:justify-between py-2 lg:py-0 gap-4 lg:gap-0">
+      {/* Mobile Header */}
+      <div className="flex items-center justify-between w-full lg:hidden py-2 px-4">
+        <div className="flex items-center gap-2">
+          <Image 
+            src="/images/age_logo.avif"
+            alt="AGE Logo"
+            width={40}
+            height={40}
+            className="w-10 h-10 object-contain"
+            priority
+          />
+          <span className="text-xl font-bold font-montserrat text-[#0a6563]">AGE</span>
+          <img 
+            src="/images/img_background.svg" 
+            alt="Contact" 
+            className="w-6 h-6 ml-2"
+          />
+        </div>
+        {/* Hamburger Menu Icon */}
+        <button className="p-2" aria-label="Open menu">
+          <svg className="w-7 h-7 text-[#0a6563]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+      {/* Desktop Header */}
+      <div className="w-full px-4 sm:px-6 lg:px-8 flex-col lg:flex-row lg:items-center lg:justify-between py-2 lg:py-0 gap-4 lg:gap-0 hidden lg:flex">
         {/* Logo and Company Name */}
         <div className="flex items-center gap-3 lg:gap-4">
           <Image 
@@ -50,11 +76,11 @@ const Header = ({ onProductSelect }) => {
           <span className="text-xl lg:text-2xl font-bold font-montserrat text-[#0a6563] whitespace-nowrap hidden lg:block">Amrita Global Enterprises</span>
         </div>
         {/* Navigation Menu - Desktop Only */}
-        <nav className="hidden lg:block flex-1" role="navigation">
+        <nav className="flex-1" role="navigation">
           <ul className="flex justify-center items-center gap-8" role="menubar">
             <li role="none">
               <button 
-                className="text-base font-montserrat text-[#1f1f1f] hover:text-[#0a6563] transition-colors"
+                className="text-base font-montserrat text-[#1f1f1f] hover:text-[#0a6563] transition-colors font-bold bg-transparent border-none focus:ring-0 focus:outline-none cursor-pointer"
                 role="menuitem"
               >
                 Home
@@ -62,7 +88,7 @@ const Header = ({ onProductSelect }) => {
             </li>
             <li role="none">
               <button 
-                className="text-base font-montserrat text-[#1f1f1f] hover:text-[#0a6563] transition-colors"
+                className="text-base font-montserrat text-[#1f1f1f] hover:text-[#0a6563] transition-colors font-bold bg-transparent border-none focus:ring-0 focus:outline-none cursor-pointer"
                 role="menuitem"
               >
                 About Us
@@ -70,11 +96,24 @@ const Header = ({ onProductSelect }) => {
             </li>
             <li role="none">
               <button 
-                className="text-base font-opensans text-[#1f1f1f] hover:text-[#0a6563] transition-colors"
+                className="text-base font-opensans text-[#1f1f1f] hover:text-[#0a6563] transition-colors font-bold bg-transparent border-none focus:ring-0 focus:outline-none cursor-pointer"
                 role="menuitem"
               >
                 Contact Us
               </button>
+            </li>
+            <li role="none">
+              <select
+                className="text-base font-montserrat text-[#1f1f1f] hover:text-[#0a6563] transition-colors font-bold bg-transparent border-none focus:ring-0 focus:outline-none cursor-pointer"
+                value={selectedProductId}
+                onChange={e => setSelectedProductId(e.target.value)}
+                style={{ minWidth: 120 }}
+                role="menuitem"
+              >
+                {products.map((product) => (
+                  <option key={product._id} value={product._id}>{product.name}</option>
+                ))}
+              </select>
             </li>
           </ul>
         </nav>
