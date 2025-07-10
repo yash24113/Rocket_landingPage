@@ -37,9 +37,9 @@ const Header = () => {
     <header className="bg-white w-full fixed top-0 left-0 z-50 border-b border-black" role="banner">
       <div className="w-full px-4 sm:px-6 lg:px-8">
         {/* Mobile Header Bar */}
-        <div className="flex items-center justify-between py-2 lg:hidden">
+        <div className="flex items-center py-2 lg:hidden">
           {/* Left group: Logo, Company Name, Phone Icon */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-1 min-w-0">
             <Image 
               src="/images/age_logo.avif"
               alt="AGE Logo"
@@ -48,8 +48,8 @@ const Header = () => {
               className="w-9 h-9 object-contain"
               priority
             />
-            <span className="text-lg font-bold font-montserrat text-[#0a6563] whitespace-nowrap">Amrita Global Enterprises</span>
-            <a href="tel:+919925155141" className="flex items-center justify-center w-10 h-10 bg-[#0a6563] rounded-full ml-2" aria-label="Call Customer Support">
+            <span className="text-lg font-bold font-montserrat text-[#0a6563] whitespace-nowrap truncate">Amrita Global Enterprises</span>
+            <a href="tel:+919925155141" className="flex items-center justify-center w-10 h-10 bg-[#0a6563] rounded-full" aria-label="Call Customer Support">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.3 1.2a2 2 0 01-.45 1.95l-.7.7a16.001 16.001 0 006.36 6.36l.7-.7a2 2 0 011.95-.45l1.2.3A2 2 0 0121 18.72V21a2 2 0 01-2 2h-1C9.163 23 1 14.837 1 5V4a2 2 0 012-2z" />
               </svg>
@@ -57,7 +57,7 @@ const Header = () => {
           </div>
           {/* Menu Toggle Icon at far right */}
           <button 
-            className="ml-auto flex items-center justify-center w-10 h-10" 
+            className="flex items-center justify-center w-10 h-10" 
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
