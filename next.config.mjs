@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  productionBrowserSourceMaps: false,
+  productionBrowserSourceMaps: true,
   distDir: process.env.DIST_DIR || '.next',
   
   // Performance optimizations
@@ -100,9 +100,6 @@ const nextConfig = {
     
     return config;
   },
-  
-  // Disable source maps in production
-  productionBrowserSourceMaps: false,
   
   // Enable SWC minification
   swcMinify: true,

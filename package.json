@@ -8,7 +8,7 @@
     "start": "next start -p 4028",
     "format": "prettier --write \"src/**/*.{js,jsx,css,md,json}\"",
     "serve": "next start",
-    "analyze": "cross-env ANALYZE=true next build"
+    "analyze": "source-map-explorer .next/static/chunks/*.js"
   },
   "dependencies": {
     "@dhiwise/component-tagger": "^1.0.10",
@@ -28,6 +28,7 @@
     "cross-env": "^7.0.3",
     "postcss": "8.4.8",
     "prettier": "^3.5.3",
-    "tailwindcss": "3.4.6"
+    "tailwindcss": "3.4.6",
+    "source-map-explorer": "^2.5.3"
   }
 }
