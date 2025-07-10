@@ -13,13 +13,13 @@
   "dependencies": {
     "@dhiwise/component-tagger": "^1.0.10",
     "@tailwindcss/typography": "^0.5.16",
-    "next": "14.2.0",
+    "critters": "0.0.25",
+    "next": "^14.2.0",
     "prop-types": "^15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "recharts": "^2.15.2",
-    "sharp": "^0.32.6",
-    "critters": "^0.3.2"
+    "sharp": "^0.32.6"
   },
   "devDependencies": {
     "@netlify/plugin-nextjs": "^5.11.4",
