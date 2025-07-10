@@ -46,7 +46,8 @@ const Header = ({ onProductSelect }) => {
             className="w-12 h-12 object-contain"
             priority
           />
-          <span className="text-xl lg:text-2xl font-bold font-montserrat text-[#0a6563] whitespace-nowrap">Amrita Global Enterprises</span>
+          <span className="text-xl lg:text-2xl font-bold font-montserrat text-[#0a6563] whitespace-nowrap block lg:hidden">AGE</span>
+          <span className="text-xl lg:text-2xl font-bold font-montserrat text-[#0a6563] whitespace-nowrap hidden lg:block">Amrita Global Enterprises</span>
         </div>
         {/* Navigation Menu - Desktop Only */}
         <nav className="hidden lg:block flex-1" role="navigation">
