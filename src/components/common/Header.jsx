@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Button from '../ui/Button';
 import Image from 'next/image';
 
@@ -10,6 +10,7 @@ const Header = ({ onProductSelect }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileProductOpen, setMobileProductOpen] = useState(false);
   const [desktopProductOpen, setDesktopProductOpen] = useState(false);
+  const desktopDropdownRef = useRef(null);
 
   useEffect(() => {
     fetch('https://langingpage-production-f27f.up.railway.app/api/products')
@@ -36,6 +37,17 @@ const Header = ({ onProductSelect }) => {
       });
   }, [selectedProductId, onProductSelect]);
 
+  useEffect(() => {
+    if (!desktopProductOpen) return;
+    function handleClickOutside(event) {
+      if (desktopDropdownRef.current && !desktopDropdownRef.current.contains(event.target)) {
+        setDesktopProductOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [desktopProductOpen]);
+
   return (
     <header className="bg-white w-full fixed top-0 left-0 z-50 border-b border-black" role="banner">
       {/* Mobile Header */}
@@ -52,14 +64,12 @@ const Header = ({ onProductSelect }) => {
           <span className="text-xl font-bold font-montserrat text-[#0a6563]">AGE</span>
         </div>
         <div className="flex items-center gap-3">
-          {/* Phone Icon - right side, clickable */}
+          {/* Phone Icon - right side, clickable, use image */}
           <a href="tel:+919925155141" className="flex items-center justify-center" aria-label="Call +91-9925155141">
             <span className="w-8 h-8 bg-[#0a6563] rounded-full flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-5 h-5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h0a2.25 2.25 0 002.25-2.25v-2.25a2.25 2.25 0 00-2.25-2.25h-1.125a1.125 1.125 0 01-1.125-1.125v-1.125A2.25 2.25 0 0012.75 12h-1.5A2.25 2.25 0 009 14.25v1.125c0 .621-.504 1.125-1.125 1.125H6.75A2.25 2.25 0 004.5 18.75v2.25A2.25 2.25 0 006.75 23.25h0c8.284 0 15-6.716 15-15V6.75A2.25 2.25 0 0019.5 4.5h-2.25A2.25 2.25 0 0015 6.75v1.125c0 .621-.504 1.125-1.125 1.125H12.75A2.25 2.25 0 0010.5 9.75v1.125c0 .621-.504 1.125-1.125 1.125H8.25A2.25 2.25 0 006 14.25v1.125c0 .621-.504 1.125-1.125 1.125H2.25A2.25 2.25 0 000 18.75v2.25A2.25 2.25 0 002.25 23.25h0c8.284 0 15-6.716 15-15V6.75A2.25 2.25 0 0019.5 4.5h-2.25A2.25 2.25 0 0015 6.75v1.125c0 .621-.504 1.125-1.125 1.125H12.75A2.25 2.25 0 0010.5 9.75v1.125c0 .621-.504 1.125-1.125 1.125H8.25A2.25 2.25 0 006 14.25v1.125c0 .621-.504 1.125-1.125 1.125H2.25z" />
-            </svg>
-          </span>
-        </a>
+              <img src="/images/img_background.svg" alt="Call" className="w-5 h-5" />
+            </span>
+          </a>
           {/* Hamburger Menu Icon */}
           <button className="p-2" aria-label="Open menu" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
             <svg className="w-7 h-7 text-[#0a6563]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -136,10 +146,8 @@ const Header = ({ onProductSelect }) => {
               </button>
             </li>
             {/* Product Dropdown */}
-            <li role="none" className="relative"
-                onMouseEnter={() => setDesktopProductOpen(true)}
-                onMouseLeave={() => setDesktopProductOpen(false)}>
-              <button 
+            <li role="none" className="relative" ref={desktopDropdownRef}>
+              <button
                 className={`text-base font-montserrat text-[#1f1f1f] hover:text-[#0a6563] transition-colors font-bold bg-transparent border-none focus:ring-0 focus:outline-none cursor-pointer flex items-center ${desktopProductOpen ? 'text-[#0a6563]' : ''}`}
                 role="menuitem"
                 aria-haspopup="true"
