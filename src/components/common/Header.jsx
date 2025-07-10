@@ -16,16 +16,17 @@ const Header = () => {
       {/* Top Header Section */}
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center py-2 lg:py-0 gap-4 lg:gap-0">
-          {/* Logo */}
-          <div className="flex justify-center lg:justify-start">
+          {/* Logo and Company Name */}
+          <div className="flex items-center justify-center lg:justify-start gap-3 lg:gap-4">
             <Image 
               src="/images/age_logo.avif"
               alt="Amrita Global Enterprises Logo"
-              width={250}
-              height={60}
-              className="w-[200px] sm:w-[220px] lg:w-[250px] h-auto"
+              width={48}
+              height={48}
+              className="w-12 h-12 object-contain"
               priority
             />
+            <span className="text-xl lg:text-2xl font-bold font-montserrat text-[#0a6563] whitespace-nowrap">Amrita Global Enterprises</span>
           </div>
 
           {/* Search and Contact Section */}
