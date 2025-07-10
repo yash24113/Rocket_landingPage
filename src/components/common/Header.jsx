@@ -7,6 +7,8 @@ const Header = ({ onProductSelect }) => {
   const [products, setProducts] = useState([]);
   const [selectedProductId, setSelectedProductId] = useState('');
   const [loading, setLoading] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileProductOpen, setMobileProductOpen] = useState(false);
 
   useEffect(() => {
     fetch('https://langingpage-production-f27f.up.railway.app/api/products')
@@ -47,19 +49,53 @@ const Header = ({ onProductSelect }) => {
             priority
           />
           <span className="text-xl font-bold font-montserrat text-[#0a6563]">AGE</span>
-          <img 
-            src="/images/img_background.svg" 
-            alt="Contact" 
-            className="w-6 h-6 ml-2"
-          />
+          {/* Phone Icon */}
+          <div className="w-8 h-8 bg-[#0a6563] rounded-full flex items-center justify-center ml-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-5 h-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h0a2.25 2.25 0 002.25-2.25v-2.25a2.25 2.25 0 00-2.25-2.25h-1.125a1.125 1.125 0 01-1.125-1.125v-1.125A2.25 2.25 0 0012.75 12h-1.5A2.25 2.25 0 009 14.25v1.125c0 .621-.504 1.125-1.125 1.125H6.75A2.25 2.25 0 004.5 18.75v2.25A2.25 2.25 0 006.75 23.25h0c8.284 0 15-6.716 15-15V6.75A2.25 2.25 0 0019.5 4.5h-2.25A2.25 2.25 0 0015 6.75v1.125c0 .621-.504 1.125-1.125 1.125H12.75A2.25 2.25 0 0010.5 9.75v1.125c0 .621-.504 1.125-1.125 1.125H8.25A2.25 2.25 0 006 14.25v1.125c0 .621-.504 1.125-1.125 1.125H2.25A2.25 2.25 0 000 18.75v2.25A2.25 2.25 0 002.25 23.25h0c8.284 0 15-6.716 15-15V6.75A2.25 2.25 0 0019.5 4.5h-2.25A2.25 2.25 0 0015 6.75v1.125c0 .621-.504 1.125-1.125 1.125H12.75A2.25 2.25 0 0010.5 9.75v1.125c0 .621-.504 1.125-1.125 1.125H8.25A2.25 2.25 0 006 14.25v1.125c0 .621-.504 1.125-1.125 1.125H2.25z" />
+            </svg>
+          </div>
         </div>
         {/* Hamburger Menu Icon */}
-        <button className="p-2" aria-label="Open menu">
+        <button className="p-2" aria-label="Open menu" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
           <svg className="w-7 h-7 text-[#0a6563]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
+      {/* Mobile Menu Dropdown */}
+      {mobileMenuOpen && (
+        <div className="absolute top-full left-0 w-full bg-white shadow-lg z-50 lg:hidden">
+          <ul className="flex flex-col py-2">
+            <li>
+              <button className="w-full text-left px-6 py-2 text-base font-montserrat text-[#1f1f1f] hover:text-[#0a6563] font-bold" onClick={() => setMobileMenuOpen(false)}>Home</button>
+            </li>
+            <li>
+              <button className="w-full text-left px-6 py-2 text-base font-montserrat text-[#1f1f1f] hover:text-[#0a6563] font-bold" onClick={() => setMobileMenuOpen(false)}>About Us</button>
+            </li>
+            <li>
+              <button className="w-full text-left px-6 py-2 text-base font-montserrat text-[#1f1f1f] hover:text-[#0a6563] font-bold flex items-center justify-between" onClick={() => setMobileProductOpen(!mobileProductOpen)}>
+                Product
+                <svg className={`w-4 h-4 ml-2 transition-transform ${mobileProductOpen ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+              {mobileProductOpen && (
+                <ul className="pl-8">
+                  {products.map((product) => (
+                    <li key={product._id}>
+                      <button className="w-full text-left px-2 py-1 text-base text-[#1f1f1f] hover:text-[#0a6563]" onClick={() => { setSelectedProductId(product._id); setMobileMenuOpen(false); setMobileProductOpen(false); }}>{product.name}</button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+            <li>
+              <button className="w-full text-left px-6 py-2 text-base font-montserrat text-[#1f1f1f] hover:text-[#0a6563] font-bold" onClick={() => setMobileMenuOpen(false)}>Contact Us</button>
+            </li>
+          </ul>
+        </div>
+      )}
       {/* Desktop Header */}
       <div className="w-full px-4 sm:px-6 lg:px-8 flex-col lg:flex-row lg:items-center lg:justify-between py-2 lg:py-0 gap-4 lg:gap-0 hidden lg:flex">
         {/* Logo and Company Name */}
@@ -96,41 +132,23 @@ const Header = ({ onProductSelect }) => {
             </li>
             <li role="none">
               <button 
+                className="text-base font-montserrat text-[#1f1f1f] hover:text-[#0a6563] transition-colors font-bold bg-transparent border-none focus:ring-0 focus:outline-none cursor-pointer"
+                role="menuitem"
+              >
+                Product
+              </button>
+            </li>
+            <li role="none">
+              <button 
                 className="text-base font-opensans text-[#1f1f1f] hover:text-[#0a6563] transition-colors font-bold bg-transparent border-none focus:ring-0 focus:outline-none cursor-pointer"
                 role="menuitem"
               >
                 Contact Us
               </button>
             </li>
-            <li role="none">
-              <select
-                className="text-base font-montserrat text-[#1f1f1f] hover:text-[#0a6563] transition-colors font-bold bg-transparent border-none focus:ring-0 focus:outline-none cursor-pointer"
-                value={selectedProductId}
-                onChange={e => setSelectedProductId(e.target.value)}
-                style={{ minWidth: 120 }}
-                role="menuitem"
-              >
-                {products.map((product) => (
-                  <option key={product._id} value={product._id}>{product.name}</option>
-                ))}
-              </select>
-            </li>
           </ul>
         </nav>
-        {/* Product Dropdown (move here) */}
-        <div className="my-2 lg:my-0">
-          <select
-            className="text-lg font-bold font-playfair text-[#0a0a0b] rounded px-3 py-2 bg-white/90 focus:outline-none focus:ring-2 focus:ring-[#0a6563] border-2 border-[#0a6563]"
-            value={selectedProductId}
-            onChange={e => setSelectedProductId(e.target.value)}
-            style={{ minWidth: 200 }}
-          >
-            <option value="">Fabric</option>
-            {products.map((product) => (
-              <option key={product._id} value={product._id}>{product.name}</option>
-            ))}
-          </select>
-        </div>
+        {/* Product Dropdown removed from desktop nav */}
         {/* Contact Info */}
         <div className="flex items-center gap-2 sm:gap-3">
           <div className="w-[38px] h-[38px] bg-[#0a6563] rounded-full flex items-center justify-center">
