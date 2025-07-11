@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
         
         <meta name="theme-color" content="#ffffff" />
         <meta name="format-detection" content="telephone=no" />
-        <script type="module" src="/rocket-web.js"></script>
+        <script src="/rocket-web.js" defer></script>
       </head>
       <body className="antialiased font-inter">
         {children}

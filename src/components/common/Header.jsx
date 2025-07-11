@@ -3,21 +3,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import Button from '../ui/Button';
 import Image from 'next/image';
 
-const Header = ({ onProductSelect }) => {
-  const [products, setProducts] = useState([]);
+const Header = ({ onProductSelect, products = [] }) => {
   const [selectedProductId, setSelectedProductId] = useState('');
   const [loading, setLoading] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileProductOpen, setMobileProductOpen] = useState(false);
   const [desktopProductOpen, setDesktopProductOpen] = useState(false);
   const desktopDropdownRef = useRef(null);
-
-  useEffect(() => {
-    fetch('https://langingpage-production-f27f.up.railway.app/api/products')
-      .then((res) => res.json())
-      .then((data) => setProducts(data))
-      .catch(() => setProducts([]));
-  }, []);
 
   useEffect(() => {
     if (!selectedProductId) {
