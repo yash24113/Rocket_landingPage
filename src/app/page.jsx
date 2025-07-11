@@ -203,18 +203,19 @@ function ClientSelectedProduct() {
             {/* Image Section */}
             <div className="flex flex-col items-center">
               <figure className="relative w-full max-w-md h-72 md:h-96 rounded-lg overflow-hidden shadow">
-                <img
+                <Image
                   src="/images/img_bandhani_silk_saree.avif"
                   alt="Premium Surat Georgette Fabric with fine weave and elegant drape"
-                  className="object-cover"
-                  width={500}
-                  height={500}
+                  fill
+                  className="object-cover rounded-lg"
+                  sizes="(max-width: 768px) 100vw, 500px"
+                  priority
                 />
                 <figcaption className="sr-only">Premium Surat Georgette Fabric</figcaption>
               </figure>
 
               <div
-                className="mt-6 px-6 py-2 btn bg-primary text-primary-dark rounded-md hover:bg-primary-dark transition text-center cursor-pointer"
+                className="mt-6 px-6 py-2 border-2 border-[#0a6563] text-[#0a6563] rounded-md bg-white hover:bg-[#0a6563] hover:text-white transition text-center cursor-pointer font-semibold w-full max-w-xs mx-auto"
                 aria-label="Request a quote"
               >
                 Get Quote
