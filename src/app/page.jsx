@@ -131,17 +131,17 @@ function ClientSelectedProduct() {
       <main className="pt-[64px] sm:pt-[72px] lg:pt-[80px]">
 
         {/* Hero Section */}
-        <section className="relative w-full aspect-[4/5] sm:aspect-[1906/488] min-h-[320px] sm:min-h-0">
+        <section className="relative w-full min-h-[320px] md:min-h-[400px] lg:min-h-[500px] flex items-center">
           <Image
             src="/images/hero123.avif"
             alt="Saree Manufacturers Hero Background"
             fill
             priority
-            className="object-contain"
+            className="object-cover"
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-[#0a0a0b66]"></div>
-          <div className="relative z-10 flex flex-col justify-center items-start h-full px-4 sm:px-6 lg:px-8">
+          <div className="relative z-10 flex flex-col justify-center items-start h-full w-full px-4 sm:px-6 lg:px-8">
             <div className="w-full max-w-[1250px] mx-auto">
               <div className="max-w-2xl">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold font-playfair text-white mb-2 leading-tight">
