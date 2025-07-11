@@ -108,6 +108,7 @@ async function getProducts() {
   }
 }
 
+'use client';
 function ClientSelectedProduct({ products }) {
   const [selectedProduct, setSelectedProduct] = React.useState({ name: 'Fabric', description: 'Premium Fabric in Ahedabad' });
   return (
