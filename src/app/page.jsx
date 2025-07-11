@@ -201,24 +201,25 @@ function ClientSelectedProduct() {
             </div>
 
             {/* Image Section */}
-            <div className="flex flex-col items-center">
-              <figure className="relative w-full max-w-md h-72 md:h-96 rounded-lg overflow-hidden shadow">
-                <Image
-                  src="/images/img_lehenga_style_sarees.avif"
-                  alt="Premium Surat Georgette Fabric with fine weave and elegant drape"
-                  fill
-                  className="object-cover rounded-lg"
-                  sizes="(max-width: 768px) 100vw, 500px"
-                  priority
-                />
-                <figcaption className="sr-only">Premium Surat Georgette Fabric</figcaption>
-              </figure>
-
-              <div
-                className="mt-6 px-6 py-2 border-2 border-[#0a6563] text-[#0a6563] rounded-md bg-white hover:bg-[#0a6563] hover:text-white transition text-center cursor-pointer font-semibold w-full max-w-xs mx-auto"
-                aria-label="Request a quote"
-              >
-                Get Quote
+            <div className="flex flex-col items-center w-full">
+              <div className="bg-white rounded-xl shadow-lg p-2 w-full max-w-md flex flex-col justify-between h-full">
+                <figure className="relative w-full h-[340px] md:h-[420px] rounded-lg overflow-hidden">
+                  <Image
+                    src="/images/img_lehenga_style_sarees.avif"
+                    alt="Premium Surat Georgette Fabric with fine weave and elegant drape"
+                    fill
+                    className="object-cover rounded-lg"
+                    sizes="(max-width: 768px) 100vw, 500px"
+                    priority
+                  />
+                  <figcaption className="sr-only">Premium Surat Georgette Fabric</figcaption>
+                </figure>
+                <div
+                  className="mt-6 px-6 py-2 border-2 border-[#0a6563] text-[#0a6563] rounded-md bg-white hover:bg-[#0a6563] hover:text-white transition text-center cursor-pointer font-semibold w-full max-w-xs mx-auto"
+                  aria-label="Request a quote"
+                >
+                  Get Quote
+                </div>
               </div>
             </div>
           </div>
@@ -232,16 +233,16 @@ function ClientSelectedProduct() {
               <p className="text-secondary text-base pop">Premium georgette fabrics you'll love.</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {productCategories.map((product) => (
+              {productCategories.slice(0, 3).map((product) => (
                 <article key={product.id} className="bg-white rounded-lg shadow-md flex flex-col items-center p-6">
-                  <figure className="w-full h-64 bg-gray-100 rounded mb-3 overflow-hidden relative">
+                  <figure className="w-full aspect-[4/3] bg-gray-100 rounded mb-3 overflow-hidden relative">
                     <Image
                       src={product.image}
                       alt={product.title}
-                      width={400}
-                      height={400}
-                      className="object-cover w-full h-full"
+                      fill
+                      className="object-cover rounded w-full h-full"
                       sizes="(max-width: 1024px) 100vw, 400px"
+                      priority
                     />
                   </figure>
                   <h3 className="text-lg mb-1 text-primary text-center font-semibold">{product.title}</h3>
