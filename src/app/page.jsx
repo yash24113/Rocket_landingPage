@@ -4,6 +4,10 @@ import Link from 'next/link';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
 import Image from 'next/image';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { Navigation } from 'swiper/modules';
 
 // Static data for better performance
 const productCategories = [
@@ -257,24 +261,37 @@ function ClientSelectedProduct() {
               <h2 className="text-2xl sm:text-3xl font-bold font-playfair text-primary mb-2">Our Products</h2>
               <p className="text-secondary text-base pop">Premium georgette fabrics you'll love.</p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {productCategories.slice(0, 3).map((product) => (
-                <article key={product.id} className="bg-white rounded-lg shadow-md flex flex-col items-center p-6">
-                  <figure className="w-full aspect-[4/3] bg-gray-100 rounded mb-3 overflow-hidden relative">
-                    <Image
-                      src={product.image}
-                      alt={product.title}
-                      fill
-                      className="object-cover rounded w-full h-full"
-                      sizes="(max-width: 1024px) 100vw, 400px"
-                      priority
-                    />
-                  </figure>
-                  <h3 className="text-lg mb-1 text-primary text-center font-semibold">{product.title}</h3>
-                  <p className="text-gray-600 text-sm text-center mb-2">{product.description}</p>
-                </article>
+            <Swiper
+              modules={[Navigation]}
+              navigation
+              spaceBetween={24}
+              breakpoints={{
+                0: { slidesPerView: 1 },
+                640: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+              }}
+              className="!pb-8"
+            >
+              {productCategories.map((product) => (
+                <SwiperSlide key={product.id}>
+                  <article className="bg-white rounded-lg shadow-md flex flex-col items-center p-6">
+                    <figure className="w-full aspect-[4/3] bg-gray-100 rounded mb-3 overflow-hidden relative">
+                      <Image
+                        src={product.image}
+                        alt={product.title}
+                        fill
+                        className="object-cover rounded w-full h-full"
+                        sizes="(max-width: 1024px) 100vw, 400px"
+                        priority
+                      />
+                    </figure>
+                    <h3 className="text-lg mb-1 text-primary text-center font-semibold">{product.title}</h3>
+                    <p className="text-gray-600 text-sm text-center mb-2">{product.description}</p>
+                  </article>
+                </SwiperSlide>
               ))}
-            </div>
+            </Swiper>
           </div>
         </section>
 
