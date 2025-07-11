@@ -206,7 +206,7 @@ function ClientSelectedProduct() {
 
             {/* Image Section */}
             <div className="flex flex-col items-center w-full">
-              <div className="bg-white rounded-xl shadow-lg p-2 w-full max-w-md flex flex-col justify-between h-full">
+              <div className="bg-white rounded-xl shadow-lg p-1 w-full max-w-md flex flex-col justify-between h-full">
                 <figure className="w-full bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
                   <Image
                     src="/images/img_lehenga_style_sarees.avif"
@@ -220,7 +220,7 @@ function ClientSelectedProduct() {
                   <figcaption className="sr-only">Premium Surat Georgette Fabric</figcaption>
                 </figure>
                 <div
-                  className="mt-6 px-6 py-2 border-2 border-[#0a6563] text-[#0a6563] rounded-md bg-white hover:bg-[#0a6563] hover:text-white transition text-center cursor-pointer font-semibold w-full max-w-xs mx-auto"
+                  className="mt-2 px-6 py-2 border-2 border-[#0a6563] text-[#0a6563] rounded-md bg-white hover:bg-[#0a6563] hover:text-white transition text-center cursor-pointer font-semibold w-full max-w-xs mx-auto"
                   aria-label="Request a quote"
                 >
                   Get Quote
@@ -253,7 +253,7 @@ function ClientSelectedProduct() {
             </div>
           </div>
         </section>
-         
+
         {/* Our Products Section - Card View, Compact, No Extra Space */}
         <section id="product" className="bg-primary py-8">
           <div className="max-w-7xl mx-auto px-4">
@@ -430,6 +430,60 @@ function ClientSelectedProduct() {
                   collection styles that are suitable for a wide variety of preferences and sensibilities. The act of exporting our sarees is analogous to bringing a portion of Indian culture to the entire world.
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section
+          id="faq"
+          class="section bg-primary py-12"
+        >
+          <div class="max-w-8xl mx-auto px-4">
+            <h2 class="text-xl font-[400] san text-center mb-10 text-primary">
+              Frequently Asked Questions
+            </h2>
+
+            <div class="space-y-3">
+              {/* FAQ 1 */}
+              <details class="bg-white rounded-lg shadow-md p-4">
+                <summary class="text-gray-800 font-[400] san md:text-base cursor-pointer">
+                  What is georgette fabric?
+                </summary>
+                <p class="mt-2 text-gray-600 pop text-[14px]">
+                  Georgette is a lightweight, sheer fabric with a slightly crinkled texture.
+                </p>
+              </details>
+
+              {/* FAQ 2 */}
+              <details class="bg-white rounded-lg shadow-md p-4">
+                <summary class="text-gray-800 font-[400] san md:text-base cursor-pointer">
+                  Do you offer bulk discounts?
+                </summary>
+                <p class="mt-2 text-gray-600 pop text-[14px]">
+                  Yes, we offer special pricing for bulk and wholesale orders.
+                </p>
+              </details>
+
+              {/* FAQ 3 */}
+              <details class="bg-white san rounded-lg shadow-md p-4">
+                <summary class="text-gray-800 font-[400] md:text-base cursor-pointer">
+                  How long does shipping take?
+                </summary>
+                <p class="mt-2 text-gray-600 pop text-[14px]">
+                  Usually 3–7 business days depending on location.
+                </p>
+              </details>
+
+              {/* FAQ 4 */}
+              <details class="bg-white san rounded-lg shadow-md p-4">
+                <summary class="text-gray-800 font-[400] san md:text-base cursor-pointer">
+                  Can I request fabric samples?
+                </summary>
+                <p class="mt-2 pop text-gray-600 text-[14px]">
+                  Absolutely! Use our contact form to request free samples.
+                </p>
+              </details>
             </div>
           </div>
         </section>
