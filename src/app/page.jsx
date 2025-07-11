@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
+import { useRouter } from 'next/navigation';
 
 // Static data for better performance
 const productCategories = [
@@ -106,11 +107,13 @@ const productCategories = [
 function ClientSelectedProduct() {
   const [selectedProduct, setSelectedProduct] = React.useState({ name: 'Fabric', description: 'Premium Fabric in Ahedabad' });
   const [products, setProducts] = React.useState([]);
+  const [locationName, setLocationName] = React.useState('Surat');
+  const router = useRouter();
+
   React.useEffect(() => {
     fetch('https://langingpage-production-f27f.up.railway.app/api/products')
       .then((res) => res.json())
       .then((data) => {
-        // Map to expected structure for Header dropdown
         const mapped = Array.isArray(data)
           ? data.map(item => ({
             _id: item._id || item.id,
@@ -121,6 +124,28 @@ function ClientSelectedProduct() {
         setProducts(mapped);
       })
       .catch(() => setProducts([]));
+  }, []);
+
+  React.useEffect(() => {
+    // Get slug from URL (e.g., /paldi)
+    let slug = '';
+    if (typeof window !== 'undefined') {
+      const path = window.location.pathname;
+      // Remove leading slash and split by '/'
+      slug = path.split('/')[1] || '';
+    }
+    if (!slug) return;
+    fetch('https://langingpage-production-f27f.up.railway.app/api/locations')
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data)) {
+          const found = data.find(loc => loc.slug === slug);
+          if (found && found.name) {
+            setLocationName(found.name);
+          }
+        }
+      })
+      .catch(() => {});
   }, []);
   return (
     <div className="min-h-screen bg-white">
@@ -185,7 +210,7 @@ function ClientSelectedProduct() {
                 id="premium-products-heading"
                 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6 text-center md:text-start leading-snug"
               >
-                Get Premium Products Directly from Surat
+                {`Get Premium Products Directly from ${locationName}`}
               </h2>
               <hr className="w-16 border-t-2 border-primary mx-auto md:mx-0 mb-4" />
 
