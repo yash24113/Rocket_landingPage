@@ -207,7 +207,7 @@ function ClientSelectedProduct() {
             {/* Image Section */}
             <div className="flex flex-col items-center w-full">
               <div className="bg-white rounded-xl shadow-lg p-2 w-full max-w-md flex flex-col justify-between h-full">
-                <figure className="w-full aspect-[3/4] max-h-80 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+                <figure className="w-full bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
                   <Image
                     src="/images/img_lehenga_style_sarees.avif"
                     alt="Premium Surat Georgette Fabric with fine weave and elegant drape"
