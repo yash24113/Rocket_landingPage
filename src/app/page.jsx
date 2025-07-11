@@ -15,7 +15,7 @@ const productCategories = [
   },
   {
     id: 2,
-    title: "Designer Sarees", 
+    title: "Designer Sarees",
     description: "Focusing on Designer Sarees, Dhananjay Creations Privat...",
     image: "/images/img_designer_sarees.avif"
   },
@@ -109,10 +109,10 @@ function ClientSelectedProduct() {
         // Map to expected structure for Header dropdown
         const mapped = Array.isArray(data)
           ? data.map(item => ({
-              _id: item._id || item.id,
-              name: item.name || item.title,
-              ...item
-            }))
+            _id: item._id || item.id,
+            name: item.name || item.title,
+            ...item
+          }))
           : [];
         setProducts(mapped);
       })
@@ -122,248 +122,247 @@ function ClientSelectedProduct() {
     <div className="min-h-screen bg-white">
       {/* Header */}
       <Header onProductSelect={setSelectedProduct} products={products} />
-      
+
       {/* Main Content with top padding to account for fixed header */}
       <main className="pt-[64px] sm:pt-[72px] lg:pt-[80px]">
-      
-      {/* Hero Section */}
-      <section className="relative w-full aspect-[1906/488]">
-        <Image
-          src="/images/hero123.avif"
-          alt="Saree Manufacturers Hero Background"
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-[#0a0a0b66]"></div>
-        <div className="relative z-10 flex flex-col justify-center items-start h-full px-4 sm:px-6 lg:px-8">
-          <div className="w-full max-w-[1250px] mx-auto">
-            <div className="max-w-2xl">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold font-playfair text-white mb-2 leading-tight">
-                {selectedProduct.name}
-              </h1>
-              <div className="text-base sm:text-lg md:text-xl font-inter text-white mb-4">
-                {selectedProduct.description}
-              </div>
-              <nav className="flex items-center gap-2 sm:gap-3" aria-label="Breadcrumb">
-                <Link 
-                  href="/" 
-                  className="text-sm sm:text-base font-semibold font-inter text-white hover:text-gray-200 transition-colors"
-                >
-                  Home
-                </Link>
-                <Image
-                  src="/images/img_arrow_right.svg"
-                  alt="Arrow Right"
-                  width={20}
-                  height={20}
-                  priority
-                  className="w-4 h-4 sm:w-5 sm:h-5"
-                />
-                <span className="text-sm sm:text-base font-semibold font-inter text-white">
+
+        {/* Hero Section */}
+        <section className="relative w-full aspect-[1906/488]">
+          <Image
+            src="/images/hero123.avif"
+            alt="Saree Manufacturers Hero Background"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-[#0a0a0b66]"></div>
+          <div className="relative z-10 flex flex-col justify-center items-start h-full px-4 sm:px-6 lg:px-8">
+            <div className="w-full max-w-[1250px] mx-auto">
+              <div className="max-w-2xl">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold font-playfair text-white mb-2 leading-tight">
                   {selectedProduct.name}
-                </span>
-              </nav>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-      className="bg-primary py-12"
-      aria-labelledby="premium-products-heading"
-    >
-      <div className="max-w-8xl mx-auto grid md:grid-cols-2 gap-12 items-start px-4">
-        {/* Text Section */}
-        <div>
-          <h2
-            id="premium-products-heading"
-            className="text-xl font-[400] san text-center md:text-start mb-2 text-primary leading-snug"
-          >
-            Get Premium Products Directly from Surat
-          </h2>
-          <hr className="w-16 border-t-2 border-primary mx-auto md:mx-0 mb-4" />
-
-          <p className="mb-4 text-[14px] pop text-secondary leading-relaxed text-start">
-            Discover high-quality georgette fabric straight from trusted manufacturers in Surat,
-            crafted with precision to meet international standards. Our premium textiles are known
-            for their softness, durability, and luxurious drape — perfect for everything from
-            designer wear to export-grade garments.
-          </p>
-
-          <p className="text-secondary pop text-[14px] leading-relaxed text-start">
-            Whether you&apos;re sourcing for retail, wholesale, or custom production, we provide
-            versatile solutions tailored to your needs. Backed by years of expertise and
-            cutting-edge techniques, our georgette fabrics bring elegance and comfort together in
-            every weave.
-          </p>
-        </div>
-
-        {/* Image Section */}
-        <div className="flex flex-col items-center">
-          <figure className="relative w-full max-w-md h-72 md:h-96 rounded-lg overflow-hidden shadow">
-            <img
-              src="/images/img_bandhani_silk_saree.avif"
-              alt="Premium Surat Georgette Fabric with fine weave and elegant drape"
-              fill
-              loading="lazy"
-              sizes="(max-width: 768px) 100vw, (max-width: 1268px) 75vw, 33vw"
-              className="object-cover"
-            />
-            <figcaption className="sr-only">Premium Surat Georgette Fabric</figcaption>
-          </figure>
-
-          <div
-            className="mt-6 px-6 py-2 btn bg-primary text-primary-dark rounded-md hover:bg-primary-dark transition text-center cursor-pointer"
-            aria-label="Request a quote"
-          >
-            Get Quote
-          </div>
-        </div>
-      </div>
-    </section>
-      
-      {/* Featured Products Section */}
-      <section className="py-12 sm:py-16 md:py-20 lg:py-24">
-        <div className="w-full max-w-[1250px] mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Header */}
-          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-montserrat text-[#0a0a0b] mb-4 sm:mb-6">
-              Featured Products
-            </h2>
-            <div className="w-12 sm:w-16 md:w-20 h-[1px] bg-[#7c7c7c] mx-auto mb-4 sm:mb-6"></div>
-            <div className="max-w-4xl mx-auto space-y-2 sm:space-y-3">
-              <p className="text-sm sm:text-base md:text-lg font-medium font-inter text-[#222] leading-relaxed">
-                Showcasing our finest pieces, each product is a testament to exceptional craftsmanship and timeless elegance. Meticulously
-              </p>
-              <p className="text-sm sm:text-base md:text-lg font-medium font-inter text-[#222] leading-relaxed">
-                designed to enhance any wardrobe, these creations exude sophistication and charm.
-              </p>
-            </div>
-          </div>
-          
-          {/* Products Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-            {productCategories.map((product, index) => (
-              <article 
-                key={product.id}
-                className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105"
-              >
-                {/* Product Image */}
-                <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-72 overflow-hidden">
+                </h1>
+                <div className="text-base sm:text-lg md:text-xl font-inter text-white mb-4">
+                  {selectedProduct.description}
+                </div>
+                <nav className="flex items-center gap-2 sm:gap-3" aria-label="Breadcrumb">
+                  <Link
+                    href="/"
+                    className="text-sm sm:text-base font-semibold font-inter text-white hover:text-gray-200 transition-colors"
+                  >
+                    Home
+                  </Link>
                   <Image
-                    src={product.image}
-                    alt={product.title}
-                    width={295}
-                    height={442}
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
-                    className="group-hover:scale-110 transition-transform duration-300 object-cover"
-                    priority={index < 4}
+                    src="/images/img_arrow_right.svg"
+                    alt="Arrow Right"
+                    width={20}
+                    height={20}
+                    priority
+                    className="w-4 h-4 sm:w-5 sm:h-5"
                   />
-                </div>
-                
-                {/* Product Content */}
-                <div className="p-4 sm:p-5 lg:p-6">
-                  <h3 className="text-base sm:text-lg md:text-xl font-semibold font-roboto text-[#0a0a0b] mb-2 sm:mb-3 line-clamp-2 hover:text-[#0a6563] transition-colors cursor-pointer">
-                    {product.title}
-                  </h3>
-                  <p className="text-sm sm:text-base font-normal font-lato text-[#636363] leading-relaxed line-clamp-3">
-                    {product.description}
-                  </p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-      
-      {/* Content Sections */}
-      <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50">
-        <div className="w-full max-w-[1250px] mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Saree in Surat Section */}
-          <div className="mb-8 sm:mb-12 lg:mb-16">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
-              Saree in Surat
-            </h2>
-            <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-inter text-[#0a0a0b] leading-relaxed">
-              <p>
-                <span>Amrita Global Enterprises is a banner of exquisite sarees truly portraying the richness of India's cultural heritage. Elegance and tradition have culminated in our collection of </span>
-                <span className="font-bold">Saree in Surat</span>
-                <span>, thus with years of traditional techniques</span>
-              </p>
-              <p>
-                combined with a harmony of modern designs producing pieces aesthetically beautiful and durable. To accommodate a wide range of preferences and events, sarees are available in a wide variety of fabrics, colors, and designs. Each piece is
-              </p>
-              <p>
-                crafted with utmost care so that it speaks of the skill of craftsmanship as well as tradition.
-              </p>
+                  <span className="text-sm sm:text-base font-semibold font-inter text-white">
+                    {selectedProduct.name}
+                  </span>
+                </nav>
+              </div>
             </div>
           </div>
-          
-          {/* Get Premium Products Section */}
-          <div className="mb-8 sm:mb-12 lg:mb-16">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
-              Get Premium Products Directly from Saree Manufacturers in Surat
-            </h2>
-            <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-inter text-[#0a0a0b] leading-relaxed">
-              <p>
-                Our processes ensure that every saree meets the client's expectations. Our skilled artists use advanced techniques to create sarees that stand out in the market. Whether it's a casual outing or a festive celebration, our sarees ensure that every
+        </section>
+
+        <section
+          className="bg-primary py-12"
+          aria-labelledby="premium-products-heading"
+        >
+          <div className="max-w-8xl mx-auto grid md:grid-cols-2 gap-12 items-start px-4">
+            {/* Text Section */}
+            <div>
+              <h2
+                id="premium-products-heading"
+                className="text-xl font-[400] san text-center md:text-start mb-2 text-primary leading-snug"
+              >
+                Get Premium Products Directly from Surat
+              </h2>
+              <hr className="w-16 border-t-2 border-primary mx-auto md:mx-0 mb-4" />
+
+              <p className="mb-4 text-[14px] pop text-secondary leading-relaxed text-start">
+                Discover high-quality georgette fabric straight from trusted manufacturers in Surat,
+                crafted with precision to meet international standards. Our premium textiles are known
+                for their softness, durability, and luxurious drape — perfect for everything from
+                designer wear to export-grade garments.
               </p>
-              <p>
-                <span>woman has a perfect wardrobe. As one of the leading </span>
-                <span className="font-bold">Saree Manufacturers in Surat</span>
-                <span>, we take pride in maintaining quality and innovation in our production process. We look at giving our customers products that offer traditional aesthetics</span>
-              </p>
-              <p>
-                blended with modern trends, which makes us one of the preferred choices in the industry.
-              </p>
-            </div>
-          </div>
-          
-          {/* Party Wear Saree Suppliers Section */}
-          <div className="mb-8 sm:mb-12 lg:mb-16">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
-              Looking for Party Wear Saree Suppliers in Gujarat
-            </h2>
-            <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-inter text-[#0a0a0b] leading-relaxed">
-              <p>
-                <span>Our collection offers sarees with perfection for any celebration or event. We have set ourselves as one of the most reliable </span>
-                <span className="font-bold">Party Wear Saree Suppliers in Gujarat</span>
-                <span>, in the vast fashion market of Gujarat. All of them are so carefully designed that</span>
-              </p>
-              <p>
-                each one of them enhances the beauty and comfort of the wearer. Because we are aware of how essential it is to achieve a stunning appearance when attending events, our exclusive collection gives every lady the impression that the entire
-              </p>
-              <p>
-                world is centered on her. When talking about premium materials and intricate detailing, then our party wear sarees are sophisticated and full of grace in any festive celebration.
+
+              <p className="text-secondary pop text-[14px] leading-relaxed text-start">
+                Whether you&apos;re sourcing for retail, wholesale, or custom production, we provide
+                versatile solutions tailored to your needs. Backed by years of expertise and
+                cutting-edge techniques, our georgette fabrics bring elegance and comfort together in
+                every weave.
               </p>
             </div>
-          </div>
-          
-          {/* Most Trusted Party Wear Saree Exporters Section */}
-          <div>
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
-              Most Trusted Party Wear Saree Exporters in Gujarat
-            </h2>
-            <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-inter text-[#0a0a0b] leading-relaxed">
-              <p>
-                We cater to global audiences and make sure that our exquisite sarees reach fashion enthusiasts all over the world. A streamlined export operation of international standards gives our clients products that are pleasingly beautiful as well as up
-              </p>
-              <p>
-                <span>to the mark of the world market. We are also renowned as one of the premier </span>
-                <span className="font-bold">Party Wear Saree Exporters in Gujarat</span>
-                <span>. Because we are aware that our customers from other countries have a wide range of preferences, we have included in our</span>
-              </p>
-              <p>
-                collection styles that are suitable for a wide variety of preferences and sensibilities. The act of exporting our sarees is analogous to bringing a portion of Indian culture to the entire world.
-              </p>
+
+            {/* Image Section */}
+            <div className="flex flex-col items-center">
+              <figure className="relative w-full max-w-md h-72 md:h-96 rounded-lg overflow-hidden shadow">
+                <img
+                  src="/images/img_bandhani_silk_saree.avif"
+                  alt="Premium Surat Georgette Fabric with fine weave and elegant drape"
+                  className="object-cover"
+                  width={500}
+                  height={500}
+                />
+                <figcaption className="sr-only">Premium Surat Georgette Fabric</figcaption>
+              </figure>
+
+              <div
+                className="mt-6 px-6 py-2 btn bg-primary text-primary-dark rounded-md hover:bg-primary-dark transition text-center cursor-pointer"
+                aria-label="Request a quote"
+              >
+                Get Quote
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* Featured Products Section */}
+        <section className="py-12 sm:py-16 md:py-20 lg:py-24">
+          <div className="w-full max-w-[1250px] mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Section Header */}
+            <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-montserrat text-[#0a0a0b] mb-4 sm:mb-6">
+                Featured Products
+              </h2>
+              <div className="w-12 sm:w-16 md:w-20 h-[1px] bg-[#7c7c7c] mx-auto mb-4 sm:mb-6"></div>
+              <div className="max-w-4xl mx-auto space-y-2 sm:space-y-3">
+                <p className="text-sm sm:text-base md:text-lg font-medium font-inter text-[#222] leading-relaxed">
+                  Showcasing our finest pieces, each product is a testament to exceptional craftsmanship and timeless elegance. Meticulously
+                </p>
+                <p className="text-sm sm:text-base md:text-lg font-medium font-inter text-[#222] leading-relaxed">
+                  designed to enhance any wardrobe, these creations exude sophistication and charm.
+                </p>
+              </div>
+            </div>
+
+            {/* Products Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+              {productCategories.map((product, index) => (
+                <article
+                  key={product.id}
+                  className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105"
+                >
+                  {/* Product Image */}
+                  <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-72 overflow-hidden">
+                    <Image
+                      src={product.image}
+                      alt={product.title}
+                      width={295}
+                      height={442}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                      className="group-hover:scale-110 transition-transform duration-300 object-cover"
+                      priority={index < 4}
+                    />
+                  </div>
+
+                  {/* Product Content */}
+                  <div className="p-4 sm:p-5 lg:p-6">
+                    <h3 className="text-base sm:text-lg md:text-xl font-semibold font-roboto text-[#0a0a0b] mb-2 sm:mb-3 line-clamp-2 hover:text-[#0a6563] transition-colors cursor-pointer">
+                      {product.title}
+                    </h3>
+                    <p className="text-sm sm:text-base font-normal font-lato text-[#636363] leading-relaxed line-clamp-3">
+                      {product.description}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Content Sections */}
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50">
+          <div className="w-full max-w-[1250px] mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Saree in Surat Section */}
+            <div className="mb-8 sm:mb-12 lg:mb-16">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
+                Saree in Surat
+              </h2>
+              <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-inter text-[#0a0a0b] leading-relaxed">
+                <p>
+                  <span>Amrita Global Enterprises is a banner of exquisite sarees truly portraying the richness of India's cultural heritage. Elegance and tradition have culminated in our collection of </span>
+                  <span className="font-bold">Saree in Surat</span>
+                  <span>, thus with years of traditional techniques</span>
+                </p>
+                <p>
+                  combined with a harmony of modern designs producing pieces aesthetically beautiful and durable. To accommodate a wide range of preferences and events, sarees are available in a wide variety of fabrics, colors, and designs. Each piece is
+                </p>
+                <p>
+                  crafted with utmost care so that it speaks of the skill of craftsmanship as well as tradition.
+                </p>
+              </div>
+            </div>
+
+            {/* Get Premium Products Section */}
+            <div className="mb-8 sm:mb-12 lg:mb-16">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
+                Get Premium Products Directly from Saree Manufacturers in Surat
+              </h2>
+              <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-inter text-[#0a0a0b] leading-relaxed">
+                <p>
+                  Our processes ensure that every saree meets the client's expectations. Our skilled artists use advanced techniques to create sarees that stand out in the market. Whether it's a casual outing or a festive celebration, our sarees ensure that every
+                </p>
+                <p>
+                  <span>woman has a perfect wardrobe. As one of the leading </span>
+                  <span className="font-bold">Saree Manufacturers in Surat</span>
+                  <span>, we take pride in maintaining quality and innovation in our production process. We look at giving our customers products that offer traditional aesthetics</span>
+                </p>
+                <p>
+                  blended with modern trends, which makes us one of the preferred choices in the industry.
+                </p>
+              </div>
+            </div>
+
+            {/* Party Wear Saree Suppliers Section */}
+            <div className="mb-8 sm:mb-12 lg:mb-16">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
+                Looking for Party Wear Saree Suppliers in Gujarat
+              </h2>
+              <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-inter text-[#0a0a0b] leading-relaxed">
+                <p>
+                  <span>Our collection offers sarees with perfection for any celebration or event. We have set ourselves as one of the most reliable </span>
+                  <span className="font-bold">Party Wear Saree Suppliers in Gujarat</span>
+                  <span>, in the vast fashion market of Gujarat. All of them are so carefully designed that</span>
+                </p>
+                <p>
+                  each one of them enhances the beauty and comfort of the wearer. Because we are aware of how essential it is to achieve a stunning appearance when attending events, our exclusive collection gives every lady the impression that the entire
+                </p>
+                <p>
+                  world is centered on her. When talking about premium materials and intricate detailing, then our party wear sarees are sophisticated and full of grace in any festive celebration.
+                </p>
+              </div>
+            </div>
+
+            {/* Most Trusted Party Wear Saree Exporters Section */}
+            <div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
+                Most Trusted Party Wear Saree Exporters in Gujarat
+              </h2>
+              <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-inter text-[#0a0a0b] leading-relaxed">
+                <p>
+                  We cater to global audiences and make sure that our exquisite sarees reach fashion enthusiasts all over the world. A streamlined export operation of international standards gives our clients products that are pleasingly beautiful as well as up
+                </p>
+                <p>
+                  <span>to the mark of the world market. We are also renowned as one of the premier </span>
+                  <span className="font-bold">Party Wear Saree Exporters in Gujarat</span>
+                  <span>. Because we are aware that our customers from other countries have a wide range of preferences, we have included in our</span>
+                </p>
+                <p>
+                  collection styles that are suitable for a wide variety of preferences and sensibilities. The act of exporting our sarees is analogous to bringing a portion of Indian culture to the entire world.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
-      
+
       {/* Footer */}
       <Footer />
     </div>
