@@ -306,7 +306,7 @@ function ClientSelectedProduct() {
         </section>
 
         {/* Featured Products Section */}
-        <section className="py-4">
+        {/* <section className="py-4">
           <div className="w-full max-w-[1250px] mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div className="text-center mb-8 sm:mb-12 lg:mb-16">
@@ -356,7 +356,7 @@ function ClientSelectedProduct() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Content Sections */}
         <section className="py-4 bg-gray-50">
