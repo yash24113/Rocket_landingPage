@@ -1,6 +1,4 @@
-'use client';
-import React, { useState } from 'react';
-
+import React from 'react';
 import Link from 'next/link';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
@@ -100,11 +98,17 @@ const productCategories = [
   }
 ];
 
-// Remove 'use client';
-// Add server-side fetch for products
-export default async function HomePage() {
-  const res = await fetch('https://langingpage-production-f27f.up.railway.app/api/products', { cache: 'no-store' });
-  const products = await res.json();
+async function getProducts() {
+  try {
+    const res = await fetch('https://langingpage-production-f27f.up.railway.app/api/products', { cache: 'no-store' });
+    if (!res.ok) throw new Error('Failed to fetch');
+    return await res.json();
+  } catch {
+    return [];
+  }
+}
+
+function ClientSelectedProduct({ products }) {
   const [selectedProduct, setSelectedProduct] = React.useState({ name: 'Fabric', description: 'Premium Fabric in Ahedabad' });
   return (
     <div className="min-h-screen bg-white">
@@ -302,4 +306,9 @@ export default async function HomePage() {
       <Footer />
     </div>
   );
+}
+
+export default async function HomePage() {
+  const products = await getProducts();
+  return <ClientSelectedProduct products={products} />;
 }
