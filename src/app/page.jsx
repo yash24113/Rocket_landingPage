@@ -128,7 +128,7 @@ function ClientSelectedProduct() {
       <Header onProductSelect={setSelectedProduct} products={products} />
 
       {/* Main Content with top padding to account for fixed header */}
-      <main className="pt-[64px] sm:pt-[72px] lg:pt-[80px]">
+      <main>
 
         {/* Hero Section */}
         <section className="relative w-full h-[220px] md:h-[350px] lg:h-[400px] overflow-hidden">
