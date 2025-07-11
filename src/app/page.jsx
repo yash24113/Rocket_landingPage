@@ -137,7 +137,7 @@ function ClientSelectedProduct() {
             alt="Saree Manufacturers Hero Background"
             fill
             priority
-            className="object-cover"
+            className="object-contain"
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-[#0a0a0b66]"></div>
@@ -230,10 +230,10 @@ function ClientSelectedProduct() {
           </div>
         </section>
 
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50">
+        <section className="py-4 sm:py-6 md:py-8 lg:py-10 bg-gray-50">
           <div className="w-full max-w-[1250px] mx-auto px-4 sm:px-6 lg:px-8">
             {/* Get Premium Products Section */}
-            <div className="mb-8 sm:mb-12 lg:mb-16">
+            <div className="mb-4 sm:mb-6 lg:mb-8">
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
                 Get Premium Products Directly from Saree Manufacturers in Surat
               </h2>
@@ -255,7 +255,7 @@ function ClientSelectedProduct() {
         </section>
 
         {/* Our Products Section - Card View, Compact, No Extra Space */}
-        <section id="product" className="bg-primary py-8">
+        <section id="product" className="bg-primary py-4">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-6">
               <h2 className="text-2xl sm:text-3xl font-bold font-playfair text-primary mb-2">Our Products</h2>
@@ -306,7 +306,7 @@ function ClientSelectedProduct() {
         </section>
 
         {/* Featured Products Section */}
-        <section className="py-12 sm:py-16 md:py-20 lg:py-24">
+        <section className="py-4">
           <div className="w-full max-w-[1250px] mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div className="text-center mb-8 sm:mb-12 lg:mb-16">
@@ -332,14 +332,13 @@ function ClientSelectedProduct() {
                   className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105"
                 >
                   {/* Product Image */}
-                  <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-72 overflow-hidden flex justify-center items-center">
+                  <div className="relative w-full aspect-[3/4] overflow-hidden flex justify-center items-center">
                     <Image
                       src={product.image}
                       alt={product.title}
-                      width={180}
-                      height={270}
-                      sizes="(max-width: 640px) 70vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                      fill
                       className="group-hover:scale-110 transition-transform duration-300 object-contain"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
                       loading="lazy"
                     />
                   </div>
@@ -360,10 +359,10 @@ function ClientSelectedProduct() {
         </section>
 
         {/* Content Sections */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50">
+        <section className="py-4 bg-gray-50">
           <div className="w-full max-w-[1250px] mx-auto px-4 sm:px-6 lg:px-8">
             {/* Saree in Surat Section */}
-            <div className="mb-8 sm:mb-12 lg:mb-16">
+            <div className="mb-4 sm:mb-6 lg:mb-8">
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
                 Saree in Surat
               </h2>
@@ -383,7 +382,7 @@ function ClientSelectedProduct() {
             </div>
 
             {/* Get Premium Products Section */}
-            <div className="mb-8 sm:mb-12 lg:mb-16">
+            <div className="mb-4 sm:mb-6 lg:mb-8">
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
                 Get Premium Products Directly from Saree Manufacturers in Surat
               </h2>
@@ -403,7 +402,7 @@ function ClientSelectedProduct() {
             </div>
 
             {/* Party Wear Saree Suppliers Section */}
-            <div className="mb-8 sm:mb-12 lg:mb-16">
+            <div className="mb-4 sm:mb-6 lg:mb-8">
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
                 Looking for Party Wear Saree Suppliers in Gujarat
               </h2>
@@ -447,16 +446,16 @@ function ClientSelectedProduct() {
         {/* FAQ Section */}
         <section
           id="faq"
-          class="section bg-primary py-12"
+          class="section bg-primary py-4"
         >
           <div class="max-w-8xl mx-auto px-4">
-            <h2 class="text-xl font-[400] san text-center mb-10 text-primary">
+            <h2 class="text-xl font-[400] san text-center mb-4 text-primary">
               Frequently Asked Questions
             </h2>
 
-            <div class="space-y-3">
+            <div class="space-y-2">
               {/* FAQ 1 */}
-              <details class="bg-white rounded-lg shadow-md p-4">
+              <details class="bg-white rounded-lg shadow-md p-4 mb-2">
                 <summary class="text-gray-800 font-[400] san md:text-base cursor-pointer">
                   What is georgette fabric?
                 </summary>
@@ -466,7 +465,7 @@ function ClientSelectedProduct() {
               </details>
 
               {/* FAQ 2 */}
-              <details class="bg-white rounded-lg shadow-md p-4">
+              <details class="bg-white rounded-lg shadow-md p-4 mb-2">
                 <summary class="text-gray-800 font-[400] san md:text-base cursor-pointer">
                   Do you offer bulk discounts?
                 </summary>
@@ -476,7 +475,7 @@ function ClientSelectedProduct() {
               </details>
 
               {/* FAQ 3 */}
-              <details class="bg-white san rounded-lg shadow-md p-4">
+              <details class="bg-white san rounded-lg shadow-md p-4 mb-2">
                 <summary class="text-gray-800 font-[400] md:text-base cursor-pointer">
                   How long does shipping take?
                 </summary>
@@ -486,7 +485,7 @@ function ClientSelectedProduct() {
               </details>
 
               {/* FAQ 4 */}
-              <details class="bg-white san rounded-lg shadow-md p-4">
+              <details class="bg-white san rounded-lg shadow-md p-4 mb-2">
                 <summary class="text-gray-800 font-[400] san md:text-base cursor-pointer">
                   Can I request fabric samples?
                 </summary>
