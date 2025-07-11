@@ -332,14 +332,14 @@ function ClientSelectedProduct() {
                   className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105"
                 >
                   {/* Product Image */}
-                  <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-72 overflow-hidden">
+                  <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-72 overflow-hidden flex justify-center items-center">
                     <Image
                       src={product.image}
                       alt={product.title}
-                      width={295}
-                      height={442}
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
-                      className="group-hover:scale-110 transition-transform duration-300 object-cover"
+                      width={180}
+                      height={270}
+                      sizes="(max-width: 640px) 70vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                      className="group-hover:scale-110 transition-transform duration-300 object-contain"
                       loading="lazy"
                     />
                   </div>
