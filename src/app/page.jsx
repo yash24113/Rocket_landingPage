@@ -204,7 +204,7 @@ function ClientSelectedProduct() {
             <div className="flex flex-col items-center">
               <figure className="relative w-full max-w-md h-72 md:h-96 rounded-lg overflow-hidden shadow">
                 <Image
-                  src="/images/img_bandhani_silk_sarees.avif"
+                  src="/images/img_lehenga_style_sarees.avif"
                   alt="Premium Surat Georgette Fabric with fine weave and elegant drape"
                   fill
                   className="object-cover rounded-lg"
@@ -220,6 +220,190 @@ function ClientSelectedProduct() {
               >
                 Get Quote
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Main Content Sections */}
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50">
+          <div className="w-full max-w-[1250px] mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Saree in Surat Section */}
+            <div className="mb-8 sm:mb-12 lg:mb-16">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
+                Saree in Surat
+              </h2>
+              <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-inter text-[#0a0a0b] leading-relaxed">
+                <p>
+                  <span>Amrita Global Enterprises is a banner of exquisite sarees truly portraying the richness of India's cultural heritage. Elegance and tradition have culminated in our collection of </span>
+                  <span className="font-bold">Saree in Surat</span>
+                  <span>, thus with years of traditional techniques</span>
+                </p>
+                <p>
+                  combined with a harmony of modern designs producing pieces aesthetically beautiful and durable. To accommodate a wide range of preferences and events, sarees are available in a wide variety of fabrics, colors, and designs. Each piece is
+                </p>
+                <p>
+                  crafted with utmost care so that it speaks of the skill of craftsmanship as well as tradition.
+                </p>
+              </div>
+            </div>
+
+
+          </div>
+        </section>
+
+        <section
+          id="product"
+          className="section bg-primary py-12"
+          aria-labelledby="products-heading"
+        >
+          <div className="max-w-8xl mx-auto px-4">
+            <h2
+              id="products-heading"
+              className="text-xl san font-[400] text-center mb-4 text-primary"
+            >
+              Our Products
+            </h2>
+            <p className=" text-center mb-10 pop text-[14px] text-secondary">
+              Premium georgette fabrics you&apos;ll love.
+            </p>
+
+            {/* === MOBILE CAROUSEL === */}
+            <div className="block md:hidden" role="group" aria-label="Mobile product carousel">
+              <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 scrollbar-hide scroll-smooth scroll-pl-4">
+                {/* Slide 1 */}
+                <article id="slide-1" className="min-w-full snap-center scroll-mx-4" aria-labelledby="product-1-title">
+                  <div className="bg-white rounded-lg shadow-md flex flex-col items-center p-4">
+                    <figure className="w-full h-56 bg-gray-100 rounded mb-4 overflow-hidden relative">
+                      <img
+                        src="/images/img_embroidered_sarees.avif"
+                        alt="White Georgette Fabric - Lightweight and soft for elegant outfits"
+                        width={600}
+                        height={400}
+                        loading="lazy"
+                        className="object-cover"
+
+                        sizes="(max-width: 768px) 100vw, (max-width: 1268px) 50vw, 33vw"
+                      />
+                    </figure>
+                    <h3 id="product-1-title" className="text-lg mb-2 text-primary text-center">White Georgette</h3>
+                    <p className="text-gray-600 text-sm text-center">
+                      Soft and elegant white georgette fabric.
+                    </p>
+                    <div className="flex justify-end w-full mt-4 px-4">
+                      <a href="#slide-2" aria-label="Go to next product" className="text-primary bg-primary-dark p-2">→</a>
+                    </div>
+                  </div>
+                </article>
+
+                {/* Slide 2 */}
+                <article id="slide-2" className="min-w-full snap-center scroll-mx-4" aria-labelledby="product-2-title">
+                  <div className="bg-white rounded-lg shadow-md flex flex-col items-center p-4">
+                    <figure className="w-full h-56 bg-gray-100 rounded mb-4 overflow-hidden relative">
+                      <img
+                        src="/images/img_embroidered_sarees.avif"
+                        alt="Purple Georgette Fabric - Vibrant and bold for statement designs"
+                        width={600}
+                        height={400}
+                        loading="lazy"
+
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1268px) 50vw, 33vw"
+                      />
+                    </figure>
+                    <h3 id="product-2-title" className="text-lg mb-2 text-primary text-center">Purple Georgette</h3>
+                    <p className="text-gray-600 text-sm text-center">
+                      Vibrant purple georgette for bold designs.
+                    </p>
+                    <div className="flex justify-between w-full mt-4 px-4">
+                      <a href="#slide-1" aria-label="Go to previous product" className="text-primary border-2 bg-primary-dark p-2">←</a>
+                      <a href="#slide-3" aria-label="Go to next product" className="text-primary border-2 bg-primary-dark p-2">→</a>
+                    </div>
+                  </div>
+                </article>
+
+                {/* Slide 3 */}
+                <article id="slide-3" className="min-w-full snap-center scroll-mx-4" aria-labelledby="product-3-title">
+                  <div className="bg-white rounded-lg shadow-md flex flex-col items-center p-4">
+                    <figure className="w-full h-56 bg-gray-100 rounded mb-4 overflow-hidden relative">
+                      <img
+                        src="/images/img_embroidered_sarees.avif"
+                        alt="Gold Georgette Fabric - Shimmering fabric for festive and special occasions"
+                        width={600}
+                        height={400}
+                        loading="lazy"
+
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1268px) 50vw, 33vw"
+                      />
+                    </figure>
+                    <h3 id="product-3-title" className="text-lg mb-2 text-primary text-center">Gold Georgette</h3>
+                    <p className="text-gray-600 text-sm text-center">
+                      Shimmering gold georgette for special occasions.
+                    </p>
+                    <div className="flex justify-start w-full mt-4 px-4">
+                      <a href="#slide-2" aria-label="Go to previous product" className="text-primary bg-primary-dark p-2">←</a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            {/* === DESKTOP GRID === */}
+            <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
+              {/* Product 1 */}
+              <article aria-labelledby="desktop-product-1-title" className="bg-white rounded-lg shadow-md flex flex-col items-center p-6">
+                <figure className="w-full h-64 bg-gray-100 rounded mb-4 overflow-hidden relative">
+                  <img
+                    src="/images/img_embroidered_sarees.avif"
+                    alt="White Georgette Fabric - Lightweight and soft for elegant outfits"
+                    width={600}
+                    height={400}
+                    loading="lazy"
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1268px) 50vw, 33vw"
+                  />
+                </figure>
+                <h3 id="desktop-product-1-title" className="font-[400] text-lg mb-2 text-gray-800 text-center">White Georgette</h3>
+                <p className="text-secondary text-sm text-center">
+                  Soft and elegant white georgette fabric.
+                </p>
+              </article>
+
+              {/* Product 2 */}
+              <article aria-labelledby="desktop-product-2-title" className="bg-white rounded-lg shadow-md flex flex-col items-center p-6">
+                <figure className="w-full h-64 bg-gray-100 rounded mb-4 overflow-hidden relative">
+                  <img
+                    src="/images/img_embroidered_sarees.avif"
+                    alt="Purple Georgette Fabric - Vibrant and bold for statement designs"
+                    fill
+                    loading="lazy"
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1268px) 50vw, 33vw"
+                  />
+                </figure>
+                <h3 id="desktop-product-2-title" className="font-[400] text-lg mb-2 text-gray-800 text-center">Purple Georgette</h3>
+                <p className="text-secondary text-sm text-center">
+                  Vibrant purple georgette for bold designs.
+                </p>
+              </article>
+
+              {/* Product 3 */}
+              <article aria-labelledby="desktop-product-3-title" className="bg-white rounded-lg shadow-md flex flex-col items-center p-6">
+                <figure className="w-full h-64 bg-gray-100 rounded mb-4 overflow-hidden relative">
+                  <img
+                    src="/images/img_embroidered_sarees.avif"
+                    alt="Gold Georgette Fabric - Shimmering and luxurious for weddings and parties"
+                    fill
+                    loading="lazy"
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1268px) 50vw, 33vw"
+                  />
+                </figure>
+                <h3 id="desktop-product-3-title" className="font-[400] text-lg mb-2 text-gray-800 text-center">Gold Georgette</h3>
+                <p className="text-secondary text-sm text-center">
+                  Shimmering gold georgette for special occasions.
+                </p>
+              </article>
             </div>
           </div>
         </section>
