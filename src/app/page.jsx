@@ -215,10 +215,7 @@ function ClientSelectedProduct() {
               <hr className="w-16 border-t-2 border-primary mx-auto md:mx-0 mb-4" />
 
               <p className="mb-4 text-sm sm:text-base md:text-lg font-normal font-inter text-secondary leading-relaxed text-start">
-                Discover high-quality georgette fabric straight from trusted manufacturers in Surat,
-                crafted with precision to meet international standards. Our premium textiles are known
-                for their softness, durability, and luxurious drape — perfect for everything from
-                designer wear to export-grade garments.
+                {`Discover high-quality georgette fabric straight from trusted manufacturers in ${locationName}, crafted with precision to meet international standards. Our premium textiles are known for their softness, durability, and luxurious drape — perfect for everything from designer wear to export-grade garments.`}
               </p>
 
               <p className="text-secondary font-inter text-sm sm:text-base md:text-lg font-normal leading-relaxed text-start">
@@ -260,7 +257,7 @@ function ClientSelectedProduct() {
             {/* Get Premium Products Section */}
             <div className="mb-4 sm:mb-6 lg:mb-8">
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
-                Get Premium Products Directly from Saree Manufacturers in Surat
+                {`Get Premium Products Directly from Saree Manufacturers in ${locationName}`}
               </h2>
               <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-inter text-[#0a0a0b] leading-relaxed">
                 <p>
@@ -268,7 +265,7 @@ function ClientSelectedProduct() {
                 </p>
                 <p>
                   <span>woman has a perfect wardrobe. As one of the leading </span>
-                  <span className="font-bold">Saree Manufacturers in Surat</span>
+                  <span className="font-bold">{`Saree Manufacturers in ${locationName}`}</span>
                   <span>, we take pride in maintaining quality and innovation in our production process. We look at giving our customers products that offer traditional aesthetics</span>
                 </p>
                 <p>
@@ -390,12 +387,12 @@ function ClientSelectedProduct() {
             {/* Saree in Surat Section */}
             <div className="mb-4 sm:mb-6 lg:mb-8">
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
-                Saree in Surat
+                {`Saree in ${locationName}`}
               </h2>
               <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-inter text-[#0a0a0b] leading-relaxed">
                 <p>
                   <span>Amrita Global Enterprises is a banner of exquisite sarees truly portraying the richness of India's cultural heritage. Elegance and tradition have culminated in our collection of </span>
-                  <span className="font-bold">Saree in Surat</span>
+                  <span className="font-bold">{`Saree in ${locationName}`}</span>
                   <span>, thus with years of traditional techniques</span>
                 </p>
                 <p>
@@ -410,7 +407,7 @@ function ClientSelectedProduct() {
             {/* Get Premium Products Section */}
             <div className="mb-4 sm:mb-6 lg:mb-8">
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
-                Get Premium Products Directly from Saree Manufacturers in Surat
+                {`Get Premium Products Directly from Saree Manufacturers in ${locationName}`}
               </h2>
               <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-inter text-[#0a0a0b] leading-relaxed">
                 <p>
@@ -418,7 +415,7 @@ function ClientSelectedProduct() {
                 </p>
                 <p>
                   <span>woman has a perfect wardrobe. As one of the leading </span>
-                  <span className="font-bold">Saree Manufacturers in Surat</span>
+                  <span className="font-bold">{`Saree Manufacturers in ${locationName}`}</span>
                   <span>, we take pride in maintaining quality and innovation in our production process. We look at giving our customers products that offer traditional aesthetics</span>
                 </p>
                 <p>
