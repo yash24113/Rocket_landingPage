@@ -128,10 +128,10 @@ function ClientSelectedProduct() {
       <Header onProductSelect={setSelectedProduct} products={products} />
 
       {/* Main Content with top padding to account for fixed header */}
-      <main>
+      <main className="pt-[64px] sm:pt-[72px] lg:pt-[80px]">
 
         {/* Hero Section */}
-        <section className="relative w-full h-[300px] sm:h-[350px] md:h-[350px] lg:h-[400px] overflow-hidden mt-4">
+        <section className="relative w-full h-[220px] md:h-[350px] lg:h-[400px] overflow-hidden">
           <Image
             src="/images/hero123.avif"
             alt="Saree Manufacturers Hero Background"
@@ -306,9 +306,10 @@ function ClientSelectedProduct() {
         </section>
 
         {/* Featured Products Section */}
+
         {/* <section className="py-4">
           <div className="w-full max-w-[1250px] mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Section Header */}
+          
             <div className="text-center mb-8 sm:mb-12 lg:mb-16">
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-montserrat text-[#0a0a0b] mb-4 sm:mb-6">
                 Featured Products
@@ -324,14 +325,14 @@ function ClientSelectedProduct() {
               </div>
             </div>
 
-            {/* Products Grid */}
+         
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
               {productCategories.map((product, index) => (
                 <article
                   key={product.id}
                   className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105"
                 >
-                  {/* Product Image */}
+       
                   <div className="relative w-full aspect-[3/4] overflow-hidden flex justify-center items-center">
                     <Image
                       src={product.image}
@@ -343,7 +344,7 @@ function ClientSelectedProduct() {
                     />
                   </div>
 
-                  {/* Product Content */}
+              
                   <div className="p-4 sm:p-5 lg:p-6">
                     <h3 className="text-base sm:text-lg md:text-xl font-semibold font-roboto text-[#0a0a0b] mb-2 sm:mb-3 line-clamp-2 hover:text-[#0a6563] transition-colors cursor-pointer">
                       {product.title}
