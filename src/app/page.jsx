@@ -131,7 +131,7 @@ function ClientSelectedProduct() {
       <main>
 
         {/* Hero Section */}
-        <section className="relative w-full h-[220px] md:h-[350px] lg:h-[400px] overflow-hidden">
+        <section className="relative w-full h-[220px] md:h-[350px] lg:h-[400px] overflow-hidden mt-4">
           <Image
             src="/images/hero123.avif"
             alt="Saree Manufacturers Hero Background"
