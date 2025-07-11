@@ -183,20 +183,20 @@ function ClientSelectedProduct() {
             <div>
               <h2
                 id="premium-products-heading"
-                className="text-xl font-[400] san text-center md:text-start mb-2 text-primary leading-snug"
+                className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6 text-center md:text-start leading-snug"
               >
                 Get Premium Products Directly from Surat
               </h2>
               <hr className="w-16 border-t-2 border-primary mx-auto md:mx-0 mb-4" />
 
-              <p className="mb-4 text-[14px] pop text-secondary leading-relaxed text-start">
+              <p className="mb-4 text-sm sm:text-base md:text-lg font-normal font-inter text-secondary leading-relaxed text-start">
                 Discover high-quality georgette fabric straight from trusted manufacturers in Surat,
                 crafted with precision to meet international standards. Our premium textiles are known
                 for their softness, durability, and luxurious drape — perfect for everything from
                 designer wear to export-grade garments.
               </p>
 
-              <p className="text-secondary pop text-[14px] leading-relaxed text-start">
+              <p className="text-secondary font-inter text-sm sm:text-base md:text-lg font-normal leading-relaxed text-start">
                 Whether you&apos;re sourcing for retail, wholesale, or custom production, we provide
                 versatile solutions tailored to your needs. Backed by years of expertise and
                 cutting-edge techniques, our georgette fabrics bring elegance and comfort together in
