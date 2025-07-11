@@ -227,26 +227,6 @@ function ClientSelectedProduct() {
 
         <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50">
           <div className="w-full max-w-[1250px] mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Saree in Surat Section */}
-            <div className="mb-8 sm:mb-12 lg:mb-16">
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
-                Saree in Surat
-              </h2>
-              <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-inter text-[#0a0a0b] leading-relaxed">
-                <p>
-                  <span>Amrita Global Enterprises is a banner of exquisite sarees truly portraying the richness of India's cultural heritage. Elegance and tradition have culminated in our collection of </span>
-                  <span className="font-bold">Saree in Surat</span>
-                  <span>, thus with years of traditional techniques</span>
-                </p>
-                <p>
-                  combined with a harmony of modern designs producing pieces aesthetically beautiful and durable. To accommodate a wide range of preferences and events, sarees are available in a wide variety of fabrics, colors, and designs. Each piece is
-                </p>
-                <p>
-                  crafted with utmost care so that it speaks of the skill of craftsmanship as well as tradition.
-                </p>
-              </div>
-            </div>
-
             {/* Get Premium Products Section */}
             <div className="mb-8 sm:mb-12 lg:mb-16">
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
@@ -266,8 +246,6 @@ function ClientSelectedProduct() {
                 </p>
               </div>
             </div>
-
-            
           </div>
         </section>
          
