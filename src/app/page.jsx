@@ -131,7 +131,7 @@ function ClientSelectedProduct() {
       <main className="pt-[64px] sm:pt-[72px] lg:pt-[80px]">
 
         {/* Hero Section */}
-        <section className="relative w-full aspect-[1906/488]">
+        <section className="relative w-full aspect-[4/5] sm:aspect-[1906/488] min-h-[320px] sm:min-h-0">
           <Image
             src="/images/hero123.avif"
             alt="Saree Manufacturers Hero Background"
