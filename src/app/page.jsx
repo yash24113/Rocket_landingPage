@@ -295,10 +295,10 @@ function ClientSelectedProduct() {
                   </article>
                 </SwiperSlide>
               ))}
-              <div className="swiper-button-prev !w-7 !h-7 !bg-white !rounded-full !shadow !flex !items-center !justify-center !text-primary !border !border-primary hover:!bg-primary hover:!text-white transition absolute z-10 left-2 top-1/2 -translate-y-1/2 cursor-pointer">
+              <div className="swiper-button-prev !flex !items-center !justify-center !text-primary !border !border-primary hover:!bg-primary hover:!text-white transition absolute z-10 left-2 top-1/2 -translate-y-1/2 cursor-pointer">
                 <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" strokeWidth="2" d="M15 19l-7-7 7-7"/></svg>
               </div>
-              <div className="swiper-button-next !w-7 !h-7 !bg-white !rounded-full !shadow !flex !items-center !justify-center !text-primary !border !border-primary hover:!bg-primary hover:!text-white transition absolute z-10 right-2 top-1/2 -translate-y-1/2 cursor-pointer">
+              <div className="swiper-button-next !flex !items-center !justify-center !text-primary !border !border-primary hover:!bg-primary hover:!text-white transition absolute z-10 right-2 top-1/2 -translate-y-1/2 cursor-pointer">
                 <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" strokeWidth="2" d="M9 5l7 7-7 7"/></svg>
               </div>
             </Swiper>
