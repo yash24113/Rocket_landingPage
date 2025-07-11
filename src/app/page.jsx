@@ -178,9 +178,9 @@ function ClientSelectedProduct() {
           className="bg-primary py-12"
           aria-labelledby="premium-products-heading"
         >
-          <div className="max-w-8xl mx-auto grid md:grid-cols-2 gap-12 items-start px-4">
+          <div className="max-w-8xl mx-auto flex flex-col md:flex-row gap-12 items-center md:items-stretch px-4">
             {/* Text Section */}
-            <div>
+            <div className="flex-1 max-w-2xl self-center">
               <h2
                 id="premium-products-heading"
                 className="text-xl font-[400] san text-center md:text-start mb-2 text-primary leading-snug"
@@ -205,17 +205,17 @@ function ClientSelectedProduct() {
             </div>
 
             {/* Image Section */}
-            <div className="flex flex-col items-center w-full">
-              <div className="bg-white rounded-xl shadow-lg p-2 w-full max-w-md flex flex-col justify-between h-full">
+            <div className="flex-1 flex flex-col items-center justify-center w-full">
+              <div className="bg-white rounded-xl shadow-lg p-4 w-full max-w-md flex flex-col justify-between h-full">
                 <figure className="w-full aspect-[3/4] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
                   <Image
                     src="/images/img_lehenga_style_sarees.avif"
                     alt="Premium Surat Georgette Fabric with fine weave and elegant drape"
-                    width={360}
-                    height={480}
+                    width={400}
+                    height={533}
                     className="object-cover object-center rounded-lg"
-                    sizes="(max-width: 768px) 100vw, 360px"
-                    loading="lazy"
+                    sizes="(max-width: 1024px) 100vw, 400px"
+                    priority
                   />
                   <figcaption className="sr-only">Premium Surat Georgette Fabric</figcaption>
                 </figure>
