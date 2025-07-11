@@ -204,7 +204,7 @@ function ClientSelectedProduct() {
             <div className="flex flex-col items-center">
               <figure className="relative w-full max-w-md h-72 md:h-96 rounded-lg overflow-hidden shadow">
                 <Image
-                  src="/images/img_bandhani_silk_saree.avif"
+                  src="/images/img_bandhani_silk_sarees.avif"
                   alt="Premium Surat Georgette Fabric with fine weave and elegant drape"
                   fill
                   className="object-cover rounded-lg"
