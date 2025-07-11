@@ -104,7 +104,7 @@ const productCategories = [
   }
 ];
 
-function ClientSelectedProduct() {
+function ClientSelectedProduct({ slug = '' }) {
   const [selectedProduct, setSelectedProduct] = React.useState({ name: 'Fabric', description: 'Premium Fabric in Ahedabad' });
   const [products, setProducts] = React.useState([]);
   const [locationName, setLocationName] = React.useState('Surat');
@@ -127,26 +127,24 @@ function ClientSelectedProduct() {
   }, []);
 
   React.useEffect(() => {
-    // Get slug from URL (e.g., /paldi)
-    let slug = '';
-    if (typeof window !== 'undefined') {
+    let usedSlug = slug;
+    if (!usedSlug && typeof window !== 'undefined') {
       const path = window.location.pathname;
-      // Remove leading slash and split by '/'
-      slug = path.split('/')[1] || '';
+      usedSlug = path.split('/')[1] || '';
     }
-    if (!slug) return;
+    if (!usedSlug) return;
     fetch('https://langingpage-production-f27f.up.railway.app/api/locations')
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) {
-          const found = data.find(loc => loc.slug === slug);
+          const found = data.find(loc => loc.slug === usedSlug);
           if (found && found.name) {
             setLocationName(found.name);
           }
         }
       })
       .catch(() => {});
-  }, []);
+  }, [slug]);
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
