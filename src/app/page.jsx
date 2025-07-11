@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import Link from 'next/link';
 import Header from '../components/common/Header';
@@ -103,14 +104,28 @@ const productCategories = [
 ];
 
 function ClientSelectedProduct() {
-  // Static hero content
-  const selectedProduct = { name: 'Fabric', description: 'Premium Fabric in Ahedabad' };
-  // No products for header dropdown
-  const products = [];
+  const [selectedProduct, setSelectedProduct] = React.useState({ name: 'Fabric', description: 'Premium Fabric in Ahedabad' });
+  const [products, setProducts] = React.useState([]);
+  React.useEffect(() => {
+    fetch('https://langingpage-production-f27f.up.railway.app/api/products')
+      .then((res) => res.json())
+      .then((data) => {
+        // Map to expected structure for Header dropdown
+        const mapped = Array.isArray(data)
+          ? data.map(item => ({
+            _id: item._id || item.id,
+            name: item.name || item.title,
+            ...item
+          }))
+          : [];
+        setProducts(mapped);
+      })
+      .catch(() => setProducts([]));
+  }, []);
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <Header products={products} />
+      <Header onProductSelect={setSelectedProduct} products={products} />
 
       {/* Main Content with top padding to account for fixed header */}
       <main className="pt-[64px] sm:pt-[72px] lg:pt-[80px]">
@@ -130,10 +145,10 @@ function ClientSelectedProduct() {
             <div className="w-full max-w-[1250px] mx-auto">
               <div className="max-w-2xl">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold font-playfair text-white mb-2 leading-tight">
-                  Fabric
+                  {selectedProduct.name}
                 </h1>
                 <div className="text-base sm:text-lg md:text-xl font-inter text-white mb-4">
-                  Premium Fabric in Ahedabad
+                  {selectedProduct.description}
                 </div>
                 <nav className="flex items-center gap-2 sm:gap-3" aria-label="Breadcrumb">
                   <Link
@@ -151,7 +166,7 @@ function ClientSelectedProduct() {
                     className="w-4 h-4 sm:w-5 sm:h-5"
                   />
                   <span className="text-sm sm:text-base font-semibold font-inter text-white">
-                    Fabric
+                    {selectedProduct.name}
                   </span>
                 </nav>
               </div>
