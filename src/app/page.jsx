@@ -215,7 +215,7 @@ function ClientSelectedProduct() {
                     height={480}
                     className="object-cover object-center rounded-lg"
                     sizes="(max-width: 768px) 100vw, 360px"
-                    priority
+                    loading="lazy"
                   />
                   <figcaption className="sr-only">Premium Surat Georgette Fabric</figcaption>
                 </figure>
@@ -283,7 +283,7 @@ function ClientSelectedProduct() {
                         fill
                         className="object-cover rounded w-full h-full"
                         sizes="(max-width: 1024px) 100vw, 400px"
-                        priority
+                        loading="lazy"
                       />
                     </figure>
                     <h3 className="text-lg mb-1 text-primary text-center font-semibold">{product.title}</h3>
@@ -330,7 +330,7 @@ function ClientSelectedProduct() {
                       height={442}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
                       className="group-hover:scale-110 transition-transform duration-300 object-cover"
-                      priority={index < 4}
+                      loading="lazy"
                     />
                   </div>
 
