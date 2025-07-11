@@ -2,6 +2,8 @@
 const nextConfig = {
   experimental: {
     optimizePackageImports: ['@next/font'],
+    legacyBrowsers: false,
+    browsersListForSwc: true,
   },
   images: {
     formats: ['image/avif', 'image/webp'],
@@ -54,7 +56,7 @@ const nextConfig = {
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=36000", // cache for 1 hour
+            value: "public, max-age=360000", // cache for 100 hour
           },
         ],
       },
