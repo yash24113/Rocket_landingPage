@@ -104,10 +104,11 @@ const productCategories = [
   }
 ];
 
-function ClientSelectedProduct({ slug = '' }) {
+function ClientSelectedProduct({ slug = '', productSlug = '' }) {
   const [selectedProduct, setSelectedProduct] = React.useState({ name: 'Fabric', description: 'Premium Fabric in Ahedabad' });
   const [products, setProducts] = React.useState([]);
   const [locationName, setLocationName] = React.useState('Surat');
+  const [productName, setProductName] = React.useState('Fabric');
   const router = useRouter();
 
   React.useEffect(() => {
@@ -122,9 +123,20 @@ function ClientSelectedProduct({ slug = '' }) {
           }))
           : [];
         setProducts(mapped);
+        // Set product name based on productSlug
+        if (productSlug) {
+          const foundProduct = mapped.find(p => p.slug === productSlug);
+          if (foundProduct && foundProduct.name) {
+            setProductName(foundProduct.name);
+          } else {
+            setProductName('Fabric');
+          }
+        } else {
+          setProductName('Fabric');
+        }
       })
       .catch(() => setProducts([]));
-  }, []);
+  }, [productSlug]);
 
   React.useEffect(() => {
     let usedSlug = slug;
@@ -208,7 +220,7 @@ function ClientSelectedProduct({ slug = '' }) {
                 id="premium-products-heading"
                 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6 text-center md:text-start leading-snug"
               >
-                {`Get Premium Products Directly from ${locationName}`}
+                {`Get Premium ${productName} Directly from ${locationName}`}
               </h2>
               <hr className="w-16 border-t-2 border-primary mx-auto md:mx-0 mb-4" />
 
