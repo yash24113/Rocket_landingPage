@@ -18,7 +18,7 @@ const Header = ({ onProductSelect, products = [] }) => {
       return;
     }
     setLoading(true);
-    fetch(`https://langingpage-production-f27f.up.railway.app/api/products/${selectedProductId}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/products/${selectedProductId}`)
       .then((res) => res.json())
       .then((data) => {
         onProductSelect && onProductSelect(data);
