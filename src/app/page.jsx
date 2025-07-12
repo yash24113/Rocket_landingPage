@@ -117,7 +117,7 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
   // To use a custom API base URL, create a .env file in the project root with:
   // NEXT_PUBLIC_API_BASE_URL=http://age-backend-landing.45.93.137.179.sslip.io
 
-  const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://age-backend-landing.45.93.137.179.sslip.io';
+  const API_BASE_URL = 'http://age-backend-landing.45.93.137.179.sslip.io';
 
   React.useEffect(() => {
     fetch(`${API_BASE_URL}/api/products`)

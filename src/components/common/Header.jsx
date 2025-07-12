@@ -18,7 +18,7 @@ const Header = ({ onProductSelect, products = [] }) => {
       return;
     }
     setLoading(true);
-    fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/products/${selectedProductId}`)
+    fetch(`http://age-backend-landing.45.93.137.179.sslip.io/api/products/${selectedProductId}`)
       .then((res) => res.json())
       .then((data) => {
         onProductSelect && onProductSelect(data);
