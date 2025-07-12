@@ -114,8 +114,13 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
   const router = useRouter();
   const [isContactOpen, setIsContactOpen] = React.useState(false);
 
+  // To use a custom API base URL, create a .env file in the project root with:
+  // NEXT_PUBLIC_API_BASE_URL=http://age-backend-landing.45.93.137.179.sslip.io
+
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://age-backend-landing.45.93.137.179.sslip.io';
+
   React.useEffect(() => {
-    fetch('https://langingpage-production-f27f.up.railway.app/api/products')
+    fetch(`${API_BASE_URL}/api/products`)
       .then((res) => res.json())
       .then((data) => {
         const mapped = Array.isArray(data)
@@ -148,7 +153,7 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
       usedSlug = path.split('/')[1] || '';
     }
     if (!usedSlug) return;
-    fetch('https://langingpage-production-f27f.up.railway.app/api/locations')
+    fetch(`${API_BASE_URL}/api/locations`)
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) {
