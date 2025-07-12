@@ -240,7 +240,7 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
               <p className="text-secondary font-inter text-sm sm:text-base md:text-lg font-normal leading-relaxed text-start">
                 Whether you&apos;re sourcing for retail, wholesale, or custom production, we provide
                 versatile solutions tailored to your needs. Backed by years of expertise and
-                cutting-edge techniques, our georgette fabrics bring elegance and comfort together in
+                cutting-edge techniques, our georgete fabrics bring elegance and comfort together in
                 every weave.
               </p>
             </div>
