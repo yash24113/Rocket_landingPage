@@ -47,7 +47,7 @@ const Footer = () => {
                 {/* Company Description */}
                 <p className="text-sm font-inter text-[#0a0a0b] leading-relaxed">
                   Amrita Global Enterprises Limited is the leading and highly reputed name in
-                  manufacturing and supplying a vast range of products, including sarees,
+                  manufacturing and supplying a vast range of product, including sarees,
                   embroidery fabric, lace, and lehengas. We are also well-known as the best online
                   store where you can easily shop for all these products.
                 </p>
