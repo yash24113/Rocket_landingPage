@@ -7,7 +7,7 @@ const steps = [
   { label: 'Message', name: 'message', type: 'textarea', placeholder: 'Enter your message' },
 ];
 
-export default function MultiStepContactModal({ open, onClose }) {
+export default function MultiStepContactModal({ open, onClose, initialEmail }) {
   const [step, setStep] = useState(0);
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [submitting, setSubmitting] = useState(false);
@@ -20,6 +20,13 @@ export default function MultiStepContactModal({ open, onClose }) {
       modalRef.current.focus();
     }
   }, [open]);
+
+  // Pre-fill email if initialEmail is provided and modal is opened
+  useEffect(() => {
+    if (open && initialEmail) {
+      setForm((prev) => ({ ...prev, email: initialEmail }));
+    }
+  }, [open, initialEmail]);
 
   if (!open) return null;
 

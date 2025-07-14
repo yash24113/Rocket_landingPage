@@ -3,13 +3,16 @@ import React, { useState } from 'react';
 import Button from '../ui/Button';
 import EditText from '../ui/EditText';
 import Image from 'next/image';
+import MultiStepContactModal from './MultiStepContactModal';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalEmail, setModalEmail] = useState('');
 
   const handleNewsletterSubmit = () => {
-    console.log('Newsletter subscription:', email);
-    setEmail('');
+    setModalEmail(email);
+    setModalOpen(true);
   };
 
   // const handleBusinessInquiry = () => {
@@ -188,6 +191,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <MultiStepContactModal open={modalOpen} onClose={() => setModalOpen(false)} initialEmail={modalEmail} />
     </footer>
   );
 };
