@@ -15,6 +15,8 @@ export default function RootLayout({ children }) {
         
         <meta name="theme-color" content="#ffffff" />
         <meta name="format-detection" content="telephone=no" />
+        <meta name="google-site-verification" content={process.env.google_site_verification} />
+
         <script src="/rocket-web.js" defer></script>
       </head>
       <body className="antialiased font-inter">
