@@ -1,9 +1,9 @@
 import Script from 'next/script';
 
-const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
+
 
 export default function GoogleAnalyticsScript() {
-  if (!GA_TRACKING_ID) return null; // Optional: avoid rendering if not set
+  if (!`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`) return null; // Optional: avoid rendering if not set
 
   return (
     <>
@@ -19,7 +19,7 @@ export default function GoogleAnalyticsScript() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${GA_TRACKING_ID}');
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');  
           `,
         }}
       />
