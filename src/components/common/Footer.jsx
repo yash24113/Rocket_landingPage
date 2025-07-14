@@ -10,6 +10,16 @@ const Footer = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalEmail, setModalEmail] = useState('');
 
+  // Get values from environment variables
+  const phone1 = process.env.NEXT_PUBLIC_COMPANY_PHONE1 || '+91 9824003484';
+  const phone2 = process.env.NEXT_PUBLIC_COMPANY_PHONE2 || '+91 9925155141';
+  const address = process.env.NEXT_PUBLIC_COMPANY_ADDRESS || '404,4th Floor, Safal Prelude,Behind YMCA Club,Corporate Road, Prahlad Nagar, Ahmedabad - 380015, Gujarat, India';
+  const facebookUrl = process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK || '#';
+  const whatsappUrl = process.env.NEXT_PUBLIC_SOCIAL_WHATSAPP || '#';
+  const xUrl = process.env.NEXT_PUBLIC_SOCIAL_X || '#';
+  const linkedinUrl = process.env.NEXT_PUBLIC_SOCIAL_LINKEDIN || '#';
+  const youtubeUrl = process.env.NEXT_PUBLIC_SOCIAL_YOUTUBE || '#';
+
   const handleNewsletterSubmit = () => {
     setModalEmail(email);
     setModalOpen(true);
@@ -59,17 +69,16 @@ const Footer = () => {
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <img src="/images/img_vector_cyan_900.svg" alt="" className="w-4 h-4" />
-                    <span className="text-sm font-semibold font-inter text-[#0a0a0b]">+91 9824003484</span>
+                    <span className="text-sm font-semibold font-inter text-[#0a0a0b]">{phone1}</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <img src="/images/img_vector_cyan_900.svg" alt="" className="w-4 h-4" />
-                    <span className="text-sm font-semibold font-inter text-[#0a0a0b]">+91 9925155141</span>
+                    <span className="text-sm font-semibold font-inter text-[#0a0a0b]">{phone2}</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <img src="/images/img_component_2.svg" alt="" className="w-4 h-4 mt-1" />
                     <span className="text-sm font-inter text-[#0a0a0b] leading-relaxed">
-                     404,4th Floor, Safal Prelude,Behind YMCA Club,Corporate Road,
-                     Prahlad Nagar, Ahmedabad - 380015, Gujarat, India
+                      {address}
                     </span>
                   </div>
                 </div>
@@ -127,20 +136,21 @@ const Footer = () => {
             <div className="space-y-4">
               <h3 className="text-lg font-montserrat text-[#f9fefd] capitalize">You can Follow us at</h3>
               <div className="flex items-center gap-2">
-                
-                <div className="w-8 h-8 flex items-center justify-center">
+                <a href={facebookUrl} target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center">
                   <img src="/images/img_facebook.avif" alt="Facebook" className="w-6 h-6" />
-                </div>
-                <img src="/images/img_link.avif" alt="" className="w-6 h-8" />
-                <div className="w-8 h-8 flex items-center justify-center">
-                  <img src="/images/img_twitter.avif" alt="Twitter" className="w-6 h-6" />
-                </div>
-                <div className="w-8 h-8 flex items-center justify-center">
+                </a>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center">
+                  <img src="/images/img_link.avif" alt="WhatsApp" className="w-6 h-6" />
+                </a>
+                <a href={xUrl} target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center">
+                  <img src="/images/img_twitter.avif" alt="X" className="w-6 h-6" />
+                </a>
+                <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center">
                   <img src="/images/img_linkedin.avif" alt="LinkedIn" className="w-6 h-6" />
-                </div>
-                <div className="w-8 h-8 flex items-center justify-center">
+                </a>
+                <a href={youtubeUrl} target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center">
                   <img src="/images/img_youtube.avif" alt="YouTube" className="w-6 h-6" />
-                </div>
+                </a>
               </div>
             </div>
           </div>

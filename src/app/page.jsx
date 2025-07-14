@@ -11,6 +11,7 @@ import { Navigation } from 'swiper/modules';
 import { useRouter } from 'next/navigation';
 import MultiStepContactModal from '../components/common/MultiStepContactModal';
 import StickyIcons from '../components/common/StickyIcons';
+import { useState } from 'react';
 
 // Static data for better performance
 const productCategories = [
@@ -113,6 +114,7 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
   const [productName, setProductName] = React.useState('Fabric');
   const router = useRouter();
   const [isContactOpen, setIsContactOpen] = React.useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   // To use a custom API base URL, create a .env file in the project root with:
   // NEXT_PUBLIC_API_BASE_URL=http://age-backend-landing.45.93.137.179.sslip.io
@@ -171,6 +173,7 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
       <Header onProductSelect={setSelectedProduct} products={products} />
       {!isContactOpen && <StickyIcons onBusinessClick={() => setIsContactOpen(true)} />}
       <MultiStepContactModal open={isContactOpen} onClose={() => setIsContactOpen(false)} />
+      <MultiStepContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
       {/* Main Content with top padding to account for fixed header */}
       <main className="pt-[64px] sm:pt-[72px] lg:pt-[80px]">
 
@@ -263,6 +266,7 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
                 <div
                   className="mt-2 px-6 py-2 border-2 border-[#0a6563] text-[#0a6563] rounded-md bg-white hover:bg-[#0a6563] hover:text-white transition text-center cursor-pointer font-semibold w-full max-w-xs mx-auto"
                   aria-label="Request a quote"
+                  onClick={() => setModalOpen(true)}
                 >
                   Get Quote
                 </div>

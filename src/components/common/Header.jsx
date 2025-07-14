@@ -12,6 +12,10 @@ const Header = ({ onProductSelect, products = [] }) => {
   const [desktopProductOpen, setDesktopProductOpen] = useState(false);
   const desktopDropdownRef = useRef(null);
 
+  const COMPANY_NAME = process.env.NEXT_PUBLIC_COMPANY_NAME || "Company Name";
+  const COMPANY_SHORT_NAME = process.env.NEXT_PUBLIC_COMPANY_SHORT_NAME || "Short Name";
+  const SUPPORT_PHONE = process.env.NEXT_PUBLIC_SUPPORT_PHONE || "+91-0000000000";
+
   useEffect(() => {
     if (!selectedProductId) {
       onProductSelect && onProductSelect({ name: 'Fabric', description: 'Premium Fabric in Ahedabad' });
@@ -54,11 +58,11 @@ const Header = ({ onProductSelect, products = [] }) => {
             className="w-10 h-10 object-contain"
             priority
           />
-          <span className="text-xl font-bold font-montserrat text-[#0a6563]">AGE</span>
+          <span className="text-xl font-bold font-montserrat text-[#0a6563]">{COMPANY_SHORT_NAME}</span>
         </div>
         <div className="flex items-center gap-3">
           {/* Phone Icon - right side, clickable, use image */}
-          <a href="tel:+919925155141" className="flex items-center justify-center" aria-label="Call +91-9925155141">
+          <a href={`tel:${SUPPORT_PHONE}`} className="flex items-center justify-center" aria-label={`Call ${SUPPORT_PHONE}`}>
             <span className="w-8 h-8 bg-[#0a6563] rounded-full flex items-center justify-center">
               <img src="/images/img_background.svg" alt="Call" className="w-5 h-5" />
             </span>
@@ -116,8 +120,8 @@ const Header = ({ onProductSelect, products = [] }) => {
             className="w-12 h-12 object-contain"
             priority
           />
-          <span className="text-xl lg:text-2xl font-bold font-montserrat text-[#0a6563] whitespace-nowrap block lg:hidden">AGE</span>
-          <span className="text-xl lg:text-2xl font-bold font-montserrat text-[#0a6563] whitespace-nowrap hidden lg:block">Amrita Global Enterprises</span>
+          <span className="text-xl lg:text-2xl font-bold font-montserrat text-[#0a6563] whitespace-nowrap block lg:hidden">{COMPANY_SHORT_NAME}</span>
+          <span className="text-xl lg:text-2xl font-bold font-montserrat text-[#0a6563] whitespace-nowrap hidden lg:block">{COMPANY_NAME}</span>
         </div>
         {/* Navigation Menu - Desktop Only */}
         <nav className="flex-1" role="navigation">
@@ -191,7 +195,7 @@ const Header = ({ onProductSelect, products = [] }) => {
           </div>
           <div className="text-center sm:text-right">
             <p className="text-sm font-medium text-[#222] font-inter">Customer Support</p>
-            <a href="tel:+91-9925155141" className="text-sm font-semibold text-[#0a0a0b] font-inter hover:underline">+91-9925155141</a>
+            <a href={`tel:${SUPPORT_PHONE}`} className="text-sm font-semibold text-[#0a0a0b] font-inter hover:underline">{SUPPORT_PHONE}</a>
           </div>
         </div>
       </div>
