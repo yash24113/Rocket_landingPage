@@ -1,7 +1,7 @@
 import '../styles/index.css';
 import { metadata } from './metadata';
 import GoogleAnalyticsScript from '../../public/GoogleAnalyticsScript';
-import MicrosoftClarityScript from '../../public/MicrosoftCliarity';
+import MicrosoftClarityScript from '../../public/MicrosoftClarityScript';
 
 export const viewport = {
   width: 'device-width',
