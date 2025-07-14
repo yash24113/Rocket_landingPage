@@ -18,6 +18,8 @@ export default function RootLayout({ children }) {
         <meta name="google-site-verification" content={process.env.google_site_verification} />
 
         <script src="/rocket-web.js" defer></script>
+        <script src='/GoogleAnalyticsScript.js'></script>
+
       </head>
       <body className="antialiased font-inter">
         {children}
