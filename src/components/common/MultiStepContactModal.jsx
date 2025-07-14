@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const steps = [
-  { label: 'Name', name: 'name', type: 'text', placeholder: 'Enter your name' },
+  { label: 'Name', name: 'name', type: 'text', placeholder: 'Enter your Name' },
   { label: 'Email', name: 'email', type: 'email', placeholder: 'Enter your email' },
   { label: 'Phone', name: 'phone', type: 'tel', placeholder: 'Enter your phone number' },
   { label: 'Message', name: 'message', type: 'textarea', placeholder: 'Enter your message' },
@@ -36,10 +36,27 @@ export default function MultiStepContactModal({ open, onClose }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
+    try {
+      const response = await fetch('https://age-landing-backend.egport.com/api/inquiries', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          message: form.message,
+          step: 3, // Always submit with step 3 as per final step
+        }),
+      });
+      if (!response.ok) throw new Error('Failed to submit');
       setSubmitted(true);
-    }, 1200);
+    } catch (error) {
+      alert('There was an error submitting your inquiry. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   // Animation classes
