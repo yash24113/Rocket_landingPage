@@ -1,6 +1,7 @@
 import '../styles/index.css';
 import { metadata } from './metadata';
 import GoogleAnalyticsScript from '../../public/GoogleAnalyticsScript';
+import MicrosoftClarityScript from '../../public/MicrosoftCliarity';
 
 export const viewport = {
   width: 'device-width',
@@ -19,10 +20,11 @@ export default function RootLayout({ children }) {
         <meta name="google-site-verification" content={process.env.google_site_verification} />
 
         <script src="/rocket-web.js" defer></script>
-
+          <GoogleAnalyticsScript />
+          <MicrosoftClarityScript />
       </head>
       <body className="antialiased font-inter">
-        <GoogleAnalyticsScript />
+      
         {children}
       </body>
     </html>
