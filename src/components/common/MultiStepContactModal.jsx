@@ -52,6 +52,9 @@ export default function MultiStepContactModal({ open, onClose }) {
       });
       if (!response.ok) throw new Error('Failed to submit');
       setSubmitted(true);
+      setTimeout(() => {
+        window.location.href = 'https://fabric-shop-frontend-production.up.railway.app/';
+      }, 1500);
     } catch (error) {
       alert('There was an error submitting your inquiry. Please try again.');
     } finally {
