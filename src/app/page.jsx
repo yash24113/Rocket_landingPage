@@ -299,7 +299,7 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
             <div>
               <h2
                 id="premium-products-heading"
-                className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6 text-center md:text-start leading-snug"
+                className="text-xl sm :text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6 text-center md:text-start leading-snug"
               >
                 {variant === "A" 
                   ? `Get Premium ${productName} Directly from ${locationName}`
