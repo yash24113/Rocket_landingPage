@@ -111,8 +111,8 @@ export default function MultiStepContactModal({ open, onClose, initialEmail }) {
         tabIndex={-1}
         aria-modal="true"
         role="dialog"
-        className={`fixed w-full max-w-sm sm:max-w-md ${modalBg} rounded-2xl shadow-2xl p-6 sm:p-8 flex flex-col animate-slideUp ${modalAnim} right-4 bottom-4 z-50
-          sm:right-4 sm:bottom-4
+        className={`fixed w-full max-w-sm sm:max-w-md ${modalBg} rounded-2xl shadow-2xl p-6 sm:p-8 flex flex-col animate-slideUp ${modalAnim} right-0 bottom-0 z-50
+          sm:right-6 sm:bottom-6
           min-h-[320px]
           sm:w-[380px]
         `}
