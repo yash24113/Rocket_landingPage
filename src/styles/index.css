@@ -205,6 +205,9 @@ body {
   font-synthesis: none;
 } 
 
-section h1, article h1, nav h1, aside h1 {
-  font-size: 2.25rem;
+article h1,
+aside h1,
+nav h1,
+section h1 {
+  font-size: 2rem; /* Ensures explicit font-size for h1 in these elements */
 } 
