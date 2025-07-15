@@ -1,4 +1,12 @@
 'use client';
+/**
+ * A/B Testing Implementation:
+ * - Variants A and B are randomly assigned (50/50 split)
+ * - Variant assignment is stored in localStorage for consistency
+ * - Different content variations for headings, descriptions, and CTAs
+ * - Analytics tracking for variant assignment and user interactions
+ * - Test name: 'content_variation'
+ */
 import React from 'react';
 import Link from 'next/link';
 import Header from '../components/common/Header';
@@ -121,6 +129,63 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
 
   const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL
 
+  const [variant, setVariant] = useState("A");
+
+  // Function to track A/B test interactions
+  const trackABInteraction = (action, element) => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'ab_test_interaction', {
+        'variant': variant,
+        'test_name': 'content_variation',
+        'action': action,
+        'element': element
+      });
+    }
+  };
+
+  // Function to track section views
+  const trackSectionView = (sectionName) => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'section_view', {
+        'variant': variant,
+        'test_name': 'content_variation',
+        'section': sectionName
+      });
+    }
+  };
+
+  // Assign variant on every page load (and update localStorage)
+  React.useEffect(() => {
+    const selectedVariant = Math.random() < 0.5 ? "A" : "B";
+    setVariant(selectedVariant);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('ab-variant', selectedVariant);
+      if (window.gtag) {
+        window.gtag('event', 'ab_test_assigned', {
+          'variant': selectedVariant,
+          'test_name': 'content_variation'
+        });
+      }
+    }
+    // Set up intersection observer for section tracking
+    if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionName = entry.target.getAttribute('data-section');
+            if (sectionName) {
+              trackSectionView(sectionName);
+            }
+          }
+        });
+      }, { threshold: 0.3 });
+      // Observe sections
+      const sections = document.querySelectorAll('[data-section]');
+      sections.forEach(section => observer.observe(section));
+      return () => observer.disconnect();
+    }
+  }, []);
+
   React.useEffect(() => {
     fetch(`${API_BASE_URL}/api/products`)
       .then((res) => res.json())
@@ -171,7 +236,10 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
     <div className="min-h-screen bg-white">
       {/* Header */}
       <Header onProductSelect={setSelectedProduct} products={products} />
-      {!isContactOpen && <StickyIcons onBusinessClick={() => setIsContactOpen(true)} />}
+      {!isContactOpen && <StickyIcons onBusinessClick={() => {
+        trackABInteraction('sticky_icon_click', 'contact_icon');
+        setIsContactOpen(true);
+      }} />}
       <MultiStepContactModal open={isContactOpen} onClose={() => setIsContactOpen(false)} />
       <MultiStepContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
       {/* Main Content with top padding to account for fixed header */}
@@ -224,6 +292,7 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
         <section
           className="bg-primary py-12"
           aria-labelledby="premium-products-heading"
+          data-section="premium-products"
         >
           <div className="max-w-8xl mx-auto grid md:grid-cols-2 gap-12 items-start px-4">
             {/* Text Section */}
@@ -232,19 +301,25 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
                 id="premium-products-heading"
                 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6 text-center md:text-start leading-snug"
               >
-                {`Get Premium ${productName} Directly from ${locationName}`}
+                {variant === "A" 
+                  ? `Get Premium ${productName} Directly from ${locationName}`
+                  : `Premium ${productName} Manufacturers in ${locationName} - Direct Source`
+                }
               </h2>
               <hr className="w-16 border-t-2 border-primary mx-auto md:mx-0 mb-4" />
 
               <p className="mb-4 text-sm sm:text-base md:text-lg font-normal font-inter text-secondary leading-relaxed text-start">
-                {`Discover high-quality georgette fabric straight from trusted manufacturers in ${locationName}, crafted with precision to meet international standards. Our premium textiles are known for their softness, durability, and luxurious drape — perfect for everything from designer wear to export-grade garments.`}
+                {variant === "A" 
+                  ? `Discover high-quality georgette fabric straight from trusted manufacturers in ${locationName}, crafted with precision to meet international standards. Our premium textiles are known for their softness, durability, and luxurious drape — perfect for everything from designer wear to export-grade garments.`
+                  : `Experience premium georgette fabric sourced directly from ${locationName}'s finest manufacturers. Our textiles meet international quality standards with exceptional softness, durability, and elegant drape — ideal for designer collections and export-quality garments.`
+                }
               </p>
 
               <p className="text-secondary font-inter text-sm sm:text-base md:text-lg font-normal leading-relaxed text-start">
-                Whether you&apos;re sourcing for retail, wholesale, or custom production, we provide
-                versatile solutions tailored to your needs. Backed by years of expertise and
-                cutting-edge techniques, our georgette fabrics bring elegance and comfort together in
-                every weave.
+                {variant === "A" 
+                  ? `Whether you&apos;re sourcing for retail, wholesale, or custom production, we provide versatile solutions tailored to your needs. Backed by years of expertise and cutting-edge techniques, our georgette fabrics bring elegance and comfort together in every weave.`
+                  : `We offer comprehensive solutions for retail, wholesale, and custom production needs. With decades of expertise and modern manufacturing techniques, our georgette fabrics combine timeless elegance with contemporary comfort in every piece.`
+                }
               </p>
             </div>
 
@@ -253,22 +328,27 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
               <div className="bg-white rounded-xl shadow-lg p-1 w-full max-w-md flex flex-col justify-between h-full">
                 <figure className="w-full bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
                   <Image
-                    src="/images/img_lehenga_style_sarees.avif"
-                    alt="Premium Surat Georgette Fabric with fine weave and elegant drape"
+                    src={variant === "A" ? "/images/img_lehenga_style_sarees.avif" : "/images/img_banarasi_silk_saree.avif"}
+                    alt={variant === "A" ? "Premium Surat Georgette Fabric with fine weave and elegant drape" : "Banarasi Silk Saree - Premium Quality"}
                     width={360}
                     height={480}
                     className="object-contain object-center rounded-lg"
                     sizes="(max-width: 768px) 100vw, 360px"
                     priority
                   />
-                  <figcaption className="sr-only">Premium Surat Georgette Fabric</figcaption>
+                  <figcaption className="sr-only">
+                    {variant === "A" ? "Premium Surat Georgette Fabric" : "Banarasi Silk Saree"}
+                  </figcaption>
                 </figure>
                 <div
                   className="mt-2 px-6 py-2 border-2 border-[#0a6563] text-[#0a6563] rounded-md bg-white hover:bg-[#0a6563] hover:text-white transition text-center cursor-pointer font-semibold w-full max-w-xs mx-auto"
                   aria-label="Request a quote"
-                  onClick={() => setModalOpen(true)}
+                  onClick={() => {
+                    trackABInteraction('cta_click', 'hero_quote_button');
+                    setModalOpen(true);
+                  }}
                 >
-                  Get Quote
+                  {variant === "A" ? "Get Quote" : "Request Pricing"}
                 </div>
               </div>
             </div>
@@ -280,12 +360,31 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
             {/* Get Premium Products Section */}
             <div className="mb-4 sm:mb-6 lg:mb-8">
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
-                {`Get Premium Products Directly from Saree Manufacturers in ${locationName}`}
+                {variant === "A" 
+                  ? `Get Premium Products Directly from Saree Manufacturers in ${locationName}`
+                  : `Premium Saree Manufacturers in ${locationName} - Direct Source`
+                }
               </h2>
               <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-inter text-[#0a0a0b] leading-relaxed">
-                <p>
+                {/* <p>
+
                   Our processes ensure that every saree meets the client's expectations. Our skilled artists use advanced techniques to create sarees that stand out in the market. Whether it's a casual outing or a festive celebration, our sarees ensure that every
-                </p>
+                </p> */}
+                 <p>
+      {variant === "A" ? (
+        <>
+          Our processes ensure that every saree meets the client's expectations.
+          Our skilled artists use advanced techniques to create sarees that stand out in the market.
+          Whether it's a casual outing or a festive celebration, our sarees ensure that every
+        </>
+      ) : (
+        <>
+          Our manufacturing processes guarantee that every saree exceeds client expectations.
+          Our expert artisans employ cutting-edge techniques to create distinctive sarees that dominate the market.
+          From casual wear to festive celebrations, our sarees ensure that every
+        </>
+      )}
+    </p>
                 <p>
                   <span>woman has a perfect wardrobe. As one of the leading </span>
                   <span className="font-bold">{`Saree Manufacturers in ${locationName}`}</span>
@@ -300,11 +399,18 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
         </section>
 
         {/* Our Products Section - Card View, Compact, No Extra Space */}
-        <section id="product" className="bg-primary py-4">
+        <section id="product" className="bg-primary py-4" data-section="products">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-6">
-              <h2 className="text-2xl sm:text-3xl font-bold font-playfair text-primary mb-2">Our Products</h2>
-              <p className="text-secondary text-base pop">Premium georgette fabrics you'll love.</p>
+              <h2 className="text-2xl sm:text-3xl font-bold font-playfair text-primary mb-2">
+                {variant === "A" ? "Our Products" : "Premium Collection"}
+              </h2>
+              <p className="text-secondary text-base pop">
+                {variant === "A" 
+                  ? "Premium georgette fabrics you'll love."
+                  : "Exquisite fabrics crafted for discerning customers."
+                }
+              </p>
             </div>
             <Swiper
               modules={[Navigation]}
@@ -335,8 +441,17 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
                         loading="lazy"
                       />
                     </figure>
-                    <h3 className="text-lg mb-1 text-primary text-center font-semibold">{product.title}</h3>
-                    <p className="text-gray-600 text-sm text-center mb-2">{product.description}</p>
+                    <h3 className="text-lg mb-1 text-primary text-center font-semibold">
+                      {variant === "A" ? product.title : product.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm text-center mb-2">
+                      {variant === "A" 
+                        ? product.description
+                        : product.description.length > 80 
+                          ? product.description.substring(0, 80) + "..."
+                          : product.description
+                      }
+                    </p>
                   </article>
                 </SwiperSlide>
               ))}
@@ -410,19 +525,48 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
             {/* Saree in Surat Section */}
             <div className="mb-4 sm:mb-6 lg:mb-8">
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
-                {`Saree in ${locationName}`}
+                {variant === "A" 
+                  ? `Saree in ${locationName}`
+                  : `Premium Sarees in ${locationName}`
+                }
               </h2>
               <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-inter text-[#0a0a0b] leading-relaxed">
                 <p>
-                  <span>Amrita Global Enterprises is a banner of exquisite sarees truly portraying the richness of India's cultural heritage. Elegance and tradition have culminated in our collection of </span>
-                  <span className="font-bold">{`Saree in ${locationName}`}</span>
-                  <span>, thus with years of traditional techniques</span>
+                  {variant === "A" ? (
+                    <>
+                      <span>Amrita Global Enterprises is a banner of exquisite sarees truly portraying the richness of India's cultural heritage. Elegance and tradition have culminated in our collection of </span>
+                      <span className="font-bold">{`Saree in ${locationName}`}</span>
+                      <span>, thus with years of traditional techniques</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Amrita Global Enterprises represents the pinnacle of saree craftsmanship, showcasing India's rich cultural heritage. Our collection of </span>
+                      <span className="font-bold">{`Premium Sarees in ${locationName}`}</span>
+                      <span> combines decades of traditional expertise</span>
+                    </>
+                  )}
                 </p>
                 <p>
-                  combined with a harmony of modern designs producing pieces aesthetically beautiful and durable. To accommodate a wide range of preferences and events, sarees are available in a wide variety of fabrics, colors, and designs. Each piece is
+                  {variant === "A" ? (
+                    <>
+                      combined with a harmony of modern designs producing pieces aesthetically beautiful and durable. To accommodate a wide range of preferences and events, sarees are available in a wide variety of fabrics, colors, and designs. Each piece is
+                    </>
+                  ) : (
+                    <>
+                      with contemporary design innovation, creating pieces that are both beautiful and enduring. Our diverse collection caters to various preferences and occasions, offering sarees in multiple fabrics, colors, and designs. Every piece is
+                    </>
+                  )}
                 </p>
                 <p>
-                  crafted with utmost care so that it speaks of the skill of craftsmanship as well as tradition.
+                  {variant === "A" ? (
+                    <>
+                      crafted with utmost care so that it speaks of the skill of craftsmanship as well as tradition.
+                    </>
+                  ) : (
+                    <>
+                      meticulously crafted to showcase exceptional artistry while honoring traditional values.
+                    </>
+                  )}
                 </p>
               </div>
             </div>
@@ -430,11 +574,17 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
             {/* Get Premium Products Section */}
             <div className="mb-4 sm:mb-6 lg:mb-8">
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
-                {`Get Premium Products Directly from Saree Manufacturers in ${locationName}`}
+                {variant === "A" 
+                  ? `Get Premium Products Directly from Saree Manufacturers in ${locationName}`
+                  : `Premium Saree Manufacturers in ${locationName} - Direct Source`
+                }
               </h2>
               <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-inter text-[#0a0a0b] leading-relaxed">
                 <p>
-                  Our processes ensure that every saree meets the client's expectations. Our skilled artists use advanced techniques to create sarees that stand out in the market. Whether it's a casual outing or a festive celebration, our sarees ensure that every
+                  {variant === "A" 
+                    ? "Our processes ensure that every saree meets the client's expectations. Our skilled artists use advanced techniques to create sarees that stand out in the market. Whether it's a casual outing or a festive celebration, our sarees ensure that every"
+                    : "Our manufacturing processes guarantee that every saree exceeds client expectations. Our expert artisans employ cutting-edge techniques to create distinctive sarees that dominate the market. From casual wear to festive celebrations, our sarees ensure that every"
+                  }
                 </p>
                 <p>
                   <span>woman has a perfect wardrobe. As one of the leading </span>
@@ -450,13 +600,26 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
             {/* Party Wear Saree Suppliers Section */}
             <div className="mb-4 sm:mb-6 lg:mb-8">
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
-                Looking for Party Wear Saree Suppliers in Gujarat
+                {variant === "A" 
+                  ? "Looking for Party Wear Saree Suppliers in Gujarat"
+                  : "Premium Party Wear Saree Suppliers in Gujarat"
+                }
               </h2>
               <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-inter text-[#0a0a0b] leading-relaxed">
                 <p>
-                  <span>Our collection offers sarees with perfection for any celebration or event. We have set ourselves as one of the most reliable </span>
-                  <span className="font-bold">Party Wear Saree Suppliers in Gujarat</span>
-                  <span>, in the vast fashion market of Gujarat. All of them are so carefully designed that</span>
+                  {variant === "A" ? (
+                    <>
+                      <span>Our collection offers sarees with perfection for any celebration or event. We have set ourselves as one of the most reliable </span>
+                      <span className="font-bold">Party Wear Saree Suppliers in Gujarat</span>
+                      <span>, in the vast fashion market of Gujarat. All of them are so carefully designed that</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Our exclusive collection delivers perfection for every celebration and special occasion. We have established ourselves as the most trusted </span>
+                      <span className="font-bold">Premium Party Wear Saree Suppliers in Gujarat</span>
+                      <span>, dominating the fashion landscape of Gujarat. Each piece is meticulously crafted so that</span>
+                    </>
+                  )}
                 </p>
                 <p>
                   each one of them enhances the beauty and comfort of the wearer. Because we are aware of how essential it is to achieve a stunning appearance when attending events, our exclusive collection gives every lady the impression that the entire
@@ -470,11 +633,22 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
             {/* Most Trusted Party Wear Saree Exporters Section */}
             <div>
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-playfair text-[#0a0a0b] mb-4 sm:mb-6">
-                Most Trusted Party Wear Saree Exporters in Gujarat
+                {variant === "A" 
+                  ? "Most Trusted Party Wear Saree Exporters in Gujarat"
+                  : "Leading Party Wear Saree Exporters in Gujarat"
+                }
               </h2>
               <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg font-normal font-inter text-[#0a0a0b] leading-relaxed">
                 <p>
-                  We cater to global audiences and make sure that our exquisite sarees reach fashion enthusiasts all over the world. A streamlined export operation of international standards gives our clients products that are pleasingly beautiful as well as up
+                  {variant === "A" ? (
+                    <>
+                      We cater to global audiences and make sure that our exquisite sarees reach fashion enthusiasts all over the world. A streamlined export operation of international standards gives our clients products that are pleasingly beautiful as well as up
+                    </>
+                  ) : (
+                    <>
+                      We serve international markets, ensuring our premium sarees reach fashion connoisseurs worldwide. Our streamlined export operations meet international standards, delivering products that are both stunning and up
+                    </>
+                  )}
                 </p>
                 <p>
                   <span>to the mark of the world market. We are also renowned as one of the premier </span>
@@ -493,10 +667,11 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
         <section
           id="faq"
           class="section bg-primary py-4"
+          data-section="faq"
         >
           <div class="max-w-8xl mx-auto px-4">
             <h2 class="text-xl font-[400] san text-center mb-4 text-primary">
-              Frequently Asked Questions
+              {variant === "A" ? "Frequently Asked Questions" : "Common Questions"}
             </h2>
 
             <div class="space-y-2">
@@ -506,7 +681,10 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
                   What is georgette fabric?
                 </summary>
                 <p class="mt-2 text-gray-600 pop text-[14px]">
-                  Georgette is a lightweight, sheer fabric with a slightly crinkled texture.
+                  {variant === "A" 
+                    ? "Georgette is a lightweight, sheer fabric with a slightly crinkled texture."
+                    : "Georgette is a lightweight, semi-transparent fabric featuring a distinctive crinkled surface texture."
+                  }
                 </p>
               </details>
 
@@ -516,7 +694,10 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
                   Do you offer bulk discounts?
                 </summary>
                 <p class="mt-2 text-gray-600 pop text-[14px]">
-                  Yes, we offer special pricing for bulk and wholesale orders.
+                  {variant === "A" 
+                    ? "Yes, we offer special pricing for bulk and wholesale orders."
+                    : "Absolutely! We provide competitive pricing for bulk and wholesale purchases."
+                  }
                 </p>
               </details>
 
@@ -526,7 +707,10 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
                   How long does shipping take?
                 </summary>
                 <p class="mt-2 text-gray-600 pop text-[14px]">
-                  Usually 3–7 business days depending on location.
+                  {variant === "A" 
+                    ? "Usually 3–7 business days depending on location."
+                    : "Typically 3–7 business days, varying by destination."
+                  }
                 </p>
               </details>
 
@@ -536,7 +720,10 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
                   Can I request fabric samples?
                 </summary>
                 <p class="mt-2 pop text-gray-600 text-[14px]">
-                  Absolutely! Use our contact form to request free samples.
+                  {variant === "A" 
+                    ? "Absolutely! Use our contact form to request free samples."
+                    : "Of course! Contact us through our form to get complimentary samples."
+                  }
                 </p>
               </details>
             </div>
@@ -551,4 +738,3 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
 }
 
 export default ClientSelectedProduct;
-
