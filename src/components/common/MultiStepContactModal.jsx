@@ -12,7 +12,16 @@ export default function MultiStepContactModal({ open, onClose, initialEmail }) {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [abVariant, setAbVariant] = useState('A'); // A/B variant state
   const modalRef = useRef(null);
+
+  // Assign A/B variant on modal open
+  useEffect(() => {
+    if (open) {
+      const variant = Math.random() < 0.5 ? 'A' : 'B';
+      setAbVariant(variant);
+    }
+  }, [open]);
 
   // Focus trap for accessibility
   useEffect(() => {
@@ -28,6 +37,17 @@ export default function MultiStepContactModal({ open, onClose, initialEmail }) {
     }
   }, [open, initialEmail]);
 
+  // Google Analytics event sender
+  const sendGAEvent = (action) => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'modal_button_click', {
+        event_category: 'BusinessIQ_Modal',
+        event_label: `${action}_variant_${abVariant}`,
+        step: step + 1,
+      });
+    }
+  };
+
   if (!open) return null;
 
   const handleChange = (e) => {
@@ -35,13 +55,16 @@ export default function MultiStepContactModal({ open, onClose, initialEmail }) {
   };
 
   const handleNext = () => {
+    sendGAEvent('Next');
     if (step < steps.length - 1) setStep(step + 1);
   };
   const handlePrev = () => {
+    sendGAEvent('Prev');
     if (step > 0) setStep(step - 1);
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    sendGAEvent('Submit');
     setSubmitting(true);
     try {
       const response = await fetch('https://age-landing-backend.egport.com/api/inquiries', {
@@ -71,6 +94,8 @@ export default function MultiStepContactModal({ open, onClose, initialEmail }) {
 
   // Animation classes
   const modalAnim = 'transition-all duration-400 ease-in-out transform';
+  // A/B background color
+  const modalBg = abVariant === 'A' ? 'bg-white' : 'bg-[#f0f7fa]'; // Example: B is a light blue
 
   return (
     <div className="fixed inset-0 z-50">
@@ -86,7 +111,7 @@ export default function MultiStepContactModal({ open, onClose, initialEmail }) {
         tabIndex={-1}
         aria-modal="true"
         role="dialog"
-        className={`fixed w-full max-w-sm sm:max-w-md bg-white rounded-2xl shadow-2xl p-6 sm:p-8 flex flex-col animate-slideUp ${modalAnim} right-4 bottom-4 z-50
+        className={`fixed w-full max-w-sm sm:max-w-md ${modalBg} rounded-2xl shadow-2xl p-6 sm:p-8 flex flex-col animate-slideUp ${modalAnim} right-4 bottom-4 z-50
           sm:right-4 sm:bottom-4
           min-h-[320px]
           sm:w-[380px]
