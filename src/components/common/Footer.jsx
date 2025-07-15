@@ -140,7 +140,7 @@ const Footer = () => {
                   <img src="/images/img_facebook.avif" alt="Facebook" className="w-6 h-6" />
                 </a>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center">
-                  <img src="/images/img_link.avif" alt="WhatsApp" className="w-6 h-6" />
+                  <Image src="/images/img_link.avif" alt="WhatsApp" width={25} height={35} />
                 </a>
                 <a href={xUrl} target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center">
                   <img src="/images/img_twitter.avif" alt="X" className="w-6 h-6" />
