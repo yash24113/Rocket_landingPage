@@ -248,10 +248,11 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
           <Image
             src="/images/hero123.avif"
             alt="Saree Manufacturers Hero Background"
-            fill
+            width={1335}
+            height={417}
             priority
             className="object-cover"
-            sizes="100vw"
+            sizes="(max-width: 1335px) 100vw, 1335px"
           />
           <div className="absolute inset-0 bg-[#0a0a0b66]"></div>
           <div className="relative z-10 flex flex-col justify-center items-start h-full w-full px-4 sm:px-6 lg:px-8">
