@@ -95,7 +95,7 @@ export default function MultiStepContactModal({ open, onClose, initialEmail }) {
   // Animation classes
   const modalAnim = 'transition-all duration-400 ease-in-out transform';
   // A/B background color
-  const modalBg = abVariant === 'A' ? 'bg-white' : 'bg-[#f0f7fa]'; // Example: B is a light blue
+  const modalBg = abVariant === 'A' ? 'bg-white' : 'bg-lime-400'; // B is lime
 
   return (
     <div className="fixed inset-0 z-50">
