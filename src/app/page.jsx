@@ -250,17 +250,16 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
           <Image
             src="/images/hero123.avif"
             alt="Saree Manufacturers Hero Background"
-            width={1335}
-            height={417}
+            fill
             priority
             className="object-cover"
-            sizes="(max-width: 1335px) 100vw, 1335px"
+            sizes="100vw"
           />
-          <div className="absolute inset-0 bg-[#0a0a0bcc]"></div>
+          <div className="absolute inset-0 bg-[#0a0a0b66]"></div>
           <div className="relative z-10 flex flex-col justify-center items-start h-full w-full px-4 sm:px-6 lg:px-8">
             <div className="w-full max-w-[1250px] mx-auto">
               <div className="max-w-2xl">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold font-playfair text-white mb-2 leading-tight drop-shadow-lg">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold font-playfair text-white mb-2 leading-tight">
                   {selectedProduct.name}
                 </h1>
                 <div className="text-base sm:text-lg md:text-xl font-inter text-white mb-4">
@@ -289,7 +288,8 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
             </div>
           </div>
         </section>
-
+        
+  
         <section
           className="bg-primary py-12"
           aria-labelledby="premium-products-heading"
