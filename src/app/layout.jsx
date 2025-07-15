@@ -21,13 +21,12 @@ export default function RootLayout({ children }) {
         <meta name="format-detection" content="telephone=no" />
         <meta name="google-site-verification" content={process.env.google_site_verification} />
 
-        <script src="/rocket-web.js" defer></script>
-          <GoogleAnalyticsScript />
-          <MicrosoftClarityScript />
+        <GoogleAnalyticsScript />
+        <MicrosoftClarityScript />
       </head>
       <body className="antialiased font-inter">
-      
         {children}
+        <script src="/rocket-web.js" async></script>
       </body>
     </html>
   );
