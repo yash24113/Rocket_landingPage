@@ -54,7 +54,6 @@ const Footer = () => {
                   width={250}
                   height={60}
                   className="w-[200px] sm:w-[220px] lg:w-[250px] h-auto"
-                  priority
                 />
 
                 {/* Company Description */}
