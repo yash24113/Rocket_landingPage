@@ -13,6 +13,7 @@ export default function MultiStepContactModal({ open, onClose, initialEmail }) {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [abVariant, setAbVariant] = useState('A'); // A/B variant state
+  const [errors, setErrors] = useState({}); // Error state for each field
   const modalRef = useRef(null);
 
   // Assign A/B variant on modal open
@@ -52,9 +53,17 @@ export default function MultiStepContactModal({ open, onClose, initialEmail }) {
 
   const handleChange = (e) => {
     setForm({ ...form, [steps[step].name]: e.target.value });
+    setErrors((prev) => ({ ...prev, [steps[step].name]: undefined }));
   };
 
   const handleNext = () => {
+    // Only validate 'message' field
+    if (steps[step].name === 'message' && !form['message']) {
+      setErrors((prev) => ({ ...prev, message: 'Message is required.' }));
+      return;
+    } else if (steps[step].name === 'message') {
+      setErrors((prev) => ({ ...prev, message: undefined }));
+    }
     sendGAEvent('Next');
     if (step < steps.length - 1) setStep(step + 1);
   };
@@ -64,6 +73,13 @@ export default function MultiStepContactModal({ open, onClose, initialEmail }) {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Only validate 'message' field
+    if (steps[step].name === 'message' && !form['message']) {
+      setErrors((prev) => ({ ...prev, message: 'Message is required.' }));
+      return;
+    } else if (steps[step].name === 'message') {
+      setErrors((prev) => ({ ...prev, message: undefined }));
+    }
     sendGAEvent('Submit');
     setSubmitting(true);
     try {
@@ -169,6 +185,9 @@ export default function MultiStepContactModal({ open, onClose, initialEmail }) {
                   placeholder={steps[step].placeholder}
                   className="w-full border border-[#0a6563] rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0a6563]/50 focus:border-[#0a6563] transition-all duration-200 shadow-sm hover:border-[#0a6563]/80 placeholder:text-[#757575]"
                 />
+              )}
+              {steps[step].name === 'message' && errors['message'] && (
+                <div className="text-red-600 text-xs mt-1 animate-fadeInUp">{errors['message']}</div>
               )}
             </div>
             <div className="flex justify-between items-center mt-6 gap-2">
