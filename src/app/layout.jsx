@@ -12,6 +12,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
         {/* Google Fonts Preconnect for better performance */}
         {/* Removed Google Fonts links for self-hosting */}
         
