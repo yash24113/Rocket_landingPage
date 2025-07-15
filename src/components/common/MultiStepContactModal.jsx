@@ -159,7 +159,6 @@ export default function MultiStepContactModal({ open, onClose, initialEmail }) {
                   placeholder={steps[step].placeholder}
                   className="w-full border border-[#0a6563] rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0a6563]/50 focus:border-[#0a6563] transition-all duration-200 shadow-sm hover:border-[#0a6563]/80 placeholder:text-[#757575] min-h-[80px]"
                   rows={3}
-                  required
                 />
               ) : (
                 <input
@@ -169,7 +168,6 @@ export default function MultiStepContactModal({ open, onClose, initialEmail }) {
                   onChange={handleChange}
                   placeholder={steps[step].placeholder}
                   className="w-full border border-[#0a6563] rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0a6563]/50 focus:border-[#0a6563] transition-all duration-200 shadow-sm hover:border-[#0a6563]/80 placeholder:text-[#757575]"
-                  required
                 />
               )}
             </div>
