@@ -254,11 +254,11 @@ function ClientSelectedProduct({ slug = '', productSlug = '' }) {
             className="object-cover"
             sizes="(max-width: 1335px) 100vw, 1335px"
           />
-          <div className="absolute inset-0 bg-[#0a0a0b66]"></div>
+          <div className="absolute inset-0 bg-[#0a0a0bcc]"></div>
           <div className="relative z-10 flex flex-col justify-center items-start h-full w-full px-4 sm:px-6 lg:px-8">
             <div className="w-full max-w-[1250px] mx-auto">
               <div className="max-w-2xl">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold font-playfair text-white mb-2 leading-tight">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold font-playfair text-white mb-2 leading-tight drop-shadow-lg">
                   {selectedProduct.name}
                 </h1>
                 <div className="text-base sm:text-lg md:text-xl font-inter text-white mb-4">
