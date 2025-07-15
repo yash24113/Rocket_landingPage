@@ -208,6 +208,7 @@ body {
 article h1,
 aside h1,
 nav h1,
-section h1 {
+section h1 ,
+h1{
   font-size: 2rem; /* Ensures explicit font-size for h1 in these elements */
 } 
