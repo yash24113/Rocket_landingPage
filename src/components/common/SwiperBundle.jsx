@@ -24,14 +24,14 @@ const SwiperBundle = ({ productCategories }) => (
     {productCategories.map((product) => (
       <SwiperSlide key={product.id}>
         <article className="bg-white rounded-lg shadow-md flex flex-col items-center p-4">
-          <figure className="w-full bg-gray-100 rounded mb-2 overflow-hidden flex items-center justify-center" style={{height:'300px'}}>
+          <figure className="w-full bg-gray-100 rounded mb-2 overflow-hidden flex items-center justify-center" style={{height:'300px', maxWidth:'200px', margin:'0 auto'}}>
             <Image
               src={product.image}
               alt={product.title}
-              width={400}
+              width={200}
               height={300}
               className="object-contain rounded w-full h-full"
-              sizes="(max-width: 1024px) 100vw, 400px"
+              sizes="(max-width: 640px) 100vw, 200px"
               loading="lazy"
             />
           </figure>
