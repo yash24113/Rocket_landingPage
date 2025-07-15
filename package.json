@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev -p 4030",
     "build": "next build",
-    "start": "next start -p 4030",
+    "start": "cross-env next start -p $PORT",
     "format": "prettier --write \"src/**/*.{js,jsx,css,md,json}\"",
     "serve": "next start",
     "analyze": "source-map-explorer .next/static/chunks/*.js"

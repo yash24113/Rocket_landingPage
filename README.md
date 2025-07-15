@@ -94,3 +94,24 @@ You can check out the [Next.js GitHub repository](https://github.com/vercel/next
 - Styled with Tailwind CSS
 
 Built with ❤️ on Rocket.new
+
+## Deployment
+
+This project is ready for deployment on Vercel, Netlify, Railway, Render, Heroku, and Docker.
+
+### Required Environment Variables
+
+- `NEXT_PUBLIC_API_BASE_URL`
+- `google_site_verification` (optional)
+
+### Start Script
+
+The app will listen on the port defined by the `PORT` environment variable (default: 3000).
+
+### Docker
+
+Build and run:
+```sh
+docker build -t my-app .
+docker run -p 3000:3000 --env-file .env my-app
+```
