@@ -7,9 +7,9 @@ export async function generateMetadata({ params }) {
   try {
     // Fetch all required data in parallel
     const [seosRes, productsRes, locationsRes] = await Promise.all([
-      fetch('https://langingpage-production-f27f.up.railway.app/api/seos', { cache: 'no-store' }),
-      fetch('https://langingpage-production-f27f.up.railway.app/api/products', { cache: 'no-store' }),
-      fetch('https://langingpage-production-f27f.up.railway.app/api/locations', { cache: 'no-store' }),
+      fetch('https://age-landing-backend.egport.com/api/seos', { cache: 'no-store' }),
+      fetch('https://age-landing-backend.egport.com/api/products', { cache: 'no-store' }),
+      fetch('https://age-landing-backend.egport.com/api/locations', { cache: 'no-store' }),
     ]);
     const [seos, products, locations] = await Promise.all([
       seosRes.json(),
